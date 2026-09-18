@@ -2,64 +2,107 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Техническая страница Colophon о создании сайта спортивного магазина.">
-    <meta name="author" content="Батырғали Ақдана">
-    <title>О сайте (Colophon) — Limpopo Sport Astana</title>
+    <title>О сайте (Колофон) — aslstore.kz</title>
 </head>
 <body>
+
     <header>
-        <h1>Colophon: Техническая страница проекта</h1>
+        <h1>Магазин одежды "aslstore.kz" </h1>
         <nav>
             <ul>
                 <li><a href="index.html">Главная</a></li>
                 <li><a href="clothing.html">Одежда</a></li>
-                <li><a href="shoes-accessories.html">Обувь и Аксессуары</a></li>
-                <li><a href="promotions.html">Скидки и Новинки</a></li>
+                <li><a href="shoesandacc.html">Обувь и аксессуары</a></li>
+                <li><a href="sale.html">Скидки и распродажа</a></li>
                 <li><a href="order.html">Оформить заказ</a></li>
-                <li><strong>О сайте (Colophon)</strong></li>
+                <li><a href="colophon.html">О сайте</a></li>
             </ul>
         </nav>
+        <hr>
     </header>
 
     <main>
-        <section>
-            <h2>Информация о разработке</h2>
-            <p>Данный сайт был разработан в рамках учебного задания по курсу Web-разработки. Все страницы выполнены в строгом соответствии с требованиями чистого HTML5 без использования CSS-стилей и JavaScript.</p>
-            
-            <p>Автор проекта: <strong>Батырғали Ақдана</strong> &trade;</p>
-            <p>Город: <em>Астана, Казахстан</em> (&laquo;Столица спорта&raquo;)</p>
+        <section id="about-project">
+            <h2>Информация о проекте и авторстве</h2>
+            <p>
+                Данный веб-сайт разработан в рамках учебного курса по веб-технологиям для интернет-магазина <strong>aslstore.kz</strong>, расположенного по адресу: г. Астана, ТД «Гүлжан», 2 этаж, бутик 246.
+            </p>
         </section>
 
-        <section>
-            <h2>Пример кода и горячих клавиш (Обязательные теги по ТЗ)</h2>
-            <p>Для сохранения изменений в файле верстки используйте комбинацию <kbd>Ctrl</kbd> + <kbd>S</kbd> (или <kbd>Cmd</kbd> + <kbd>S</kbd> на macOS).</p>
+        <hr>
 
-            <p>Ниже представлен фрагмент HTML-кода, отвечающий за создание структуры шапки:</p>
-            <pre><code>&lt;header&gt;
-    &lt;h1&gt;Спортивный магазин Limpopo Sport&lt;/h1&gt;
-    &lt;nav&gt;
-        &lt;ul&gt;
-            &lt;li&gt;&lt;a href="index.html"&gt;Главная&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-    &lt;/nav&gt;
-&lt;/header&gt;</code></pre>
 
-            <p>При успешной проверке формы валидатор выдает системное сообщение: <samp>Document checking completed. No errors found.</samp></p>
-        </section>
-
-        <section>
-            <h2>Использованные инструменты</h2>
+        <section id="tech-stack">
+            <h2>Использованные технологии и стандарты</h2>
             <ul>
-                <li>Редактор кода: VS Code</li>
-                <li>Валидация: W3C HTML Validator</li>
-                <li>Система контроля версий: Git &amp; GitHub</li>
+                <li><strong>Стандарт верстки:</strong> Чистый HTML5 (без использования внешних и внутренних CSS-стилей и JavaScript).</li>
+                <li><strong>Валидация:</strong> Код проверен и соответствует спецификации W3C HTML5 Validator.</li>
+                <li><strong>Семантические теги:</strong> <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;figure&gt;</code>, <code>&lt;figcaption&gt;</code>, <code>&lt;footer&gt;</code>.</li>
+                <li><strong>Инструменты разработки:</strong> Visual Studio Code, Git, GitHub Pages.</li>
             </ul>
+        </section>
+
+        <hr>
+
+        <section id="site-structure">
+            <h2>Карта и структура страниц сайта</h2>
+            <table border="1" cellpadding="8" cellspacing="0">
+                <caption>Карта страниц веб-ресурса aslstore.kz</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Имя файла</th>
+                        <th scope="col">Название страницы</th>
+                        <th scope="col">Основное назначение</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>index.html</code></td>
+                        <td>Главная страница</td>
+                        <td>Приветствие, общая информация о бутике 246 и категории товаров.</td>
+                    </tr>
+                    <tr>
+                        <td><code>shoesandacc.html</code></td>
+                        <td>Обувь и аксессуары</td>
+                        <td>Каталог обуви, кепок и сумок с сеткой товаров и выбором параметров.</td>
+                    </tr>
+                    <tr>
+                        <td><code>sale.html</code></td>
+                        <td>Скидки и распродажа</td>
+                        <td>Акционные товары с якорной навигацией по категориям и скидками.</td>
+                    </tr>
+                    <tr>
+                        <td><code>order.html</code></td>
+                        <td>Оформить заказ</td>
+                        <td>Интерактивная HTML-форма для оформления заявки и бронирования.</td>
+                    </tr>
+                    <tr>
+                        <td><code>colophon.html</code></td>
+                        <td>О сайте</td>
+                        <td>Техническое описание проекта, метаданные и карта сайта.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+        <section id="development-history">
+            <h2>История разработки</h2>
+            <ol>
+                <li>Проектирование семантической структуры страниц в HTML5.</li>
+                <li>Подготовка и оптимизация изображений товаров в папке <code>imagess/</code>.</li>
+                <li>Верстка каталога и таблиц данных с соблюдением требований валидации.</li>
+                <li>Публикация проекта в репозиторий GitHub.</li>
+            </ol>
         </section>
     </main>
 
+
     <footer>
-        <p>&copy; 2026 Limpopo Sport Astana. Все права защищены.</p>
+        <hr>
+        <p>Адрес: г. Астана, ТД "Гүлжан", 2 этаж, 246 бутик | Телефон: +7 (700) 000-00-00</p>
+        <p><small>&copy; 2026 aslstore.kz. Все права защищены.</small></p>
     </footer>
+
 </body>
 </html>
