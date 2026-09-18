@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Форма предзаказа спортивных товаров в магазине Limpopo Sport Астана.">
+    <meta name="author" content="Батырғали Ақдана">
+    <title>Оформить заказ — Limpopo Sport Astana</title>
+</head>
+<body>
+    <header>
+        <h1>Оформление предзаказа</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="clothing.html">Одежда</a></li>
+                <li><a href="shoes-accessories.html">Обувь и Аксессуары</a></li>
+                <li><a href="promotions.html">Скидки и Новинки</a></li>
+                <li><strong>Оформить заказ</strong></li>
+                <li><a href="colophon.html">О сайте (Colophon)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Форма заявки на бронирование экипировки</h2>
+            
+            <!-- ВНИМАНИЕ: Форма временно не отправляет данные на сервер, так как backend находится в разработке -->
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Контактные данные покупателя</legend>
+                    <p>
+                        <label for="fullname">ФИО полностью:</label>
+                        <input type="text" id="fullname" name="fullname" placeholder="Касымов Арман" required>
+                    </p>
+                    <p>
+                        <label for="email">Электронная почта:</label>
+                        <input type="email" id="email" name="email" placeholder="arman@example.kz" required>
+                    </p>
+                    <p>
+                        <label for="phone">Номер телефона:</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+77071234567" required>
+                    </p>
+                    <p>
+                        <label for="pickup-date">Желаемая дата самовывоза:</label>
+                        <input type="date" id="pickup-date" name="pickup_date" required>
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Детали и параметры заказа</legend>
+                    <p>
+                        <label for="category">Категория товара:</label>
+                        <select id="category" name="category">
+                            <option value="clothing">Спортивная одежда</option>
+                            <option value="shoes">Беговая обувь</option>
+                            <option value="accessories">Аксессуары и инвентарь</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label for="quantity">Количество (шт):</label>
+                        <input type="number" id="quantity" name="quantity" min="1" max="10" value="1">
+                    </p>
+
+                    <p>Способ получения:</p>
+                    <label><input type="radio" name="delivery" value="pickup" checked> Самовывоз (г. Астана, пр. Кабанбай батыра, 60)</label><br>
+                    <label><input type="radio" name="delivery" value="courier"> Курьерская доставка по Астане</label>
+
+                    <p>
+                        <label>
+                            <input type="checkbox" name="subscribe" value="yes">
+                            Хочу получать уведомления о новых скидках и акциях
+                        </label>
+                    </p>
+
+                    <p>
+                        <label for="comment">Дополнительные пожелания к заказу (размер, цвет):</label><br>
+                        <textarea id="comment" name="comment" rows="5" cols="40" placeholder="Укажите ваш размер (например, EU 42)..."></textarea>
+                    </p>
+                </fieldset>
+
+                <p>
+                    <button type="submit">Отправить предзаказ</button>
+                    <button type="reset">Очистить форму</button>
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Limpopo Sport Astana. Все права защищены.</p>
+    </footer>
+</body>
+</html>
