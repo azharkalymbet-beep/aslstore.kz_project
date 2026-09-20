@@ -1,20 +1,35 @@
-.product-card {
+.product-card, 
+figure {
     background-color: #ffffff;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     padding: 15px;
-    margin-bottom: 20px;
+    margin: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.product-card:hover {
+.product-card:hover, 
+figure:hover {
     transform: translateY(-4px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .featured-item {
-    border: 2px solid #111111;
-    background-color: #fafafa;
+    border: 1px solid #e0e0e0;
+    background-color: #ffffff;
+}
+
+.product-card img,
+figure img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 10px;
 }
 
 .price-tag {
@@ -47,18 +62,27 @@
     margin-top: 10px;
 }
 
-.btn-primary {
+.btn-primary,
+.product-card .btn-primary,
+figure .btn-primary,
+figure a[href*="order.html"] {
+    display: inline-block;
     background-color: #111111;
     color: #ffffff !important;
-    padding: 10px 20px;
-    border: none;
+    padding: 8px 16px;
     border-radius: 4px;
-    cursor: pointer;
+    text-decoration: none;
     font-weight: bold;
+    font-size: 0.9rem;
+    margin-top: auto;
+    border: none;
+    text-align: center;
+    cursor: pointer;
     transition: background-color 0.2s;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+figure a[href*="order.html"]:hover {
     background-color: #333333;
 }
 
@@ -90,34 +114,4 @@
 
 .clear-fix {
     clear: both;
-}
-
-figure {
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 15px;
-    margin: 0;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-figure:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-figure a[href*="order.html"] {
-    display: inline-block;
-    background-color: #111111;
-    color: #ffffff !important;
-    padding: 8px 16px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.9rem;
-    margin-top: 5px;
-}
-
-figure a[href*="order.html"]:hover {
-    background-color: #333333;
 }
