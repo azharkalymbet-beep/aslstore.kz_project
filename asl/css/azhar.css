@@ -1,111 +1,185 @@
-.product-card, 
-figure {
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 15px;
-    margin: 0;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+/* ==========================================
+   ОБНОВЛЕННАЯ ФИОЛЕТОВАЯ ТЕМА — ASLSTORE.KZ (azhar.css)
+   ========================================== */
+
+:root {
+    --purple-primary: #6b46c1;
+    --purple-hover: #553c9a;
+    --purple-light: #f3e8ff;
+    --purple-bg: #faf5ff;
+    --purple-border: #e9d8fd;
+    --text-dark: #2d3748;
 }
 
+body {
+    background-color: #fcfaff;
+    color: var(--text-dark);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Выравниваем ячейки таблицы по высоте */
+table tr[valign="top"] td {
+    height: 100%;
+}
+
+/* Единые карточки товаров без черных рамок */
+.product-card, 
+figure, 
+figure.product-card {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    min-height: 460px;
+    box-sizing: border-box;
+    margin: 0 !important;
+    padding: 16px !important;
+    background: #ffffff !important;
+    border: 1px solid var(--purple-border) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 8px rgba(107, 70, 193, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
+}
+
+/* Ховер-эффект */
 .product-card:hover, 
 figure:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 20px rgba(107, 70, 193, 0.15) !important;
+    border-color: var(--purple-primary) !important;
 }
 
-.featured-item {
-    border: 1px solid #e0e0e0;
-    background-color: #ffffff;
+/* Убираем старую черную рамку у featured-item */
+.featured-item,
+figure.featured-item {
+    border: 1px solid var(--purple-border) !important;
+    background-color: #ffffff !important;
 }
 
+/* Картинки внутри карточек */
 .product-card img,
 figure img {
     width: 100%;
-    height: 200px;
+    height: 190px;
     object-fit: contain;
-    margin-bottom: 10px;
+    display: block;
+    margin: 0 auto 12px auto;
 }
 
+/* Контент карточки */
+.product-card figcaption,
+figure figcaption {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1 !important;
+}
+
+/* Цены и фиолетовые бейджи */
 .price-tag {
     font-size: 1.15rem;
     font-weight: bold;
-    color: #111111;
+    color: var(--purple-primary);
     margin: 8px 0;
 }
 
 .badge-discount, .promo-badge {
-    background-color: #ff3333;
+    background-color: var(--purple-primary);
     color: #ffffff;
-    padding: 3px 8px;
-    border-radius: 4px;
+    padding: 4px 10px;
+    border-radius: 6px;
     font-size: 0.8rem;
     font-weight: bold;
     display: inline-block;
 }
 
+/* Заменяем чёрный главный баннер на элегантный фиолетовый градиент */
 #hero-banner {
-    background-color: #111111;
-    color: #ffffff;
-    padding: 30px 20px;
-    border-radius: 8px;
+    background: linear-gradient(135deg, #6b46c1 0%, #805ad5 50%, #b794f4 100%) !important;
+    color: #ffffff !important;
+    padding: 35px 25px;
+    border-radius: 14px;
     margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(107, 70, 193, 0.2);
 }
 
 #hero-banner h2, .catalog-title {
-    color: #ffffff;
-    margin-top: 10px;
+    color: #ffffff !important;
+    margin-top: 8px;
 }
 
+#hero-banner p, #hero-banner a {
+    color: #f3e8ff !important;
+}
+
+/* Кнопки — фиолетовые вместо черных */
 .btn-primary,
 .product-card .btn-primary,
 figure .btn-primary,
 figure a[href*="order.html"] {
-    display: inline-block;
-    background-color: #111111;
+    margin-top: auto !important;
+    display: block !important;
+    width: 100% !important;
+    background-color: var(--purple-primary) !important;
     color: #ffffff !important;
-    padding: 8px 16px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.9rem;
-    margin-top: auto;
-    border: none;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.2s;
+    padding: 10px 0 !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+    font-size: 0.9rem !important;
+    text-align: center !important;
+    border: none !important;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease !important;
 }
 
 .btn-primary:hover,
 figure a[href*="order.html"]:hover {
-    background-color: #333333;
+    background-color: var(--purple-hover) !important;
 }
 
-.info-box {
-    background-color: #f8f8f8;
-    border: 1px solid #e5e5e5;
+/* Вторичная кнопка в баннере */
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border: 1px solid #ffffff !important;
+    color: #ffffff !important;
+    padding: 10px 20px;
     border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.35) !important;
+}
+
+/* Информационные фиолетовые блоки */
+.info-box {
+    background-color: var(--purple-bg) !important;
+    border: 1px solid var(--purple-border) !important;
+    border-radius: 12px;
     padding: 20px;
 }
 
+/* Плавающая фиолетовая кнопка поддержки */
 .fixed-support-btn {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #111111;
+    background-color: var(--purple-primary);
     color: #ffffff;
-    padding: 12px 18px;
+    padding: 12px 20px;
     border-radius: 30px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 15px rgba(107, 70, 193, 0.35);
     cursor: pointer;
     z-index: 1000;
+    font-weight: bold;
 }
 
+.fixed-support-btn:hover {
+    background-color: var(--purple-hover);
+}
+
+/* Обтекание */
 .floated-img {
     float: left;
     margin-right: 15px;
@@ -114,142 +188,4 @@ figure a[href*="order.html"]:hover {
 
 .clear-fix {
     clear: both;
-}
-
-
-/* Сброс внешних рамок и заливок */
-figure {
-    margin: 0;
-    padding: 15px;
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* Ховер для всех карточек */
-figure:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Принудительно убираем двойную жирную рамку у featured-item */
-.featured-item,
-figure.featured-item {
-    border: 1px solid #e0e0e0 !important;
-    background-color: #ffffff !important;
-}
-
-/* Фиксируем высоту картинок, чтобы карточки не прыгали */
-figure img {
-    width: 100%;
-    height: 220px;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto 10px auto;
-}
-
-/* Растягиваем figcaption и прижимаем кнопку к низу */
-figure figcaption {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-/* Фиксируем блок ценников и бейджей */
-.price-tag {
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: #111111;
-    margin: 6px 0;
-}
-
-.badge-discount, .promo-badge {
-    background-color: #ff3333;
-    color: #ffffff;
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    display: inline-block;
-}
-
-/* Кнопка всегда прижата к нижней границе карточки */
-figure .btn-primary,
-.btn-primary {
-    margin-top: auto !important;
-    display: block !important;
-    width: 100% !important;
-    background-color: #111111 !important;
-    color: #ffffff !important;
-    padding: 10px 0 !important;
-    border-radius: 4px !important;
-    text-decoration: none !important;
-    font-weight: bold !important;
-    font-size: 0.9rem !important;
-    text-align: center !important;
-    border: none !important;
-    box-sizing: border-box;
-}
-
-figure .btn-primary:hover,
-.btn-primary:hover {
-    background-color: #333333 !important;
-}
-
-/* Сетка ячеек таблицы */
-
-/* Выравниваем ячейки таблицы по высоте */
-table tr[valign="top"] td {
-    height: 100%;
-}
-
-/* Принудительно задаем флекс-контейнер для карточки */
-.product-card, figure.product-card {
-    display: flex !important;
-    flex-direction: column !important;
-    height: 100% !important;
-    min-height: 480px; /* Единая минимальная высота для всех карточек */
-    box-sizing: border-box;
-    margin: 0;
-    padding: 15px;
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-}
-
-/* Фиксируем картинку */
-.product-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: contain;
-    display: block;
-    margin-bottom: 10px;
-}
-
-/* Описание карточки занимает всё доступное место */
-.product-card figcaption {
-    display: flex !important;
-    flex-direction: column !important;
-    flex-grow: 1 !important;
-}
-
-/* Прижимаем кнопку "Быстрый заказ" к самому низу карточки */
-.product-card figcaption p:last-child {
-    margin-top: auto !important;
-    padding-top: 10px;
-}
-
-.product-card .btn-primary {
-    display: block !important;
-    width: 100% !important;
-    text-align: center !important;
-    box-sizing: border-box;
-}
-td {
-    height: 100%;
 }
