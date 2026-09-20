@@ -115,3 +115,93 @@ figure a[href*="order.html"]:hover {
 .clear-fix {
     clear: both;
 }
+
+
+/* Сброс внешних рамок и заливок */
+figure {
+    margin: 0;
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Ховер для всех карточек */
+figure:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Принудительно убираем двойную жирную рамку у featured-item */
+.featured-item,
+figure.featured-item {
+    border: 1px solid #e0e0e0 !important;
+    background-color: #ffffff !important;
+}
+
+/* Фиксируем высоту картинок, чтобы карточки не прыгали */
+figure img {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 10px auto;
+}
+
+/* Растягиваем figcaption и прижимаем кнопку к низу */
+figure figcaption {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Фиксируем блок ценников и бейджей */
+.price-tag {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #111111;
+    margin: 6px 0;
+}
+
+.badge-discount, .promo-badge {
+    background-color: #ff3333;
+    color: #ffffff;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    display: inline-block;
+}
+
+/* Кнопка всегда прижата к нижней границе карточки */
+figure .btn-primary,
+.btn-primary {
+    margin-top: auto !important;
+    display: block !important;
+    width: 100% !important;
+    background-color: #111111 !important;
+    color: #ffffff !important;
+    padding: 10px 0 !important;
+    border-radius: 4px !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+    font-size: 0.9rem !important;
+    text-align: center !important;
+    border: none !important;
+    box-sizing: border-box;
+}
+
+figure .btn-primary:hover,
+.btn-primary:hover {
+    background-color: #333333 !important;
+}
+
+/* Сетка ячеек таблицы */
+td {
+    height: 100%;
+}
