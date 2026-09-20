@@ -1,0 +1,152 @@
+
+:root {
+  --font-main: "Helvetica Neue", Arial, sans-serif;
+  --font-heading: "Georgia", Times, serif;
+}
+
+/* Universal selector[cite: 1] */
+* {
+  box-sizing: border-box; /* Box model standard[cite: 1] */
+  margin: 0;
+  padding: 0;
+}
+h1{
+    color: #ffffff;
+}
+
+/* Фон страницы с тёплым молочным оттенком */
+body {
+  font-family: var(--font-main);
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  background-color: #fdfbf7; /* Тёплый светлый фон */
+  color: #2c2a29; /* Мягкий тёмный текст */
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #2c2a29;
+}
+
+/* ==========================================================================
+   HEADER STYLING (Голубой тёплый фон)
+   ========================================================================== */
+header {
+  background-color: #5b3df5; 
+  color: #ffffff;
+  padding: 12px 20px;
+  border-bottom: 3px solid #e8deff;
+}
+
+/* Баннер сверху шапки */
+header p small {
+  color: #ffffff;
+}
+/* Белый цвет логотипа в шапке сайта */
+header h1,
+header h1 small,
+.site-logo {
+  color: #ffffff !important; /* Устанавливаем белый цвет */
+}
+
+header a {
+  color: #fdfbf7;
+  text-decoration: underline;
+}
+
+/* Навигационное меню (Flexbox)[cite: 1] */
+nav {
+  display: flex; /* Flex container[cite: 1] */
+  flex-direction: row; /* Direction requirement[cite: 1] */
+  justify-content: space-between; /* Justify requirement[cite: 1] */
+  align-items: center; /* Align items requirement[cite: 1] */
+  gap: 15px; /* Gap requirement[cite: 1] */
+  padding: 8px 0;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: opacity 0.2s ease;
+}
+
+/* Pseudo-classes :hover & :focus[cite: 1] */
+nav a:hover {
+  opacity: 0.85;
+  color: #fdfbf7;
+}
+
+nav a:focus {
+  outline: 2px solid teal; /* Использование именованного цвета teal[cite: 1] */
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   MAIN & FOOTER STYLING
+   ========================================================================== */
+main {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+/* Подвал в тон шапке */
+footer {
+  background-color: #6632e0; /* Насыщенный гармоничный голубой */
+  color: #e9e9e9;
+  padding: 30px 20px;
+  margin-top: 40px;
+}
+
+footer a {
+  color: #fdfbf7;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer h4 {
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+/* ==========================================================================
+   ПРИНУДИТЕЛЬНЫЙ БЕЛЫЙ ЦВЕТ ДЛЯ ВСЕХ ЭЛЕМЕНТОВ В ФУТЕРЕ
+   ========================================================================== */
+
+/* Перекрашиваем сам футер, тексты, абзацы, списки и адреса */
+footer,
+footer p,
+footer span,
+footer li,
+footer td,
+footer address {
+  color: #ffffff !important;
+}
+
+/* Перекрашиваем абсолютно все ссылки внутри футера */
+footer a {
+  color: #ffffff !important;
+  text-decoration: none;
+}
+
+/* Цвет ссылок при наведении */
+footer a:hover {
+  color: #fdfbf7 !important;
+  text-decoration: underline;
+}
+
+/* Перекрашиваем все заголовки внутри футера */
+footer h1, 
+footer h2, 
+footer h3, 
+footer h4 {
+  color: #ffffff !important;
+}
