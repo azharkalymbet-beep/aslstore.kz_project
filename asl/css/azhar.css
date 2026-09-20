@@ -202,6 +202,54 @@ figure .btn-primary:hover,
 }
 
 /* Сетка ячеек таблицы */
+
+/* Выравниваем ячейки таблицы по высоте */
+table tr[valign="top"] td {
+    height: 100%;
+}
+
+/* Принудительно задаем флекс-контейнер для карточки */
+.product-card, figure.product-card {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    min-height: 480px; /* Единая минимальная высота для всех карточек */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+/* Фиксируем картинку */
+.product-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Описание карточки занимает всё доступное место */
+.product-card figcaption {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1 !important;
+}
+
+/* Прижимаем кнопку "Быстрый заказ" к самому низу карточки */
+.product-card figcaption p:last-child {
+    margin-top: auto !important;
+    padding-top: 10px;
+}
+
+.product-card .btn-primary {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    box-sizing: border-box;
+}
 td {
     height: 100%;
 }
