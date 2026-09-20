@@ -91,3 +91,33 @@
 .clear-fix {
     clear: both;
 }
+
+figure {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+figure:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+figure a[href*="order.html"] {
+    display: inline-block;
+    background-color: #111111;
+    color: #ffffff !important;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+figure a[href*="order.html"]:hover {
+    background-color: #333333;
+}
