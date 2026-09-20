@@ -7,53 +7,45 @@
     <title>Оформить заказ — ASLSTORE.KZ</title>
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/azhar.css">
-    </head>
+</head>
 <body>
 
     <header>
         <p align="center">
             <small>
                 <strong>⚡ БЕСПЛАТНАЯ ДОСТАВКА ОТ 30 000 ₸</strong> &nbsp;|&nbsp; 
-                <mark><strong>УНИВЕРСАЛЬНЫЙ КРОЙ &bull; UNISEX</strong></mark> &nbsp;|&nbsp; 
+                <mark class="badge-discount">УНИВЕРСАЛЬНЫЙ КРОЙ &bull; UNISEX</mark> &nbsp;|&nbsp; 
                 <strong>БЫСТРОЕ ОФОРМЛЕНИЕ</strong>
             </small>
         </p>
-        <hr size="3" color="black">
+        <hr size="3" color="#6b46c1">
 
         <table width="100%" border="0" cellpadding="5">
             <tr>
                 <td width="30%">
-                    <h1>ASLSTORE<small><sup>.KZ</sup></small></h1>
+                    <h1 style="color: #6b46c1;">ASLSTORE<small><sup>.KZ</sup></small></h1>
                 </td>
                 <td width="70%" align="right">
                     <nav>
                         <a href="index.html">ГЛАВНАЯ</a> &nbsp;&nbsp;|&nbsp;&nbsp;
                         <a href="clothing.html">ОДЕЖДА</a> &nbsp;&nbsp;|&nbsp;&nbsp;
                         <a href="shoesandacc.html">ОБУВЬ И АКСЕССУАРЫ</a> &nbsp;&nbsp;|&nbsp;&nbsp;
-                        <a href="order.html"><strong>ЗАКАЗ</strong></a> &nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a href="order.html" style="color: #6b46c1;"><strong>ЗАКАЗ</strong></a> &nbsp;&nbsp;|&nbsp;&nbsp;
                         <a href="sale.html">СКИДКИ</a> &nbsp;&nbsp;|&nbsp;&nbsp;
                         <a href="colophon.html">О НАС</a>
                     </nav>
                 </td>
             </tr>
         </table>
-        <hr size="1" color="gray">
+        <hr size="1" color="#e9d8fd">
     </header>
 
     <main>
 
-        <section>
-            <table width="100%" border="0" bgcolor="#111111" cellpadding="20">
-                <tr>
-                    <td>
-                        <font color="white">
-                            <p><mark>&nbsp;EXPRESS CHECKOUT&nbsp;</mark></p>
-                            <h2><font size="6">ОФОРМЛЕНИЕ ЗАКАЗА / БРОНИ</font></h2>
-                            <p><font size="3">Заполните форму ниже, чтобы забронировать размер или оформить быструю доставку по Казахстану.</font></p>
-                        </font>
-                    </td>
-                </tr>
-            </table>
+        <section id="hero-banner">
+            <p><span class="promo-badge" style="background: rgba(255,255,255,0.25);">EXPRESS CHECKOUT</span></p>
+            <h2 class="catalog-title">ОФОРМЛЕНИЕ ЗАКАЗА / БРОНИ</h2>
+            <p>Заполните форму ниже, чтобы забронировать размер или оформить быструю доставку по Казахстану.</p>
         </section>
 
         <br><br>
@@ -61,39 +53,37 @@
         <section>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr>
-                    <td width="65%" valign="top">
+                    <td width="63%" valign="top">
 
                         <form action="#" method="post">
                             
-                            <fieldset>
-                                <legend><strong>1. Контактные данные покупателя</strong></legend>
-                                <br>
+                            <fieldset style="border: 1px solid #e9d8fd; border-radius: 12px; padding: 20px; background: #ffffff;">
+                                <legend style="color: #6b46c1; font-weight: bold; padding: 0 10px;">1. Контактные данные покупателя</legend>
                                 <p>
                                     <label for="fullname"><strong>ФИО полностью:</strong></label><br>
-                                    <input type="text" id="fullname" name="fullname" placeholder="Например: Касымов Арман" required size="40">
+                                    <input type="text" id="fullname" name="fullname" placeholder="Например: Касымов Арман" required size="40" style="padding: 8px; border: 1px solid #e9d8fd; border-radius: 6px; width: 90%;">
                                 </p>
                                 <p>
                                     <label for="email"><strong>Электронная почта:</strong></label><br>
-                                    <input type="email" id="email" name="email" placeholder="arman@example.kz" required size="40">
+                                    <input type="email" id="email" name="email" placeholder="arman@example.kz" required size="40" style="padding: 8px; border: 1px solid #e9d8fd; border-radius: 6px; width: 90%;">
                                 </p>
                                 <p>
                                     <label for="phone"><strong>Номер телефона:</strong></label><br>
-                                    <input type="tel" id="phone" name="phone" placeholder="+7 707 123 4567" required size="40">
+                                    <input type="tel" id="phone" name="phone" placeholder="+7 707 123 4567" required size="40" style="padding: 8px; border: 1px solid #e9d8fd; border-radius: 6px; width: 90%;">
                                 </p>
                                 <p>
                                     <label for="pickup-date"><strong>Желаемая дата получения / доставки:</strong></label><br>
-                                    <input type="date" id="pickup-date" name="pickup_date" required>
+                                    <input type="date" id="pickup-date" name="pickup_date" required style="padding: 8px; border: 1px solid #e9d8fd; border-radius: 6px;">
                                 </p>
                             </fieldset>
 
                             <br><br>
 
-                            <fieldset>
-                                <legend><strong>2. Детали и параметры заказа</strong></legend>
-                                <br>
+                            <fieldset style="border: 1px solid #e9d8fd; border-radius: 12px; padding: 20px; background: #ffffff;">
+                                <legend style="color: #6b46c1; font-weight: bold; padding: 0 10px;">2. Детали и параметры заказа</legend>
                                 <p>
                                     <label for="category"><strong>Категория товара:</strong></label><br>
-                                    <select id="category" name="category">
+                                    <select id="category" name="category" style="padding: 8px; border: 1px solid #e9d8fd; border-radius: 6px; width: 92%;">
                                         <option value="tops">Верх (Футболки / Поло / Худи)</option>
                                         <option value="bottoms">Низ (Джинсы / Брюки / Шорты)</option>
                                         <option value="outerwear">Верхняя одежда (Куртки / Пуховики)</option>
@@ -104,18 +94,18 @@
 
                                 <p>
                                     <label for="quantity"><strong>Количество (шт):</strong></label><br>
-                                    <input type="number" id="quantity" name="quantity" min="1" max="10" value="1">
+                                    <input type="number" id="quantity" name="quantity" min="1" max="10" value="1" style="padding: 8px; border: 1px solid #e9d8fd; border-radius: 6px;">
                                 </p>
 
-                                <p><strong>Способ получения:</strong></p>
+                                <p style="color: #6b46c1;"><strong>Способ получения:</strong></p>
                                 <label>
                                     <input type="radio" name="delivery" value="pickup" checked> 
-                                    <strong>Самовывоз из шоурума</strong> <small>(г. Астана,ТД Гульжан 2-этаж 246 бутик)</small>
-                                </label><br>
+                                    <strong>Самовывоз из шоурума</strong> <small>(г. Астана, ТД Гульжан 2-этаж 246 бутик)</small>
+                                </label><br><br>
                                 <label>
                                     <input type="radio" name="delivery" value="courier"> 
                                     <strong>Курьерская экспресс-доставка</strong> <small>(по г. Астана)</small>
-                                </label><br>
+                                </label><br><br>
                                 <label>
                                     <input type="radio" name="delivery" value="region"> 
                                     <strong>Доставка по Казахстану</strong> <small>(Kazpost / CDEK)</small>
@@ -123,7 +113,7 @@
 
                                 <br><br>
 
-                                <p><strong>Дополнительно:</strong></p>
+                                <p style="color: #6b46c1;"><strong>Дополнительно:</strong></p>
                                 <label>
                                     <input type="checkbox" name="subscribe" value="yes" checked>
                                     Получать уведомления о закрытых дропах и акциях ASLSTORE
@@ -133,38 +123,36 @@
 
                                 <p>
                                     <label for="comment"><strong>Уточнения к заказу (Размер / Цвет / Арт.):</strong></label><br>
-                                    <textarea id="comment" name="comment" rows="5" cols="50" placeholder="Укажите нужный размер (S, M, L, XL или EU 42), желаемый цвет или ссылку на модель..."></textarea>
+                                    <textarea id="comment" name="comment" rows="5" placeholder="Укажите нужный размер (S, M, L, XL или EU 42), желаемый цвет или ссылку на модель..." style="padding: 10px; border: 1px solid #e9d8fd; border-radius: 6px; width: 90%;"></textarea>
                                 </p>
                             </fieldset>
 
-                            <br>
+                            <br><br>
 
                             <p>
-                                <button type="submit"><strong>ПОДТВЕРДИТЬ И ОТПРАВИТЬ ЗАКАЗ →</strong></button>
+                                <button type="submit" class="btn-primary" style="display: inline-block !important; width: auto !important; padding: 12px 28px !important;"><strong>ПОДТВЕРДИТЬ И ОТПРАВИТЬ ЗАКАЗ →</strong></button>
                                 &nbsp;&nbsp;
-                                <button type="reset">Очистить форму</button>
+                                <button type="reset" style="padding: 12px 20px; border: 1px solid #e9d8fd; background: #ffffff; color: #6b46c1; border-radius: 8px; cursor: pointer; font-weight: bold;">Очистить форму</button>
                             </p>
                         </form>
 
                     </td>
 
-                    <td width="35%" valign="top">
-                        <table width="100%" border="1" cellpadding="15" bgcolor="#F8F8F8" cellspacing="0">
-                            <tr>
-                                <td>
-                                    <h3>💡 ИНФОРМАЦИЯ О ЗАКАЗЕ</h3>
-                                    <hr size="1" color="black">
-                                    <p><small><strong>⏱ Режим обработки:</strong><br>Заявки принимаются 24/7. Менеджер свяжется с вами в течение 15 минут.</small></p>
-                                    <p><small><strong>💳 Способы оплаты:</strong><br>&bull; Kaspi QR / Рассрочка 0-0-4<br>&bull; Банковская карта на сайте<br>&bull; Наличными при получении</small></p>
-                                    <p><small><strong>🔄 Гарантия и возврат:</strong><br>14 дней на примерку и обмен. 100% оригинальная продукция.</small></p>
-                                    <hr size="1" color="gray">
-                                    <p align="center">
-                                        <strong>Нужна помощь?</strong><br>
-                                        <small>📞 +7 (700) 645 5057</small>
-                                    </p>
-                                </td>
-                            </tr>
-                        </table>
+                    <td width="4%"></td>
+
+                    <td width="33%" valign="top">
+                        <div class="info-box">
+                            <h3 style="color: #6b46c1; margin-top: 0;">💡 ИНФОРМАЦИЯ О ЗАКАЗЕ</h3>
+                            <hr size="1" color="#e9d8fd">
+                            <p><small><strong>⏱ Режим обработки:</strong><br>Заявки принимаются 24/7. Менеджер свяжется с вами в течение 15 минут.</small></p>
+                            <p><small><strong>💳 Способы оплаты:</strong><br>&bull; Kaspi QR / Рассрочка 0-0-4<br>&bull; Банковская карта на сайте<br>&bull; Наличными при получении</small></p>
+                            <p><small><strong>🔄 Гарантия и возврат:</strong><br>14 дней на примерку и обмен. 100% оригинальная продукция.</small></p>
+                            <hr size="1" color="#e9d8fd">
+                            <p align="center">
+                                <strong style="color: #6b46c1;">Нужна помощь?</strong><br>
+                                <small>📞 +7 (700) 645 5057</small>
+                            </p>
+                        </div>
                     </td>
                 </tr>
             </table>
@@ -172,8 +160,8 @@
 
         <br><br>
 
-        <section>
-            <table width="100%" border="1" cellpadding="15" bgcolor="#EAEAEA" cellspacing="0">
+        <section class="info-box">
+            <table width="100%" border="0" cellpadding="10" cellspacing="0">
                 <tr align="center">
                     <td width="33%">
                         <h4>🚀 Быстрая отправка</h4>
@@ -193,13 +181,15 @@
 
     </main>
 
+    <div class="fixed-support-btn">💬 Поддержка</div>
+
     <br><br>
     <footer>
-        <hr size="3" color="black">
+        <hr size="3" color="#6b46c1">
         <table width="100%" border="0" cellpadding="10">
             <tr valign="top">
                 <td width="30%">
-                    <h4>ASLSTORE.KZ</h4>
+                    <h4 style="color: #6b46c1;">ASLSTORE.KZ</h4>
                     <p><small>Официальный интернет-магазин унисекс одежды, обуви и аксессуаров.</small></p>
                     <p><small>&copy; 2026 ASLSTORE.KZ. Все права защищены.</small></p>
                 </td>
@@ -222,8 +212,8 @@
                 </td>
                 <td width="25%">
                     <h4>КОНТАКТЫ</h4>
-                    <address>
-                        <p><small>📍 Астана,ТД Гульжан 2 этаж 246 бутик</small></p>
+                    <address style="font-style: normal;">
+                        <p><small>📍 Астана, ТД Гульжан 2 этаж 246 бутик</small></p>
                         <p><small>📞 +7 (700) 645 5057</small></p>
                         <p><small>✉️ support@aslstore.kz</small></p>
                     </address>
