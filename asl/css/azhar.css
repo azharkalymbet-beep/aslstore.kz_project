@@ -1,7 +1,3 @@
-/* ==========================================
-   ОБНОВЛЕННАЯ ФИОЛЕТОВАЯ ТЕМА — ASLSTORE.KZ (azhar.css)
-   ========================================== */
-
 :root {
     --purple-primary: #6b46c1;
     --purple-hover: #553c9a;
@@ -19,14 +15,10 @@ body {
     padding: 0;
 }
 
-/* Выравниваем ячейки таблицы по высоте */
 table tr[valign="top"] td {
     height: 100%;
 }
 
-/* ==========================================
-   Единая карточка товара с выравниванием по сетке
-   ========================================== */
 .product-card, 
 figure, 
 figure.product-card {
@@ -43,7 +35,6 @@ figure.product-card {
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
 }
 
-/* Ховер-эффект */
 .product-card:hover, 
 figure:hover {
     transform: translateY(-4px) !important;
@@ -51,14 +42,12 @@ figure:hover {
     border-color: var(--purple-primary) !important;
 }
 
-/* Сбрасываем выделяющую рамку у featured-item */
 .featured-item,
 figure.featured-item {
     border: 1px solid var(--purple-border) !important;
     background-color: #ffffff !important;
 }
 
-/* 1. Картинка фиксированной высоты */
 .product-card img,
 figure img {
     width: 100%;
@@ -68,7 +57,6 @@ figure img {
     margin: 0 auto 10px auto;
 }
 
-/* Оболочка подписи */
 .product-card figcaption,
 figure figcaption {
     display: flex !important;
@@ -76,7 +64,6 @@ figure figcaption {
     flex-grow: 1 !important;
 }
 
-/* 2. Название товара (фиксированная высота на 2 строки) */
 .product-card h4,
 figure h4 {
     height: 42px;
@@ -89,7 +76,6 @@ figure h4 {
     overflow: hidden;
 }
 
-/* 3. Фиксированная высота блока с ценой */
 .price-tag {
     font-size: 1.15rem;
     font-weight: bold;
@@ -100,7 +86,6 @@ figure h4 {
     align-items: center;
 }
 
-/* 4. Фиксированная высота блока с бейджем / статусом наличия */
 .product-card figcaption > p:nth-of-type(2),
 figure figcaption > p:nth-of-type(2) {
     height: 26px;
@@ -109,7 +94,6 @@ figure figcaption > p:nth-of-type(2) {
     align-items: center;
 }
 
-/* 5. Фиксированная высота для описания (3 строки) */
 .product-card figcaption > p:nth-of-type(3),
 figure figcaption > p:nth-of-type(3) {
     height: 52px;
@@ -123,7 +107,6 @@ figure figcaption > p:nth-of-type(3) {
     -webkit-box-orient: vertical;
 }
 
-/* 6. Кнопка "Оформить / Быстрый заказ" строго прижата к низу */
 .btn-primary,
 .product-card .btn-primary,
 figure .btn-primary,
@@ -149,9 +132,6 @@ figure a[href*="order.html"]:hover {
     background-color: var(--purple-hover) !important;
 }
 
-/* ==========================================
-   Остальные элементы темы
-   ========================================== */
 
 .badge-discount, .promo-badge {
     background-color: var(--purple-primary);
