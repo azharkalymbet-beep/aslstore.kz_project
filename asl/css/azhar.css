@@ -243,3 +243,28 @@ figure a[href*="order.html"]:hover {
     box-sizing: border-box;
     font-size: 1rem;
 }
+
+
+:root {
+    --purple-primary: #6b46c1;
+    --purple-hover: #553c9a;
+}
+.text-purple { color: var(--purple-primary) !important; }
+.bg-purple { background-color: var(--purple-primary) !important; }
+.btn-purple {
+    background-color: var(--purple-primary);
+    color: #fff;
+    border: none;
+}
+.btn-purple:hover {
+    background-color: var(--purple-hover);
+    color: #fff;
+}
+.btn-outline-purple {
+    color: var(--purple-primary);
+    border-color: var(--purple-primary);
+}
+.btn-outline-purple:hover {
+    background-color: var(--purple-primary);
+    color: #fff;
+}
