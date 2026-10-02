@@ -1,280 +1,233 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <!-- Bootstrap v5.3.3 CDN CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/azhar.css">
     <meta charset="UTF-8">
-    <title>Скидки и распродажа — aslstore.kz</title>
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/akdana.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Скидки и распродажа — ASLSTORE.KZ</title>
+    <style>
+        body { background-color: #f3eef9 !important; }
+        .text-purple { color: #6f42c1 !important; }
+        .btn-purple { background-color: #6f42c1; color: white; border: none; }
+        .btn-purple:hover { background-color: #59339d; color: white; }
+        .btn-outline-purple { border-color: #6f42c1; color: #6f42c1; }
+        .btn-outline-purple:hover { background-color: #6f42c1; color: white; }
+    </style>
 </head>
 <body> 
-    <header>
-        <p align="center">
-            <small>
-                <strong>⚡ БЕСПЛАТНАЯ ДОСТАВКА ОТ 30 000 ₸</strong> &nbsp;|&nbsp; 
-                <mark><strong>УНИВЕРСАЛЬНЫЙ КРОЙ &bull; UNISEX</strong></mark> &nbsp;|&nbsp; 
-                <a href="order.html">Сделать заказ →</a>
-            </small>
-        </p>
-        <hr size="3" color="black">
 
-        <!-- Навигация и логотип -->
-        <table width="100%" border="0" cellpadding="5">
-            <tr>
-                <td width="30%">
-                    <h1>ASLSTORE<small><sup>.KZ</sup></small></h1>
-                </td>
-                <td width="70%" align="right">
-                    <nav>
-                        <a href="index.html"><strong>ГЛАВНАЯ</strong></a> &nbsp;&nbsp;|&nbsp;&nbsp;
-                        <a href="clothing.html">ОДЕЖДА</a> &nbsp;&nbsp;|&nbsp;&nbsp;
-                        <a href="shoesandacc.html">ОБУВЬ И АКСЕССУАРЫ</a> &nbsp;&nbsp;|&nbsp;&nbsp;
-                        <a href="order.html">ЗАКАЗ</a> &nbsp;&nbsp;|&nbsp;&nbsp;
-                        <a href="sale.html">СКИДКИ</a> &nbsp;&nbsp;|&nbsp;&nbsp;
-                        <a href="colophon.html">О НАС</a>
-                    </nav>
-                </td>
-            </tr>
-        </table>
-        <hr size="1" color="gray">
-    </header>
-    
+    <!-- Верхняя планка -->
+    <div class="container-fluid bg-white border-bottom py-2">
+        <div class="container d-flex justify-content-between align-items-center">
+            <small class="text-muted"><strong>⚡ БЕСПЛАТНАЯ ДОСТАВКА ОТ 30 000 ₸</strong></small>
+            <div>
+                <span class="me-3">
+                    <a href="order.html" class="text-decoration-none text-purple">👤 Регистрация / Войти</a>
+                </span>
+                <a href="order.html" class="btn btn-sm btn-outline-purple">Корзина 🛒</a>
+            </div>
+        </div>
+    </div>
 
-    <main>
-        <section id="sale-categories" class="category-banner">
-            <h2>Категории распродажи</h2>
-            <table border="0" cellpadding="10" cellspacing="0" align="center">
-                <tbody>
-                    <tr>
-                        <td align="center">
-                            <a href="#tshirts-section">
-                                <img src="imagess/poloralph.jpg" alt="Верхняя одежда" width="60" height="60">
-                                <br><small>Верхняя одежда</small>
-                            </a>
-                        </td>
-                        <td align="center">
-                            <a href="#hoodies-section">
-                                <img src="imagess/boss.jpg" alt="Футболки" width="60" height="60">
-                                <br><small>Футболки</small>
-                            </a>
-                        </td>
-                        <td align="center">
-                            <a href="#caps-section">
-                                <img src="imagess/dime-jeans.jpg" alt="Шорты и низ" width="60" height="60">
-                                <br><small>Шорты и низ одежда</small>
-                            </a>
-                        </td>
-                        <td align="center">
-                            <a href="#skirts-section">
-                                <img src="imagess/nikebag.jpg" alt="сумки" width="60" height="60">
-                                <br><small>Сумки</small>
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-purple" href="index.html">ASLSTORE<sup class="text-muted">.KZ</sup></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-3">
+                    <li class="nav-item"><a class="nav-link" href="index.html">ГЛАВНАЯ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="clothing.html">ОДЕЖДА</a></li>
+                    <li class="nav-item"><a class="nav-link" href="shoesandacc.html">ОБУВЬ И АКСЕССУАРЫ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="order.html">ЗАКАЗ</a></li>
+                    <li class="nav-item"><a class="nav-link active fw-bold text-purple" href="sale.html">СКИДКИ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="colophon.html">О НАС</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        
+        <!-- Герой-баннер -->
+        <section class="p-4 bg-white rounded shadow-sm text-center mb-5">
+            <h2 class="text-purple fw-bold">🔥 РАСПРОДАЖА И СКИДКИ</h2>
+            <p class="text-muted mb-0">Успейте приобрести вещи по выгодным ценам!</p>
         </section>
 
-        <hr>
+        <!-- Верхняя одежда со скидкой -->
+        <section id="tshirts-section" class="mb-5">
+            <h3 class="text-purple mb-4">🧥 ВЕРХНЯЯ ОДЕЖДА СО СКИДКОЙ</h3>
+            <div class="row g-4">
+                
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm border-0 position-relative">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2 fs-6">-50%</span>
+                        <img src="imagess/burberryjack.jpg" class="card-img-top p-3" alt="Куртка Burberry" style="max-height: 220px; object-fit: contain;">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h5 class="card-title text-purple fw-bold">Куртка Burberry</h5>
+                            <p class="card-text text-muted mb-2"><strong>12 495 ₸</strong> <s class="text-danger"><small>24 990 ₸</small></s></p>
+                            <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
+                        </div>
+                    </div>
+                </div>
 
-        <section id="tshirts-section">
-            <h2>Верхняя одежда со скидкой</h2>
-            <table border="0" cellpadding="15" cellspacing="0" width="100%">
-                <tbody>
-                    <tr>
-                        <td align="left" valign="top" width="25%">
-                            <article class="product-card featured-product">
-                                <p class="discount-badge"><mark><strong>-50%</strong></mark></p>
-                                <figure>
-                                    <img src="imagess/burberryjack.jpg" alt="куртка burberry" width="200">
-                                    <figcaption>
-                                        <h3>Куртка Burberry</h3>
-                                        <p class="price-tag"><strong>12 495 ₸</strong> <s><small>24 990 ₸</small></s></p>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                        </td>
-                        <td align="left" valign="top" width="25%">
-                            <article class="product-card">
-                                <p class="discount-badge"><mark><strong>-50%</strong></mark></p>
-                                <figure>
-                                    <img src="imagess/amisweatshirt.jpg" alt="свитер Ami" width="200">
-                                    <figcaption>
-                                        <h3>Свитшот Ami</h3>
-                                        <p class="price-tag"><strong>6 995 ₸</strong> <s><small>13 990 ₸</small></s></p>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                        </td>
-                        <td align="left" valign="top" width="25%">
-                            <article class="product-card">
-                                <p class="discount-badge"><mark><strong>-50%</strong></mark></p>
-                                <figure>
-                                    <img src="imagess/burberryjack.jpg" alt="куртка burberry" width="200">
-                                    <figcaption>
-                                        <h3>Куртка Burberry</h3>
-                                        <p class="price-tag"><strong>12 495 ₸</strong> <s><small>24 990 ₸</small></s></p>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                        </td>
-                        <td align="left" valign="top" width="25%">
-                            <article class="product-card">
-                                <p class="discount-badge"><mark><strong>-15%</strong></mark></p>
-                                <figure>
-                                    <img src="imagess/poloralph.jpg" alt="poloralph" width="200">
-                                    <figcaption>
-                                        <h3> Свитер Polo Ralph Lauren </h3>
-                                        <p class="price-tag"><strong>11 900 ₸</strong> <s><small>14 000 ₸</small></s></p>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                        </td>
-                        <td align="left" valign="top" width="25%">
-                            <article class="product-card">
-                                <p class="discount-badge"><mark><strong>-20%</strong></mark></p>
-                                <figure>
-                                    <img src="imagess/corteizzip.jpg" alt="зипка corteiz" width="200">
-                                    <figcaption>
-                                        <h3> Зип-худи Corteiz </h3>
-                                        <p class="price-tag"><strong>16 000 ₸</strong> <s><small>20 000 ₸</small></s></p>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm border-0 position-relative">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2 fs-6">-50%</span>
+                        <img src="imagess/amisweatshirt.jpg" class="card-img-top p-3" alt="Свитшот Ami" style="max-height: 220px; object-fit: contain;">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h5 class="card-title text-purple fw-bold">Свитшот Ami</h5>
+                            <p class="card-text text-muted mb-2"><strong>6 995 ₸</strong> <s class="text-danger"><small>13 990 ₸</small></s></p>
+                            <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm border-0 position-relative">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2 fs-6">-15%</span>
+                        <img src="imagess/poloralph.jpg" class="card-img-top p-3" alt="Свитер Polo Ralph Lauren" style="max-height: 220px; object-fit: contain;">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h5 class="card-title text-purple fw-bold">Свитер Polo Ralph Lauren</h5>
+                            <p class="card-text text-muted mb-2"><strong>11 900 ₸</strong> <s class="text-danger"><small>14 000 ₸</small></s></p>
+                            <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm border-0 position-relative">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2 fs-6">-20%</span>
+                        <img src="imagess/corteizzip.jpg" class="card-img-top p-3" alt="Зип-худи Corteiz" style="max-height: 220px; object-fit: contain;">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h5 class="card-title text-purple fw-bold">Зип-худи Corteiz</h5>
+                            <p class="card-text text-muted mb-2"><strong>16 000 ₸</strong> <s class="text-danger"><small>20 000 ₸</small></s></p>
+                            <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </section>
 
-        <hr>
-        <section id="hoodies-section">
-            <h2>Футболки</h2>
-            <table border="0" cellpadding="15" cellspacing="0" width="100%">
-                <tbody>
-                    <tr>
-                        
-                        <td align="left" valign="top" width="20%">
-                            <article class="product-card">
-                                <p class="discount-badge"><mark><strong>-15%</strong></mark></p>
-                                <figure>
-                                    <img src="imagess/t-shirt.jpg" alt="белый футболка" width="200">
-                                    <figcaption>
-                                        <h3>Футболка Corteiz  </h3>
-                                        <p class="price-tag"><strong>6 375 ₸</strong> <s><small>7 490 ₸</small></s></p>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                        </td>
-                        <td align="left" valign="top" width="20%">
-                            <article class="product-card">
-                                <p class="discount-badge"><mark><strong>-10%</strong></mark></p>
-                                <figure>
-                                    <img src="imagess/boss.jpg" alt=",белый boss футболка" width="200">
-                                    <figcaption>
-                                        <h3>Футболкa BOSS </h3>
-                                        <p class="price-tag"><strong>5 990 ₸</strong> <s><small>6 990 ₸</small></s></p>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <!-- Футболки -->
+        <section id="hoodies-section" class="mb-5">
+            <h3 class="text-purple mb-4">👕 ФУТБОЛКИ</h3>
+            <div class="row g-4">
+                
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm border-0 position-relative">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2 fs-6">-15%</span>
+                        <img src="imagess/t-shirt.jpg" class="card-img-top p-3" alt="Футболка Corteiz" style="max-height: 220px; object-fit: contain;">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h5 class="card-title text-purple fw-bold">Футболка Corteiz</h5>
+                            <p class="card-text text-muted mb-2"><strong>6 375 ₸</strong> <s class="text-danger"><small>7 490 ₸</small></s></p>
+                            <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm border-0 position-relative">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2 fs-6">-10%</span>
+                        <img src="imagess/boss.jpg" class="card-img-top p-3" alt="Футболка BOSS" style="max-height: 220px; object-fit: contain;">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h5 class="card-title text-purple fw-bold">Футболка BOSS</h5>
+                            <p class="card-text text-muted mb-2"><strong>5 990 ₸</strong> <s class="text-danger"><small>6 990 ₸</small></s></p>
+                            <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </section>
 
-        <hr>
+        <!-- Шорты и низ -->
+        <section id="caps-section" class="mb-5">
+            <h3 class="text-purple mb-4">👖 ШОРТЫ И НИЗ</h3>
+            <div class="row g-4">
+                
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm border-0 position-relative">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2 fs-6">-20%</span>
+                        <img src="imagess/dime-jeans.jpg" class="card-img-top p-3" alt="Dime Jeans" style="max-height: 220px; object-fit: contain;">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h5 class="card-title text-purple fw-bold">Dime Jeans</h5>
+                            <p class="card-text text-muted mb-2"><strong>10 400 ₸</strong> <s class="text-danger"><small>12 990 ₸</small></s></p>
+                            <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- Блок: Головные уборы -->
-        <section id="caps-section">
-            <h2>Шорты и низ</h2>
-            <table border="0" cellpadding="15" cellspacing="0" width="100%">
-                <tbody>
-                    <tr>
-                        <td align="left" valign="top" width="20%">
-                            <article class="product-card">
-                                <p class="discount-badge"><mark><strong>-20%</strong></mark></p>
-                                <figure>
-                                    <img src="imagess/dime-jeans.jpg" alt="Джинсы Dime" width="200">
-                                    <figcaption>
-                                        <h3>Dime Jeans</h3>
-                                        <p class="price-tag"><strong>10 400 ₸</strong> <s><small>12 990 ₸</small></s></p>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                        </td>
-                        <td align="left" valign="top" width="20%">
-                            <article class="product-card">
-                                <p class="discount-badge"><mark><strong>-20%</strong></mark></p>
-                                <figure>
-                                    <img src="imagess/corteiz-shorts.jpg" alt="corteiz шорты" width="200">
-                                    <figcaption>
-                                        <h3>Шорты Corteiz</h3>
-                                        <p class="price-tag"><strong>7 910 ₸</strong> <s><small>9 890 ₸</small></s></p>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                        </td>
-                        <td align="left" valign="top" width="20%">
-                            <article class="product-card">
-                                <p class="discount-badge"><mark><strong>-10%</strong></mark></p>
-                                <figure>
-                                    <img src="imagess/basicpants.jpg" alt="брюки pants" width="200">
-                                    <figcaption>
-                                        <h3>Брюки Basic Pants</h3>
-                                        <p class="price-tag"><strong>10 790 ₸</strong> <s><small>11 990 ₸</small></s></p>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm border-0 position-relative">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2 fs-6">-20%</span>
+                        <img src="imagess/corteiz-shorts.jpg" class="card-img-top p-3" alt="Шорты Corteiz" style="max-height: 220px; object-fit: contain;">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h5 class="card-title text-purple fw-bold">Шорты Corteiz</h5>
+                            <p class="card-text text-muted mb-2"><strong>7 910 ₸</strong> <s class="text-danger"><small>9 890 ₸</small></s></p>
+                            <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm border-0 position-relative">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2 fs-6">-10%</span>
+                        <img src="imagess/basicpants.jpg" class="card-img-top p-3" alt="Брюки Basic Pants" style="max-height: 220px; object-fit: contain;">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h5 class="card-title text-purple fw-bold">Брюки Basic Pants</h5>
+                            <p class="card-text text-muted mb-2"><strong>10 790 ₸</strong> <s class="text-danger"><small>11 990 ₸</small></s></p>
+                            <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </section>
 
-        <hr>
+        <!-- Сумки -->
+        <section id="skirts-section" class="mb-5">
+            <h3 class="text-purple mb-4">🎒 СУМКИ</h3>
+            <div class="row g-4">
+                
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm border-0 position-relative">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2 fs-6">-30%</span>
+                        <img src="imagess/сумка.jpg" class="card-img-top p-3" alt="Рюкзак Tommy Hilfiger" style="max-height: 220px; object-fit: contain;">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h5 class="card-title text-purple fw-bold">Рюкзак Tommy Hilfiger</h5>
+                            <p class="card-text text-muted mb-2"><strong>12 440 ₸</strong> <s class="text-danger"><small>17 770 ₸</small></s></p>
+                            <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- Блок: Юбки и Низ -->
-        <section id="skirts-section">
-            <h2>Сумки</h2>
-            <table border="0" cellpadding="15" cellspacing="0" width="100%">
-                <tbody>
-                    <tr>
-                        <td align="left" valign="top" width="25%">
-                            <article class="product-card">
-                                <p class="discount-badge"><mark><strong>-30%</strong></mark></p>
-                                <figure>
-                                    <img src="imagess/сумка.jpg" alt="Tommy Helfiger сумка" width="200">
-                                    <figcaption>
-                                        <h3>Рюкзак Tommy Helfiger </h3>
-                                        <p class="price-tag"><strong>12 440 ₸</strong> <s><small>17 770 ₸</small></s></p>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                        </td>
-                        <td align="left" valign="top" width="25%">
-                            <article class="product-card">
-                                <p class="discount-badge"><mark><strong>-10%</strong></mark></p>
-                                <figure>
-                                    <img src="imagess/nikebag.jpg" alt="сумка nike" width="200">
-                                    <figcaption>
-                                        <h3>Сумка Nike</h3>
-                                        <p class="price-tag"><strong>5 400 ₸</strong> <s><small>5 990 ₸</small></s></p>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm border-0 position-relative">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2 fs-6">-10%</span>
+                        <img src="imagess/nikebag.jpg" class="card-img-top p-3" alt="Сумка Nike" style="max-height: 220px; object-fit: contain;">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h5 class="card-title text-purple fw-bold">Сумка Nike</h5>
+                            <p class="card-text text-muted mb-2"><strong>5 400 ₸</strong> <s class="text-danger"><small>5 990 ₸</small></s></p>
+                            <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </section>
 
-        <hr>
-
-        <section id="sale-summary">
-            <h3>Сводная таблица распродажи</h3>
-            <table border="1" cellpadding="8" cellspacing="0">
-                <caption>Условия скидок в шоуруме aslstore.kz</caption>
-                <thead>
+        <!-- Сводная таблица -->
+        <section class="bg-white p-4 rounded shadow-sm my-5">
+            <h4 class="text-purple fw-bold mb-3">📋 Сводная таблица распродажи</h4>
+            <table class="table table-bordered table-hover mb-0">
+                <thead class="table-light">
                     <tr>
                         <th scope="col">Категория</th>
                         <th scope="col">Максимальная скидка</th>
@@ -284,59 +237,63 @@
                 <tbody>
                     <tr>
                         <td>Верхняя одежда</td>
-                        <td>До 50%</td>
+                        <td><span class="badge bg-danger">До 50%</span></td>
                         <td>До окончания запасов</td>
                     </tr>
                     <tr>
                         <td>Футболки</td>
-                        <td>До 15%</td>
+                        <td><span class="badge bg-danger">До 15%</span></td>
                         <td>Сезонная распродажа</td>
                     </tr>
                     <tr>
                         <td>Сумки</td>
-                        <td>До 30%</td>
+                        <td><span class="badge bg-danger">До 30%</span></td>
                         <td>Специальное предложение</td>
                     </tr>
                 </tbody>
             </table>
         </section>
+
     </main>
-    <footer>
-        <hr size="3" color="black">
-        <table width="100%" border="0" cellpadding="10">
-            <tr valign="top">
-                <td width="30%">
-                    <h4>ASLSTORE.KZ</h4>
-                    <p><small>Официальный интернет-магазин унисекс одежды, обуви и аксессуаров.</small></p>
-                    <p><small>&copy; 2026 ASLSTORE.KZ. Все права защищены.</small></p>
-                </td>
-                <td width="20%">
-                    <h4>КАТАЛОГ</h4>
-                    <ul>
-                        <li><a href="clothing.html#tops">Футболки и Поло</a></li>
-                        <li><a href="clothing.html#outerwear">Куртки и Пуховики</a></li>
-                        <li><a href="clothing.html#bottoms">Джинсы и Брюки</a></li>
-                        <li><a href="shoesandacc.html">Кроссовки и Кеды</a></li>
-                    </ul>
-                </td>
-                <td width="25%">
-                    <h4>ПОКУПАТЕЛЯМ</h4>
-                    <ul>
-                        <li><a href="order.html">Оформить заказ</a></li>
-                        <li><a href="colophon.html">Доставка и оплата</a></li>
-                        <li><a href="colophon.html">О проекте (Colophon)</a></li>
-                    </ul>
-                </td>
-                <td width="25%">
-                    <h4>КОНТАКТЫ</h4>
-                    <address>
-                        <p><small>📍 Астана,ТД Гульжан 2 этаж 246 бутик</small></p>
-                        <p><small>📞 +7 (700) 645 5057</small></p>
-                        <p><small>✉️ support@aslstore.kz</small></p>
-                    </address>
-                </td>
-            </tr>
-        </table>
+
+    <!-- Подвал страницы -->
+    <footer class="bg-white border-top mt-5">
+        <div class="container py-4">
+            <table width="100%" border="0" cellpadding="10">
+                <tr valign="top">
+                    <td width="30%">
+                        <h4 class="text-purple fw-bold">ASLSTORE.KZ</h4>
+                        <p><small class="text-muted">Официальный интернет-магазин унисекс одежды, обуви и аксессуаров.</small></p>
+                        <p><small class="text-muted">&copy; 2026 ASLSTORE.KZ. Все права защищены.</small></p>
+                    </td>
+                    <td width="20%">
+                        <h4 class="text-purple fw-bold">КАТАЛОГ</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="clothing.html#tops" class="text-decoration-none text-muted">Футболки и Поло</a></li>
+                            <li><a href="clothing.html#outerwear" class="text-decoration-none text-muted">Куртки и Пуховики</a></li>
+                            <li><a href="clothing.html#bottoms" class="text-decoration-none text-muted">Джинсы и Брюки</a></li>
+                            <li><a href="shoesandacc.html" class="text-decoration-none text-muted">Кроссовки и Кеды</a></li>
+                        </ul>
+                    </td>
+                    <td width="25%">
+                        <h4 class="text-purple fw-bold">ПОКУПАТЕЛЯМ</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="order.html" class="text-decoration-none text-muted">Оформить заказ</a></li>
+                            <li><a href="colophon.html" class="text-decoration-none text-muted">Доставка и оплата</a></li>
+                            <li><a href="colophon.html" class="text-decoration-none text-muted">О проекте (Colophon)</a></li>
+                        </ul>
+                    </td>
+                    <td width="25%">
+                        <h4 class="text-purple fw-bold">КОНТАКТЫ</h4>
+                        <address class="text-muted">
+                            <p><small>📍 Астана, ТД Гульжан 2 этаж 246 бутик</small></p>
+                            <p><small>📞 +7 (700) 645 5057</small></p>
+                            <p><small>✉️ support@aslstore.kz</small></p>
+                        </address>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </footer>
 
 </body>

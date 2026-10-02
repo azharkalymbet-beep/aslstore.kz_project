@@ -16,7 +16,7 @@
             <small class="text-muted"><strong>⚡ БЕСПЛАТНАЯ ДОСТАВКА ОТ 30 000 ₸</strong></small>
             <div>
                 <span id="userProfileStatus" class="me-3">
-                    <a href="#" class="text-decoration-none text-purple" onclick="openAuthModal(); return false;">👤 Регистрация / Войти</a>
+                    <a href="order.html" class="text-decoration-none text-purple">👤 Регистрация / Войти</a>
                 </span>
                 <a href="order.html" class="btn btn-sm btn-outline-purple">Корзина 🛒</a>
             </div>
@@ -67,7 +67,7 @@
                             <p class="price-tag">12 500 ₸</p>
                             <p>Унисекс</p>
                             <p>Чёрная оверсайз футболка с принтом парящего белого голубя.</p>
-                            <button class="btn-primary" onclick="openOptions('Футболка AMIRI Dove Black', 12500)">В корзину 🛒</button>
+                            <a href="order.html" class="btn btn-primary">В корзину 🛒</a>
                         </figcaption>
                     </figure>
                 </div>
@@ -80,7 +80,7 @@
                             <p class="price-tag">10 000 ₸</p>
                             <p>Унисекс</p>
                             <p>Чёрная плотная футболка с пиксельной надписью.</p>
-                            <button class="btn-primary" onclick="openOptions('Футболка NPC Pixel Black', 10000)">В корзину 🛒</button>
+                            <a href="order.html" class="btn btn-primary">В корзину 🛒</a>
                         </figcaption>
                     </figure>
                 </div>
@@ -93,7 +93,7 @@
                             <p class="price-tag">10 000 ₸</p>
                             <p>Унисекс</p>
                             <p>Белая футболка с принтом Chief Keef.</p>
-                            <button class="btn-primary" onclick="openOptions('Футболка Chief Keef 2012 White', 10000)">В корзину 🛒</button>
+                            <a href="order.html" class="btn btn-primary">В корзину 🛒</a>
                         </figcaption>
                     </figure>
                 </div>
@@ -114,7 +114,7 @@
                             <p class="price-tag">22 000 ₸</p>
                             <p>Унисекс</p>
                             <p>Плотное худи чёрного цвета со встроенной маской-балаклавой.</p>
-                            <button class="btn-primary" onclick="openOptions('Худи оверсайз с балаклавой', 22000)">В корзину 🛒</button>
+                            <a href="order.html" class="btn btn-primary">В корзину 🛒</a>
                         </figcaption>
                     </figure>
                 </div>
@@ -127,7 +127,7 @@
                             <p class="price-tag">18 500 ₸</p>
                             <p>Унисекс</p>
                             <p>Свитшот с эффектом потертости и состаренным принтом.</p>
-                            <button class="btn-primary" onclick="openOptions('Винтажный свитшот Grunge', 18500)">В корзину 🛒</button>
+                            <a href="order.html" class="btn btn-primary">В корзину 🛒</a>
                         </figcaption>
                     </figure>
                 </div>
@@ -148,7 +148,7 @@
                             <p class="price-tag">20 000 ₸</p>
                             <p>Унисекс</p>
                             <p>Свободные тёмные джинсы с варёным эффектом и карманами.</p>
-                            <button class="btn-primary" onclick="openOptions('Широкие джинсы Baggy Dark', 20000)">В корзину 🛒</button>
+                            <a href="order.html" class="btn btn-primary">В корзину 🛒</a>
                         </figcaption>
                     </figure>
                 </div>
@@ -161,7 +161,7 @@
                             <p class="price-tag">19 000 ₸</p>
                             <p>Унисекс</p>
                             <p>Практичные брюки с большими боковыми карманами и фиксаторами.</p>
-                            <button class="btn-primary" onclick="openOptions('Брюки-карго Utility Black', 19000)">В корзину 🛒</button>
+                            <a href="order.html" class="btn btn-primary">В корзину 🛒</a>
                         </figcaption>
                     </figure>
                 </div>
@@ -171,110 +171,46 @@
 
     </div>
 
-    <!-- Модальное окно выбора параметров товара -->
-    <div class="modal fade" id="productModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content p-3" style="max-width: 100%;">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title text-purple fw-bold" id="modalProductName">Параметры товара</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body text-start">
-                    <form id="productOptionsForm">
-                        <div class="mb-3">
-                            <label class="form-label small fw-bold text-purple">Желаемый цвет:</label>
-                            <input type="text" id="prodColor" class="form-control" value="Черный" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label small fw-bold text-purple">Размер:</label>
-                            <select id="prodSize" class="form-select">
-                                <option value="S">S</option>
-                                <option value="M" selected>M</option>
-                                <option value="L">L</option>
-                                <option value="XL">XL</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label small fw-bold text-purple">Количество (шт.):</label>
-                            <input type="number" id="prodQty" class="form-control" value="1" min="1" max="10" required>
-                        </div>
-                        <button type="submit" class="btn btn-purple w-100 fw-bold py-2">Добавить в корзину 🛒</button>
-                    </form>
-                </div>
-            </div>
+    <!-- Подвал страницы -->
+    <footer>
+        <hr size="3" color="black">
+        <div class="container py-4">
+            <table width="100%" border="0" cellpadding="10">
+                <tr valign="top">
+                    <td width="30%">
+                        <h4>ASLSTORE.KZ</h4>
+                        <p><small>Официальный интернет-магазин унисекс одежды, обуви и аксессуаров.</small></p>
+                        <p><small>&copy; 2026 ASLSTORE.KZ. Все права защищены.</small></p>
+                    </td>
+                    <td width="20%">
+                        <h4>КАТАЛОГ</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="clothing.html#tops">Футболки и Поло</a></li>
+                            <li><a href="clothing.html#outerwear">Куртки и Пуховики</a></li>
+                            <li><a href="clothing.html#bottoms">Джинсы и Брюки</a></li>
+                            <li><a href="shoesandacc.html">Кроссовки и Кеды</a></li>
+                        </ul>
+                    </td>
+                    <td width="25%">
+                        <h4>ПОКУПАТЕЛЯМ</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="order.html">Оформить заказ</a></li>
+                            <li><a href="colophon.html">Доставка и оплата</a></li>
+                            <li><a href="colophon.html">О проекте (Colophon)</a></li>
+                        </ul>
+                    </td>
+                    <td width="25%">
+                        <h4>КОНТАКТЫ</h4>
+                        <address>
+                            <p><small>📍 Астана, ТД Гульжан 2 этаж 246 бутик</small></p>
+                            <p><small>📞 +7 (700) 645 5057</small></p>
+                            <p><small>✉️ support@aslstore.kz</small></p>
+                        </address>
+                    </td>
+                </tr>
+            </table>
         </div>
-    </div>
+    </footer>
 
-    <!-- Модальное окно регистрации -->
-    <div class="modal fade" id="authModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content p-3" style="max-width: 100%;">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title text-purple fw-bold">Регистрация в ASLSTORE</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body text-start">
-                    <form id="inlineLoginForm">
-                        <div class="mb-3"><input type="text" id="regFullname" class="form-control" placeholder="ФИО полностью" required></div>
-                        <div class="mb-3"><input type="tel" id="regPhone" class="form-control" placeholder="Телефон (+7...)" required></div>
-                        <div class="mb-3"><input type="email" id="regEmail" class="form-control" placeholder="Email" required></div>
-                        <div class="mb-3"><input type="text" id="regAddress" class="form-control" placeholder="Адрес доставки" required></div>
-                        <button type="submit" class="btn btn-purple w-100 fw-bold py-2">Зарегистрироваться</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        let currentProduct = null;
-        let productModalObj = null;
-
-        window.addEventListener('DOMContentLoaded', () => {
-            productModalObj = new bootstrap.Modal(document.getElementById('productModal'));
-            let user = JSON.parse(localStorage.getItem('asl_user'));
-            if(user) {
-                userProfileStatus.innerHTML = `👤 <strong>${user.fullname.split(' ')[0]}</strong> (<a href="#" class="text-danger" onclick="localStorage.removeItem('asl_user'); location.reload(); return false;">выйти</a>)`;
-            }
-        });
-
-        function openAuthModal() { 
-            new bootstrap.Modal(document.getElementById('authModal')).show(); 
-        }
-        
-        document.getElementById('inlineLoginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const userData = { fullname: regFullname.value, phone: regPhone.value, email: regEmail.value, address: regAddress.value };
-            localStorage.setItem('asl_user', JSON.stringify(userData));
-            bootstrap.Modal.getInstance(document.getElementById('authModal')).hide();
-            location.reload();
-        });
-
-        function openOptions(name, price) {
-            currentProduct = { name, price };
-            document.getElementById('modalProductName').textContent = name;
-            productModalObj.show();
-        }
-
-        document.getElementById('productOptionsForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            if (!currentProduct) return;
-
-            let cart = JSON.parse(localStorage.getItem('asl_cart')) || [];
-            cart.push({ 
-                name: currentProduct.name, 
-                price: currentProduct.price, 
-                color: document.getElementById('prodColor').value, 
-                size: document.getElementById('prodSize').value, 
-                quantity: parseInt(document.getElementById('prodQty').value) || 1 
-            });
-            
-            localStorage.setItem('asl_cart', JSON.stringify(cart));
-            productModalObj.hide();
-            alert('Товар успешно добавлен в корзину! 🛒');
-        });
-    </script>
 </body>
 </html>
