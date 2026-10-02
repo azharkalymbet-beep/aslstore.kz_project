@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <!-- Bootstrap v5.3.3 CDN CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/azhar.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Одежда — ASLSTORE.KZ</title>
+    <!-- Bootstrap v5.3.3 CDN CSS (Комментарий: используем версию Bootstrap 5.3.3) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/azhar.css">
 </head>
-<body class="bg-light">
+<body>
 
-    <!-- Верхняя планка -->
+    <!-- Комментарий: Использован container-fluid для верха -->
     <div class="container-fluid bg-white border-bottom py-2">
         <div class="container d-flex justify-content-between align-items-center">
-            <small class="text-muted"><strong>⚡ БЕСПЛАТНАЯ ДОСТАВКА ОТ 30 000 ₸</strong></small>
+            <small class="text-muted fw-bold">⚡ БЕСПЛАТНАЯ ДОСТАВКА ОТ 30 000 ₸</small>
             <div>
-                <span id="userProfileStatus" class="me-3">
-                    <a href="order.html" class="text-decoration-none text-purple">👤 Регистрация / Войти</a>
-                </span>
+                <a href="order.html" class="text-decoration-none text-purple me-3">👤 Регистрация / Войти</a>
                 <a href="order.html" class="btn btn-sm btn-outline-purple">Корзина 🛒</a>
             </div>
         </div>
@@ -43,174 +41,169 @@
         </div>
     </nav>
 
-    <!-- Основной контейнер -->
-    <div class="container my-5">
+    <!-- Комментарий: Использован обычный container для основных блоков -->
+    <main class="container my-5">
         
-        <!-- Герой-баннер -->
-        <section id="hero-banner">
-            <h2>КАТАЛОГ ОДЕЖДЫ (UNISEX)</h2>
-            <p>Универсальные фасоны, оверсайз-силуэты и единая линейка размеров для каждого.</p>
+        <section class="p-4 bg-white rounded shadow-sm text-center mb-5">
+            <h2 class="text-purple fw-bold">КАТАЛОГ ОДЕЖДЫ (UNISEX)</h2>
+            <p class="text-muted mb-0">Универсальные фасоны, оверсайз-силуэты и единая линейка размеров для каждого.</p>
         </section>
 
-        <br>
-
         <!-- Секция: Футболки -->
-        <section id="tops">
-            <h3 class="text-purple mb-4">👕 ФУТБОЛКИ (TEES & TOPS)</h3>
+        <section id="tops" class="mb-5">
+            <h3 class="text-purple fw-bold mb-4">👕 ФУТБОЛКИ (TEES & TOPS)</h3>
             <div class="row g-4">
                 
                 <div class="col-12 col-md-6 col-lg-4">
-                    <figure class="product-card">
-                        <img src="imagess/tshirt-amiri.jpeg" alt="Футболка AMIRI Dove">
-                        <figcaption>
-                            <h4>Футболка AMIRI Dove Black</h4>
-                            <p class="price-tag">12 500 ₸</p>
-                            <p>Унисекс</p>
-                            <p>Чёрная оверсайз футболка с принтом парящего белого голубя.</p>
-                            <a href="order.html" class="btn btn-primary">В корзину 🛒</a>
-                        </figcaption>
-                    </figure>
+                    <div class="card h-100 shadow-sm border-0 product-card p-3">
+                        <img src="imagess/tshirt-amiri.jpeg" class="card-img-top mx-auto product-img" alt="Футболка AMIRI Dove">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h5 class="card-title text-purple fw-bold">Футболка AMIRI Dove Black</h5>
+                            <p class="text-muted small mb-1">Унисекс</p>
+                            <p class="text-muted small">Чёрная оверсайз футболка с принтом парящего белого голубя.</p>
+                            <p class="fs-5 fw-bold text-purple mb-3">12 500 ₸</p>
+                            <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-12 col-md-6 col-lg-4">
-                    <figure class="product-card">
-                        <img src="imagess/t-shirt-npc.jpeg" alt="Футболка NPC Black">
-                        <figcaption>
-                            <h4>Футболка NPC Pixel Black</h4>
-                            <p class="price-tag">10 000 ₸</p>
-                            <p>Унисекс</p>
-                            <p>Чёрная плотная футболка с пиксельной надписью.</p>
-                            <a href="order.html" class="btn btn-primary">В корзину 🛒</a>
-                        </figcaption>
-                    </figure>
+                    <div class="card h-100 shadow-sm border-0 product-card p-3">
+                        <img src="imagess/t-shirt-npc.jpeg" class="card-img-top mx-auto product-img" alt="Футболка NPC Black">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h5 class="card-title text-purple fw-bold">Футболка NPC Pixel Black</h5>
+                            <p class="text-muted small mb-1">Унисекс</p>
+                            <p class="text-muted small">Чёрная плотная футболка с пиксельной надписью.</p>
+                            <p class="fs-5 fw-bold text-purple mb-3">10 000 ₸</p>
+                            <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-12 col-md-6 col-lg-4">
-                    <figure class="product-card">
-                        <img src="imagess/tshirt2012.jpeg" alt="Футболка Chief Keef">
-                        <figcaption>
-                            <h4>Футболка Chief Keef 2012 White</h4>
-                            <p class="price-tag">10 000 ₸</p>
-                            <p>Унисекс</p>
-                            <p>Белая футболка с принтом Chief Keef.</p>
-                            <a href="order.html" class="btn btn-primary">В корзину 🛒</a>
-                        </figcaption>
-                    </figure>
+                    <div class="card h-100 shadow-sm border-0 product-card p-3">
+                        <img src="imagess/tshirt2012.jpeg" class="card-img-top mx-auto product-img" alt="Футболка Chief Keef">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h5 class="card-title text-purple fw-bold">Футболка Chief Keef 2012 White</h5>
+                            <p class="text-muted small mb-1">Унисекс</p>
+                            <p class="text-muted small">Белая футболка с принтом Chief Keef.</p>
+                            <p class="fs-5 fw-bold text-purple mb-3">10 000 ₸</p>
+                            <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
+                        </div>
+                    </div>
                 </div>
 
             </div>
         </section>
 
         <!-- Секция: Худи и свитшоты -->
-        <section id="hoodies" class="mt-5">
-            <h3 class="text-purple mb-4">🧥 ХУДИ И СВИТШОТЫ</h3>
+        <section id="hoodies" class="mb-5">
+            <h3 class="text-purple fw-bold mb-4">🧥 ХУДИ И СВИТШОТЫ</h3>
             <div class="row g-4">
                 
                 <div class="col-12 col-md-6 col-lg-4">
-                    <figure class="product-card">
-                        <img src="imagess/hoodie-balaclava.jpeg" alt="Худи с балаклавой">
-                        <figcaption>
-                            <h4>Худи оверсайз с балаклавой</h4>
-                            <p class="price-tag">22 000 ₸</p>
-                            <p>Унисекс</p>
-                            <p>Плотное худи чёрного цвета со встроенной маской-балаклавой.</p>
-                            <a href="order.html" class="btn btn-primary">В корзину 🛒</a>
-                        </figcaption>
-                    </figure>
+                    <div class="card h-100 shadow-sm border-0 product-card p-3">
+                        <img src="imagess/hoodie-balaclava.jpeg" class="card-img-top mx-auto product-img" alt="Худи с балаклавой">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h5 class="card-title text-purple fw-bold">Худи оверсайз с балаклавой</h5>
+                            <p class="text-muted small mb-1">Унисекс</p>
+                            <p class="text-muted small">Плотное худи чёрного цвета со встроенной маской-балаклавой.</p>
+                            <p class="fs-5 fw-bold text-purple mb-3">22 000 ₸</p>
+                            <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-12 col-md-6 col-lg-4">
-                    <figure class="product-card">
-                        <img src="imagess/sweatshirt-vintage.jpeg" alt="Свитшот винтажный">
-                        <figcaption>
-                            <h4>Винтажный свитшот Grunge</h4>
-                            <p class="price-tag">18 500 ₸</p>
-                            <p>Унисекс</p>
-                            <p>Свитшот с эффектом потертости и состаренным принтом.</p>
-                            <a href="order.html" class="btn btn-primary">В корзину 🛒</a>
-                        </figcaption>
-                    </figure>
+                    <div class="card h-100 shadow-sm border-0 product-card p-3">
+                        <img src="imagess/sweatshirt-vintage.jpeg" class="card-img-top mx-auto product-img" alt="Свитшот винтажный">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h5 class="card-title text-purple fw-bold">Винтажный свитшот Grunge</h5>
+                            <p class="text-muted small mb-1">Унисекс</p>
+                            <p class="text-muted small">Свитшот с эффектом потертости и состаренным принтом.</p>
+                            <p class="fs-5 fw-bold text-purple mb-3">18 500 ₸</p>
+                            <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
+                        </div>
+                    </div>
                 </div>
 
             </div>
         </section>
 
         <!-- Секция: Брюки и джинсы -->
-        <section id="bottoms" class="mt-5">
-            <h3 class="text-purple mb-4">👖 БРЮКИ И ДЖИНСЫ</h3>
+        <section id="bottoms" class="mb-5">
+            <h3 class="text-purple fw-bold mb-4">👖 БРЮКИ И ДЖИНСЫ</h3>
             <div class="row g-4">
                 
                 <div class="col-12 col-md-6 col-lg-4">
-                    <figure class="product-card">
-                        <img src="imagess/jeans-baggy.jpeg" alt="Джинсы Baggy">
-                        <figcaption>
-                            <h4>Широкие джинсы Baggy Dark</h4>
-                            <p class="price-tag">20 000 ₸</p>
-                            <p>Унисекс</p>
-                            <p>Свободные тёмные джинсы с варёным эффектом и карманами.</p>
-                            <a href="order.html" class="btn btn-primary">В корзину 🛒</a>
-                        </figcaption>
-                    </figure>
+                    <div class="card h-100 shadow-sm border-0 product-card p-3">
+                        <img src="imagess/jeans-baggy.jpeg" class="card-img-top mx-auto product-img" alt="Джинсы Baggy">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h5 class="card-title text-purple fw-bold">Широкие джинсы Baggy Dark</h5>
+                            <p class="text-muted small mb-1">Унисекс</p>
+                            <p class="text-muted small">Свободные тёмные джинсы с варёным эффектом и карманами.</p>
+                            <p class="fs-5 fw-bold text-purple mb-3">20 000 ₸</p>
+                            <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-12 col-md-6 col-lg-4">
-                    <figure class="product-card">
-                        <img src="imagess/cargo-pants.jpeg" alt="Карго брюки">
-                        <figcaption>
-                            <h4>Брюки-карго Utility Black</h4>
-                            <p class="price-tag">19 000 ₸</p>
-                            <p>Унисекс</p>
-                            <p>Практичные брюки с большими боковыми карманами и фиксаторами.</p>
-                            <a href="order.html" class="btn btn-primary">В корзину 🛒</a>
-                        </figcaption>
-                    </figure>
+                    <div class="card h-100 shadow-sm border-0 product-card p-3">
+                        <img src="imagess/cargo-pants.jpeg" class="card-img-top mx-auto product-img" alt="Карго брюки">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h5 class="card-title text-purple fw-bold">Брюки-карго Utility Black</h5>
+                            <p class="text-muted small mb-1">Унисекс</p>
+                            <p class="text-muted small">Практичные брюки с большими боковыми карманами и фиксаторами.</p>
+                            <p class="fs-5 fw-bold text-purple mb-3">19 000 ₸</p>
+                            <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
+                        </div>
+                    </div>
                 </div>
 
             </div>
         </section>
 
-    </div>
+    </main>
 
-    <!-- Подвал страницы -->
-    <footer>
-        <hr size="3" color="black">
+    <!-- Подвал -->
+    <footer class="bg-white border-top mt-5">
         <div class="container py-4">
-            <table width="100%" border="0" cellpadding="10">
-                <tr valign="top">
-                    <td width="30%">
-                        <h4>ASLSTORE.KZ</h4>
-                        <p><small>Официальный интернет-магазин унисекс одежды, обуви и аксессуаров.</small></p>
-                        <p><small>&copy; 2026 ASLSTORE.KZ. Все права защищены.</small></p>
-                    </td>
-                    <td width="20%">
-                        <h4>КАТАЛОГ</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="clothing.html#tops">Футболки и Поло</a></li>
-                            <li><a href="clothing.html#outerwear">Куртки и Пуховики</a></li>
-                            <li><a href="clothing.html#bottoms">Джинсы и Брюки</a></li>
-                            <li><a href="shoesandacc.html">Кроссовки и Кеды</a></li>
-                        </ul>
-                    </td>
-                    <td width="25%">
-                        <h4>ПОКУПАТЕЛЯМ</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="order.html">Оформить заказ</a></li>
-                            <li><a href="colophon.html">Доставка и оплата</a></li>
-                            <li><a href="colophon.html">О проекте (Colophon)</a></li>
-                        </ul>
-                    </td>
-                    <td width="25%">
-                        <h4>КОНТАКТЫ</h4>
-                        <address>
-                            <p><small>📍 Астана, ТД Гульжан 2 этаж 246 бутик</small></p>
-                            <p><small>📞 +7 (700) 645 5057</small></p>
-                            <p><small>✉️ support@aslstore.kz</small></p>
-                        </address>
-                    </td>
-                </tr>
-            </table>
+            <div class="row g-4">
+                <div class="col-12 col-md-3">
+                    <h5 class="text-purple fw-bold">ASLSTORE.KZ</h5>
+                    <p class="text-muted small">Официальный интернет-магазин унисекс одежды, обуви и аксессуаров.</p>
+                    <p class="text-muted small">&copy; 2026 ASLSTORE.KZ. Все права защищены.</p>
+                </div>
+                <div class="col-12 col-md-3">
+                    <h5 class="text-purple fw-bold">КАТАЛОГ</h5>
+                    <ul class="list-unstyled text-muted small">
+                        <li><a href="clothing.html#tops" class="text-decoration-none text-muted">Футболки и Поло</a></li>
+                        <li><a href="clothing.html#outerwear" class="text-decoration-none text-muted">Куртки и Пуховики</a></li>
+                        <li><a href="clothing.html#bottoms" class="text-decoration-none text-muted">Джинсы и Брюки</a></li>
+                        <li><a href="shoesandacc.html" class="text-decoration-none text-muted">Кроссовки и Кеды</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-3">
+                    <h5 class="text-purple fw-bold">ПОКУПАТЕЛЯМ</h5>
+                    <ul class="list-unstyled text-muted small">
+                        <li><a href="order.html" class="text-decoration-none text-muted">Оформить заказ</a></li>
+                        <li><a href="colophon.html" class="text-decoration-none text-muted">Доставка и оплата</a></li>
+                        <li><a href="colophon.html" class="text-decoration-none text-muted">О проекте (Colophon)</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-3">
+                    <h5 class="text-purple fw-bold">КОНТАКТЫ</h5>
+                    <address class="text-muted small mb-0">
+                        <p class="mb-1">📍 Астана, ТД Гульжан 2 этаж 246 бутик</p>
+                        <p class="mb-1">📞 +7 (700) 645 5057</p>
+                        <p class="mb-0">✉️ support@aslstore.kz</p>
+                    </address>
+                </div>
+            </div>
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

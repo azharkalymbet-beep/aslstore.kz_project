@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <!-- Bootstrap v5.3.3 CDN CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/azhar.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Оформление заказа — ASLSTORE.KZ</title>
+    <title>Оформить заказ — ASLSTORE.KZ</title>
+    <!-- Bootstrap v5.3.3 CDN CSS (Комментарий: используем версию Bootstrap 5.3.3) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/azhar.css">
 </head>
 <body>
 
-    <!-- Верхняя планка -->
+    <!-- Комментарий: Использован container-fluid для верхней планки -->
     <div class="container-fluid bg-white border-bottom py-2">
         <div class="container d-flex justify-content-between align-items-center">
-            <small class="text-muted"><strong>⚡ БЕСПЛАТНАЯ ДОСТАВКА ОТ 30 000 ₸</strong></small>
+            <small class="text-muted fw-bold">⚡ БЕСПЛАТНАЯ ДОСТАВКА ОТ 30 000 ₸</small>
             <div>
-                <span class="me-3">
-                    <a href="order.html" class="text-decoration-none text-purple">👤 Регистрация / Войти</a>
-                </span>
+                <a href="order.html" class="text-decoration-none text-purple me-3">👤 Регистрация / Войти</a>
                 <a href="order.html" class="btn btn-sm btn-outline-purple active">Корзина 🛒</a>
             </div>
         </div>
@@ -43,143 +41,134 @@
         </div>
     </nav>
 
-    <!-- Основной контейнер -->
-    <div class="container my-5">
+    <!-- Комментарий: Использован обычный container для удобной ширины формы -->
+    <main class="container my-5">
         
-        <!-- Баннер страницы -->
         <section class="p-4 bg-white rounded shadow-sm text-center mb-4">
-            <h2 class="text-purple fw-bold">🛒 КОРЗИНА И ОФОРМЛЕНИЕ ЗАКАЗА</h2>
-            <p class="text-muted mb-0">Заполните данные для доставки и подтвердите покупку.</p>
+            <h2 class="text-purple fw-bold">🛒 ОФОРМЛЕНИЕ ЗАКАЗА</h2>
+            <p class="text-muted mb-0">Заполните контактные данные и выберите удобный способ оплаты.</p>
         </section>
 
         <form action="index.html" method="get">
             <div class="row g-4">
                 
-                <!-- Данные покупателя и доставки -->
-                <div class="col-lg-7">
-                    <div class="bg-white p-4 rounded shadow-sm h-100">
+                <!-- Левая колонка: Форма данных покупателя и выбор оплаты -->
+                <div class="col-12 col-lg-7">
+                    <div class="bg-white p-4 rounded shadow-sm">
                         <h4 class="text-purple fw-bold mb-4">📋 Данные покупателя</h4>
                         
                         <div class="mb-3">
-                            <label for="fullName" class="form-label fw-bold small text-purple">ФИО полностью:</label>
+                            <label for="fullName" class="form-label fw-bold text-purple small">ФИО полностью:</label>
                             <input type="text" class="form-control" id="fullName" placeholder="Иванов Иван Иванович" required>
                         </div>
 
                         <div class="row g-3 mb-3">
-                            <div class="col-md-6">
-                                <label for="phone" class="form-label fw-bold small text-purple">Телефон:</label>
+                            <div class="col-12 col-md-6">
+                                <label for="phone" class="form-label fw-bold text-purple small">Телефон:</label>
                                 <input type="tel" class="form-control" id="phone" placeholder="+7 (700) 000-00-00" required>
                             </div>
-                            <div class="col-md-6">
-                                <label for="email" class="form-label fw-bold small text-purple">Email:</label>
+                            <div class="col-12 col-md-6">
+                                <label for="email" class="form-label fw-bold text-purple small">Email:</label>
                                 <input type="email" class="form-control" id="email" placeholder="example@mail.kz" required>
                             </div>
                         </div>
 
-                        <div class="mb-3">
-                            <label for="address" class="form-label fw-bold small text-purple">Адрес доставки:</label>
-                            <input type="text" class="form-control" id="address" placeholder="г. Астана, ул. Достык 10, кв. 15" required>
+                        <div class="mb-4">
+                            <label for="address" class="form-label fw-bold text-purple small">Адрес доставки:</label>
+                            <input type="text" class="form-control" id="address" placeholder="г. Астана, ул. Достык 10" required>
                         </div>
 
-                        <div class="mb-3">
-                            <label for="payment" class="form-label fw-bold small text-purple">Способ оплаты:</label>
-                            <select class="form-select" id="payment">
-                                <option value="kaspi" selected>Kaspi QR / Перевод</option>
-                                <option value="card">Банковская карта</option>
-                                <option value="cash">Наличными при получении</option>
-                            </select>
+                        <!-- Секция выбора способа оплаты -->
+                        <h4 class="text-purple fw-bold mb-3 border-top pt-3">💳 Способ оплаты</h4>
+                        <div class="mb-4">
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="radio" name="paymentMethod" id="kaspi" value="kaspi" checked>
+                                <label class="form-check-label fw-bold" for="kaspi">
+                                    Kaspi QR / Red (При получении или по ссылке)
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="radio" name="paymentMethod" id="card" value="card">
+                                <label class="form-check-label" for="card">
+                                    Банковской картой онлайн (Visa / Mastercard)
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="paymentMethod" id="cash" value="cash">
+                                <label class="form-check-label" for="cash">
+                                    Наличными курьеру при получении
+                                </label>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <!-- Состав заказа и сумма -->
-                <div class="col-lg-5">
+                <!-- Правая колонка: Чек заказа -->
+                <div class="col-12">
                     <div class="bg-white p-4 rounded shadow-sm h-100 d-flex flex-column justify-content-between">
                         <div>
-                            <h4 class="text-purple fw-bold mb-4">📦 Состав заказа</h4>
+                            <h4 class="text-purple fw-bold mb-4">📦 Ваш заказ</h4>
                             
-                            <ul class="list-group mb-4">
-                                <li class="list-group-item d-flex justify-content-between align-items-center py-3">
-                                    <div>
-                                        <h6 class="my-0 fw-bold text-purple">Футболка AMIRI Dove Black</h6>
-                                        <small class="text-muted">Размер: M | Кол-во: 1</small>
-                                    </div>
-                                    <span class="fw-bold">12 500 ₸</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center py-3">
-                                    <div>
-                                        <h6 class="my-0 fw-bold text-purple">Кепка Corteiz Cap</h6>
-                                        <small class="text-muted">Размер: Регулируемый | Кол-во: 1</small>
-                                    </div>
-                                    <span class="fw-bold">2 990 ₸</span>
-                                </li>
-                            </ul>
-
                             <div class="d-flex justify-content-between mb-2">
-                                <span class="text-muted">Товары:</span>
-                                <strong>15 490 ₸</strong>
+                                <span class="text-muted">Товары в корзине:</span>
+                                <strong>12 500 ₸</strong>
                             </div>
                             <div class="d-flex justify-content-between mb-3">
-                                <span class="text-muted">Доставка:</span>
+                                <span class="text-muted">Доставка по Астане:</span>
                                 <strong class="text-success">Бесплатно</strong>
                             </div>
                             <hr>
                             <div class="d-flex justify-content-between mb-4">
-                                <span class="fs-5 fw-bold">К оплате:</span>
-                                <strong class="fs-4 text-purple">15 490 ₸</strong>
+                                <span class="fs-5 fw-bold">Итого к оплате:</span>
+                                <strong class="fs-4 text-purple">12 500 ₸</strong>
                             </div>
                         </div>
 
-                        <div>
-                            <button type="submit" class="btn btn-purple w-100 fw-bold py-2 fs-5">Подтвердить заказ ✨</button>
-                        </div>
+                        <button type="submit" class="btn btn-purple btn-lg w-100 fw-bold py-2">Подтвердить заказ ✨</button>
                     </div>
                 </div>
 
             </div>
         </form>
 
-    </div>
+    </main>
 
-    <!-- Подвал страницы -->
+    <!-- Подвал -->
     <footer class="bg-white border-top mt-5">
         <div class="container py-4">
-            <table width="100%" border="0" cellpadding="10">
-                <tr valign="top">
-                    <td width="30%">
-                        <h4 class="text-purple fw-bold">ASLSTORE.KZ</h4>
-                        <p><small class="text-muted">Официальный интернет-магазин унисекс одежды, обуви и аксессуаров.</small></p>
-                        <p><small class="text-muted">&copy; 2026 ASLSTORE.KZ. Все права защищены.</small></p>
-                    </td>
-                    <td width="20%">
-                        <h4 class="text-purple fw-bold">КАТАЛОГ</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="clothing.html#tops" class="text-decoration-none text-muted">Футболки и Поло</a></li>
-                            <li><a href="clothing.html#outerwear" class="text-decoration-none text-muted">Куртки и Пуховики</a></li>
-                            <li><a href="clothing.html#bottoms" class="text-decoration-none text-muted">Джинсы и Брюки</a></li>
-                            <li><a href="shoesandacc.html" class="text-decoration-none text-muted">Кроссовки и Кеды</a></li>
-                        </ul>
-                    </td>
-                    <td width="25%">
-                        <h4 class="text-purple fw-bold">ПОКУПАТЕЛЯМ</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="order.html" class="text-decoration-none text-muted">Оформить заказ</a></li>
-                            <li><a href="colophon.html" class="text-decoration-none text-muted">Доставка и оплата</a></li>
-                            <li><a href="colophon.html" class="text-decoration-none text-muted">О проекте (Colophon)</a></li>
-                        </ul>
-                    </td>
-                    <td width="25%">
-                        <h4 class="text-purple fw-bold">КОНТАКТЫ</h4>
-                        <address class="text-muted">
-                            <p><small>📍 Астана, ТД Гульжан 2 этаж 246 бутик</small></p>
-                            <p><small>📞 +7 (700) 645 5057</small></p>
-                            <p><small>✉️ support@aslstore.kz</small></p>
-                        </address>
-                    </td>
-                </tr>
-            </table>
+            <div class="row g-4">
+                <div class="col-12 col-md-3">
+                    <h5 class="text-purple fw-bold">ASLSTORE.KZ</h5>
+                    <p class="text-muted small">Официальный интернет-магазин унисекс одежды, обуви и аксессуаров.</p>
+                    <p class="text-muted small">&copy; 2026 ASLSTORE.KZ. Все права защищены.</p>
+                </div>
+                <div class="col-12 col-md-3">
+                    <h5 class="text-purple fw-bold">КАТАЛОГ</h5>
+                    <ul class="list-unstyled text-muted small">
+                        <li><a href="clothing.html#tops" class="text-decoration-none text-muted">Футболки и Поло</a></li>
+                        <li><a href="clothing.html#outerwear" class="text-decoration-none text-muted">Куртки и Пуховики</a></li>
+                        <li><a href="clothing.html#bottoms" class="text-decoration-none text-muted">Джинсы и Брюки</a></li>
+                        <li><a href="shoesandacc.html" class="text-decoration-none text-muted">Кроссовки и Кеды</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-3">
+                    <h5 class="text-purple fw-bold">ПОКУПАТЕЛЯМ</h5>
+                    <ul class="list-unstyled text-muted small">
+                        <li><a href="order.html" class="text-decoration-none text-muted">Оформить заказ</a></li>
+                        <li><a href="colophon.html" class="text-decoration-none text-muted">Доставка и оплата</a></li>
+                        <li><a href="colophon.html" class="text-decoration-none text-muted">О проекте (Colophon)</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-3">
+                    <h5 class="text-purple fw-bold">КОНТАКТЫ</h5>
+                    <address class="text-muted small mb-0">
+                        <p class="mb-1">📍 Астана, ТД Гульжан 2 этаж 246 бутик</p>
+                        <p class="mb-1">📞 +7 (700) 645 5057</p>
+                        <p class="mb-0">✉️ support@aslstore.kz</p>
+                    </address>
+                </div>
+            </div>
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

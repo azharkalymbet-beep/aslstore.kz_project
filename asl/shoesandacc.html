@@ -3,248 +3,247 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Оригинальная спортивная обувь и аксессуары в магазине aslstore.kz. Кроссовки Nike, кепки, сумки в Астане.">
-    <meta name="author" content="Батыргали Акдана">
     <title>aslstore.kz — Обувь и аксессуары</title>
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/akdana.css">
+    <!-- Bootstrap v5.3.3 CDN CSS (Комментарий: используем версию Bootstrap 5.3.3) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/azhar.css">
 </head>
 <body>
-     <header>
-        <p align="center">
-            <small>
-                <strong>⚡ БЕСПЛАТНАЯ ДОСТАВКА ОТ 30 000 ₸</strong> &nbsp;|&nbsp; 
-                <mark><strong>УНИВЕРСАЛЬНЫЙ КРОЙ &bull; UNISEX</strong></mark> &nbsp;|&nbsp; 
-                <a href="order.html">Сделать заказ →</a>
-            </small>
-        </p>
-        <hr size="3" color="black">
 
-        <!-- Навигация и логотип -->
-        <table width="100%" border="0" cellpadding="5">
-            <tr>
-                <td width="30%">
-                    <h1>ASLSTORE<small><sup>.KZ</sup></small></h1>
-                </td>
-                <td width="70%" align="right">
-                    <nav>
-                        <a href="index.html"><strong>ГЛАВНАЯ</strong></a> &nbsp;&nbsp;|&nbsp;&nbsp;
-                        <a href="clothing.html">ОДЕЖДА</a> &nbsp;&nbsp;|&nbsp;&nbsp;
-                        <a href="shoesandacc.html">ОБУВЬ И АКСЕССУАРЫ</a> &nbsp;&nbsp;|&nbsp;&nbsp;
-                        <a href="order.html">ЗАКАЗ</a> &nbsp;&nbsp;|&nbsp;&nbsp;
-                        <a href="sale.html">СКИДКИ</a> &nbsp;&nbsp;|&nbsp;&nbsp;
-                        <a href="colophon.html">О НАС</a>
-                    </nav>
-                </td>
-            </tr>
-        </table>
-        <hr size="1" color="gray">
-    </header>
-    
+    <!-- Верхняя планка -->
+    <div class="container-fluid bg-white border-bottom py-2">
+        <div class="container d-flex justify-content-between align-items-center">
+            <small class="text-muted fw-bold">⚡ БЕСПЛАТНАЯ ДОСТАВКА ОТ 30 000 ₸</small>
+            <div>
+                <a href="order.html" class="text-decoration-none text-purple me-3">👤 Регистрация / Войти</a>
+                <a href="order.html" class="btn btn-sm btn-outline-purple">Корзина 🛒</a>
+            </div>
+        </div>
+    </div>
 
-    <main>
-        <section id="catalog-grid">
-    <h2 class="section-title"><p>Каталог обуви и аксессуаров aslstore.kz</p></h2>
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-purple" href="index.html">ASLSTORE<sup class="text-muted">.KZ</sup></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-3">
+                    <li class="nav-item"><a class="nav-link" href="index.html">ГЛАВНАЯ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="clothing.html">ОДЕЖДА</a></li>
+                    <li class="nav-item"><a class="nav-link active fw-bold text-purple" href="shoesandacc.html">ОБУВЬ И АКСЕССУАРЫ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="order.html">ЗАКАЗ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sale.html">СКИДКИ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="colophon.html">О НАС</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <!-- Таблица без рамок для создания сетки карточек -->
-    <table border="0" cellpadding="10" cellspacing="0">
-        <tbody>
-            <tr>
-                <!-- Карточка 1 -->
-                <td align="center" valign="top">
-                    <article class="product-card">
-                        <figure>
-                            <img src="imagess/NikeAF1.jpg" alt="Кроссовки NikeAF1 " width="180">
-                            <figcaption>
-                                <h3>Кроссовки NikeAF1 x Nocta</h3>
-                                <p><strong>19 900 ₸</strong></p>
-                                <p><small>Размер:37-41</small></p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </td>
-                <td align="center" valign="top">
-                    <article class="product-card">
-                        <figure>
-                            <img src="imagess/MMY-shoes.jpg" alt="Кроссовки MMY" width="180">
-                            <figcaption>
-                                <h3>Кроссовка MMY</h3>
-                                <p><strong>21 490 ₸</strong></p>
-                                <p><small>Размер:36-45</small></p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </td>
-
-                <!-- Карточка 2 -->
-                <td align="center" valign="top">
-                    <article class="product-card">
-                        <figure>
-                            <img src="imagess/corteiz-cap.jpg" alt="Кепка corteiz-cap" width="180">
-                            <figcaption>
-                                <h3>Кепка Corteiz Cap</h3>
-                                <p><strong>2 990 ₸</strong></p>
-                                <p><small>Размер:регулируемый</small></p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </td>
-            </tr>
-            <tr>  
-                <td align="center" valign="top">
-                    <article class="product-card">
-                        <figure>
-                            <img src="imagess/Compton-cap.jpg" alt="Кепка Compton-cap" width="180">
-                            <figcaption>
-                                <h3>Кепка Compton Cap</h3>
-                                <p><strong>3 490 ₸</strong></p>
-                                <p><small>размер:регулируемый</small></p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </td>
-
-                <!-- Карточка 4 -->
-                <td align="center" valign="top">
-                    <article class="product-card">
-                        <figure>
-                            <img src="imagess/Trapstar-bag.jpg" alt="Сумка Trapstar-bag" width="180">
-                            <figcaption>
-                                <h3>Сумка Trapstar Bag</h3>
-                                <p><strong>5 790 ₸</strong></p>
-                                <p><small>размер:регулируемый</small></p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </td>
-                <td align="center" valign="top">
-                    <article class="product-card">
-                        <figure>
-                            <img src="imagess/nike-bag.jpg" alt="Сумка nike-bag" width="180">
-                            <figcaption>
-                                <h3>Сумка Nike Bag</h3>
-                                <p><strong>4 490 ₸</strong></p>
-                                <p><small>размер:регулируемый</small></p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </td>
-            </tr>
-            <tr>
-
-                <td align="center" valign="top">
-                    <article class="product-card">
-                        <figure>
-                            <img src="imagess/pandora-spiderman.jpg" alt=" БраслетPandora" width="180">
-                            <figcaption>
-                                <h3>Браслет Pandora X Spider man </h3>
-                                <p><strong>7 990 ₸</strong></p>
-                                <p><small>размер:регулируемый</small></p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </td>
-                <td align="center" valign="top">
-                    <article class="product-card">
-                        <figure>
-                            <img src="imagess/LA-cap.jpg" alt="Кепка LA cap" width="180">
-                            <figcaption>
-                                <h3>Кепка LA Cap</h3>
-                                <p><strong>5 790 ₸</strong></p>
-                                <p><small>размер:регулируемый</small></p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </td>
-                <td align="center" valign="top">
-                    <article class="product-card">
-                        <figure>
-                            <img src="imagess/figure-1.jpg" alt="фигурки для пандоры браслет" width="180">
-                            <figcaption>
-                                <h3>Фигурка для Pandora браслет</h3>
-                                <p><strong>1 990 ₸</strong></p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </td>
-            </tr>
-            <tr>
-                <td align="center" valign="top">
-                    <article class="product-card">
-                        <figure>
-                            <img src="imagess/figure-2.jpg" alt="фигурки для пандоры браслет" width="180">
-                            <figcaption>
-                                <h3>Фигурка для Pandora браслет</h3>
-                                <p><strong>1990 ₸</strong></p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </td>
-                <td align="center" valign="top">
-                    <article class="product-card">
-                        <figure>
-                            <img src="imagess/figure-3.jpg" alt="фигурки для пандоры браслет" width="180">
-                            <figcaption>
-                                <h3>Фигурка для Pandora браслет</h3>
-                                <p><strong>1990 ₸</strong></p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </td>
-                <td align="center" valign="top">
-                    <article class="product-card">
-                        <figure>
-                            <img src="imagess/figure-4.jpg" alt="фигурки для пандоры браслет" width="180">
-                            <figcaption>
-                                <h3>Фигурка для Pandora браслет</h3>
-                                <p><strong>1990 ₸</strong></p>
-                            </figcaption>
-                        </figure>
-                    </article>
-                </td>
-            </tr>
-
-        </tbody>
-    </table>
-</section>
+    <main class="container my-5">
         
+        <section class="p-4 bg-white rounded shadow-sm text-center mb-5">
+            <h2 class="text-purple fw-bold">Каталог обуви и аксессуаров aslstore.kz</h2>
+            <p class="text-muted mb-0">Оригинальная спортивная обувь и аксессуары в Астане.</p>
+        </section>
+
+        <!-- Сетка карточек Bootstrap -->
+        <div class="row g-4">
+            
+            <!-- 1 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm border-0 product-card p-3">
+                    <img src="imagess/NikeAF1.jpg" class="card-img-top mx-auto product-img" alt="Кроссовки NikeAF1">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h5 class="card-title text-purple fw-bold">Кроссовки NikeAF1 x Nocta</h5>
+                        <p class="text-muted small">Размер: 37-41</p>
+                        <p class="fs-5 fw-bold text-purple mb-3">19 900 ₸</p>
+                        <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm border-0 product-card p-3">
+                    <img src="imagess/MMY-shoes.jpg" class="card-img-top mx-auto product-img" alt="Кроссовки MMY">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h5 class="card-title text-purple fw-bold">Кроссовка MMY</h5>
+                        <p class="text-muted small">Размер: 36-45</p>
+                        <p class="fs-5 fw-bold text-purple mb-3">21 490 ₸</p>
+                        <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm border-0 product-card p-3">
+                    <img src="imagess/corteiz-cap.jpg" class="card-img-top mx-auto product-img" alt="Кепка corteiz-cap">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h5 class="card-title text-purple fw-bold">Кепка Corteiz Cap</h5>
+                        <p class="text-muted small">Размер: регулируемый</p>
+                        <p class="fs-5 fw-bold text-purple mb-3">2 990 ₸</p>
+                        <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm border-0 product-card p-3">
+                    <img src="imagess/Compton-cap.jpg" class="card-img-top mx-auto product-img" alt="Кепка Compton-cap">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h5 class="card-title text-purple fw-bold">Кепка Compton Cap</h5>
+                        <p class="text-muted small">Размер: регулируемый</p>
+                        <p class="fs-5 fw-bold text-purple mb-3">3 490 ₸</p>
+                        <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm border-0 product-card p-3">
+                    <img src="imagess/Trapstar-bag.jpg" class="card-img-top mx-auto product-img" alt="Сумка Trapstar-bag">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h5 class="card-title text-purple fw-bold">Сумка Trapstar Bag</h5>
+                        <p class="text-muted small">Размер: регулируемый</p>
+                        <p class="fs-5 fw-bold text-purple mb-3">5 790 ₸</p>
+                        <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm border-0 product-card p-3">
+                    <img src="imagess/nike-bag.jpg" class="card-img-top mx-auto product-img" alt="Сумка nike-bag">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h5 class="card-title text-purple fw-bold">Сумка Nike Bag</h5>
+                        <p class="text-muted small">Размер: регулируемый</p>
+                        <p class="fs-5 fw-bold text-purple mb-3">4 490 ₸</p>
+                        <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm border-0 product-card p-3">
+                    <img src="imagess/pandora-spiderman.jpg" class="card-img-top mx-auto product-img" alt="Браслет Pandora">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h5 class="card-title text-purple fw-bold">Браслет Pandora X Spider man</h5>
+                        <p class="text-muted small">Размер: регулируемый</p>
+                        <p class="fs-5 fw-bold text-purple mb-3">7 990 ₸</p>
+                        <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm border-0 product-card p-3">
+                    <img src="imagess/LA-cap.jpg" class="card-img-top mx-auto product-img" alt="Кепка LA cap">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h5 class="card-title text-purple fw-bold">Кепка LA Cap</h5>
+                        <p class="text-muted small">Размер: регулируемый</p>
+                        <p class="fs-5 fw-bold text-purple mb-3">5 790 ₸</p>
+                        <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm border-0 product-card p-3">
+                    <img src="imagess/figure-1.jpg" class="card-img-top mx-auto product-img" alt="фигурки для пандоры браслет">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h5 class="card-title text-purple fw-bold">Фигурка для Pandora браслет</h5>
+                        <p class="fs-5 fw-bold text-purple mb-3">1 990 ₸</p>
+                        <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm border-0 product-card p-3">
+                    <img src="imagess/figure-2.jpg" class="card-img-top mx-auto product-img" alt="фигурки для пандоры браслет">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h5 class="card-title text-purple fw-bold">Фигурка для Pandora браслет</h5>
+                        <p class="fs-5 fw-bold text-purple mb-3">1 990 ₸</p>
+                        <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 11 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm border-0 product-card p-3">
+                    <img src="imagess/figure-3.jpg" class="card-img-top mx-auto product-img" alt="фигурки для пандоры браслет">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h5 class="card-title text-purple fw-bold">Фигурка для Pandora браслет</h5>
+                        <p class="fs-5 fw-bold text-purple mb-3">1 990 ₸</p>
+                        <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 12 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm border-0 product-card p-3">
+                    <img src="imagess/figure-4.jpg" class="card-img-top mx-auto product-img" alt="фигурки для пандоры браслет">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h5 class="card-title text-purple fw-bold">Фигурка для Pandora браслет</h5>
+                        <p class="fs-5 fw-bold text-purple mb-3">1 990 ₸</p>
+                        <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </main>
-    <footer>
-        <hr size="3" color="black">
-        <table width="100%" border="0" cellpadding="10">
-            <tr valign="top">
-                <td width="30%">
-                    <h4>ASLSTORE.KZ</h4>
-                    <p><small>Официальный интернет-магазин унисекс одежды, обуви и аксессуаров.</small></p>
-                    <p><small>&copy; 2026 ASLSTORE.KZ. Все права защищены.</small></p>
-                </td>
-                <td width="20%">
-                    <h4>КАТАЛОГ</h4>
-                    <ul>
-                        <li><a href="clothing.html#tops">Футболки и Поло</a></li>
-                        <li><a href="clothing.html#outerwear">Куртки и Пуховики</a></li>
-                        <li><a href="clothing.html#bottoms">Джинсы и Брюки</a></li>
-                        <li><a href="shoesandacc.html">Кроссовки и Кеды</a></li>
+
+    <!-- Подвал -->
+    <footer class="bg-white border-top mt-5">
+        <div class="container py-4">
+            <div class="row g-4">
+                <div class="col-12 col-md-3">
+                    <h5 class="text-purple fw-bold">ASLSTORE.KZ</h5>
+                    <p class="text-muted small">Официальный интернет-магазин унисекс одежды, обуви и аксессуаров.</p>
+                    <p class="text-muted small">&copy; 2026 ASLSTORE.KZ. Все права защищены.</p>
+                </div>
+                <div class="col-12 col-md-3">
+                    <h5 class="text-purple fw-bold">КАТАЛОГ</h5>
+                    <ul class="list-unstyled text-muted small">
+                        <li><a href="clothing.html#tops" class="text-decoration-none text-muted">Футболки и Поло</a></li>
+                        <li><a href="clothing.html#outerwear" class="text-decoration-none text-muted">Куртки и Пуховики</a></li>
+                        <li><a href="clothing.html#bottoms" class="text-decoration-none text-muted">Джинсы и Брюки</a></li>
+                        <li><a href="shoesandacc.html" class="text-decoration-none text-muted">Кроссовки и Кеды</a></li>
                     </ul>
-                </td>
-                <td width="25%">
-                    <h4>ПОКУПАТЕЛЯМ</h4>
-                    <ul>
-                        <li><a href="order.html">Оформить заказ</a></li>
-                        <li><a href="colophon.html">Доставка и оплата</a></li>
-                        <li><a href="colophon.html">О проекте (Colophon)</a></li>
+                </div>
+                <div class="col-12 col-md-3">
+                    <h5 class="text-purple fw-bold">ПОКУПАТЕЛЯМ</h5>
+                    <ul class="list-unstyled text-muted small">
+                        <li><a href="order.html" class="text-decoration-none text-muted">Оформить заказ</a></li>
+                        <li><a href="colophon.html" class="text-decoration-none text-muted">Доставка и оплата</a></li>
+                        <li><a href="colophon.html" class="text-decoration-none text-muted">О проекте (Colophon)</a></li>
                     </ul>
-                </td>
-                <td width="25%">
-                    <h4>КОНТАКТЫ</h4>
-                    <address>
-                        <p><small>📍 Астана,ТД Гульжан 2 этаж 246 бутик</small></p>
-                        <p><small>📞 +7 (700) 645 5057</small></p>
-                        <p><small>✉️ support@aslstore.kz</small></p>
+                </div>
+                <div class="col-12 col-md-3">
+                    <h5 class="text-purple fw-bold">КОНТАКТЫ</h5>
+                    <address class="text-muted small mb-0">
+                        <p class="mb-1">📍 Астана, ТД Гульжан 2 этаж 246 бутик</p>
+                        <p class="mb-1">📞 +7 (700) 645 5057</p>
+                        <p class="mb-0">✉️ support@aslstore.kz</p>
                     </address>
-                </td>
-            </tr>
-        </table>
+                </div>
+            </div>
+        </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

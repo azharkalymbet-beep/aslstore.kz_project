@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <!-- Bootstrap v5.3.3 CDN CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/akdana.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>О сайте (Колофон) — ASLSTORE.KZ</title>
+    <!-- Bootstrap v5.3.3 CDN CSS (Комментарий: используем версию Bootstrap 5.3.3) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/azhar.css">
 </head>
 <body>
 
-    <!-- Верхняя планка -->
+    <!-- Комментарий: Использован container-fluid для верха -->
     <div class="container-fluid bg-white border-bottom py-2">
         <div class="container d-flex justify-content-between align-items-center">
-            <small class="text-muted"><strong>⚡ БЕСПЛАТНАЯ ДОСТАВКА ОТ 30 000 ₸</strong></small>
+            <small class="text-muted fw-bold">⚡ БЕСПЛАТНАЯ ДОСТАВКА ОТ 30 000 ₸</small>
             <div>
-                <span class="me-3">
-                    <a href="order.html" class="text-decoration-none text-purple">👤 Регистрация / Войти</a>
-                </span>
+                <a href="order.html" class="text-decoration-none text-purple me-3">👤 Регистрация / Войти</a>
                 <a href="order.html" class="btn btn-sm btn-outline-purple">Корзина 🛒</a>
             </div>
         </div>
@@ -55,21 +52,21 @@
 
         <div class="row g-4">
             <!-- Информация о проекте -->
-            <div class="col-lg-6">
+            <div class="col-12 col-lg-6">
                 <div class="bg-white p-4 rounded shadow-sm h-100">
                     <h4 class="text-purple fw-bold mb-3">📍 Информация о проекте и авторстве</h4>
-                    <p class="text-muted">
+                    <p class="text-muted mb-0">
                         Данный веб-сайт разработан в рамках учебного курса по веб-технологиям для интернет-магазина <strong>aslstore.kz</strong>, расположенного по адресу: <em>г. Астана, ТД «Гүлжан», 2 этаж, бутик 246</em>.
                     </p>
                 </div>
             </div>
 
             <!-- Использованные технологии -->
-            <div class="col-lg-6">
+            <div class="col-12 col-lg-6">
                 <div class="bg-white p-4 rounded shadow-sm h-100">
                     <h4 class="text-purple fw-bold mb-3">🛠️ Использованные технологии и стандарты</h4>
                     <ul class="list-unstyled text-muted mb-0">
-                        <li class="mb-2"><strong>Стандарт верстки:</strong> Чистый HTML5 & CSS3 (без JavaScript).</li>
+                        <li class="mb-2"><strong>Стандарт верстки:</strong> Чистый HTML5, CSS3 & Bootstrap v5.3.3 (без JavaScript).</li>
                         <li class="mb-2"><strong>Валидация:</strong> Код проверен и соответствует спецификации W3C HTML5 Validator.</li>
                         <li class="mb-2"><strong>Семантические теги:</strong> <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;footer&gt;</code>.</li>
                         <li class="mb-0"><strong>Инструменты разработки:</strong> Visual Studio Code, Git, GitHub Pages.</li>
@@ -139,45 +136,44 @@
 
     </main>
 
-    <!-- Подвал страницы -->
+    <!-- Подвал -->
     <footer class="bg-white border-top mt-5">
         <div class="container py-4">
-            <table width="100%" border="0" cellpadding="10">
-                <tr valign="top">
-                    <td width="30%">
-                        <h4 class="text-purple fw-bold">ASLSTORE.KZ</h4>
-                        <p><small class="text-muted">Официальный интернет-магазин унисекс одежды, обуви и аксессуаров.</small></p>
-                        <p><small class="text-muted">&copy; 2026 ASLSTORE.KZ. Все права защищены.</small></p>
-                    </td>
-                    <td width="20%">
-                        <h4 class="text-purple fw-bold">КАТАЛОГ</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="clothing.html#tops" class="text-decoration-none text-muted">Футболки и Поло</a></li>
-                            <li><a href="clothing.html#outerwear" class="text-decoration-none text-muted">Куртки и Пуховики</a></li>
-                            <li><a href="clothing.html#bottoms" class="text-decoration-none text-muted">Джинсы и Брюки</a></li>
-                            <li><a href="shoesandacc.html" class="text-decoration-none text-muted">Кроссовки и Кеды</a></li>
-                        </ul>
-                    </td>
-                    <td width="25%">
-                        <h4 class="text-purple fw-bold">ПОКУПАТЕЛЯМ</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="order.html" class="text-decoration-none text-muted">Оформить заказ</a></li>
-                            <li><a href="colophon.html" class="text-decoration-none text-muted">Доставка и оплата</a></li>
-                            <li><a href="colophon.html" class="text-decoration-none text-muted">О проекте (Colophon)</a></li>
-                        </ul>
-                    </td>
-                    <td width="25%">
-                        <h4 class="text-purple fw-bold">КОНТАКТЫ</h4>
-                        <address class="text-muted">
-                            <p><small>📍 Астана, ТД Гульжан 2 этаж 246 бутик</small></p>
-                            <p><small>📞 +7 (700) 645 5057</small></p>
-                            <p><small>✉️ support@aslstore.kz</small></p>
-                        </address>
-                    </td>
-                </tr>
-            </table>
+            <div class="row g-4">
+                <div class="col-12 col-md-3">
+                    <h5 class="text-purple fw-bold">ASLSTORE.KZ</h5>
+                    <p class="text-muted small">Официальный интернет-магазин унисекс одежды, обуви и аксессуаров.</p>
+                    <p class="text-muted small">&copy; 2026 ASLSTORE.KZ. Все права защищены.</p>
+                </div>
+                <div class="col-12 col-md-3">
+                    <h5 class="text-purple fw-bold">КАТАЛОГ</h5>
+                    <ul class="list-unstyled text-muted small">
+                        <li><a href="clothing.html#tops" class="text-decoration-none text-muted">Футболки и Поло</a></li>
+                        <li><a href="clothing.html#outerwear" class="text-decoration-none text-muted">Куртки и Пуховики</a></li>
+                        <li><a href="clothing.html#bottoms" class="text-decoration-none text-muted">Джинсы и Брюки</a></li>
+                        <li><a href="shoesandacc.html" class="text-decoration-none text-muted">Кроссовки и Кеды</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-3">
+                    <h5 class="text-purple fw-bold">ПОКУПАТЕЛЯМ</h5>
+                    <ul class="list-unstyled text-muted small">
+                        <li><a href="order.html" class="text-decoration-none text-muted">Оформить заказ</a></li>
+                        <li><a href="colophon.html" class="text-decoration-none text-muted">Доставка и оплата</a></li>
+                        <li><a href="colophon.html" class="text-decoration-none text-muted">О проекте (Colophon)</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-3">
+                    <h5 class="text-purple fw-bold">КОНТАКТЫ</h5>
+                    <address class="text-muted small mb-0">
+                        <p class="mb-1">📍 Астана, ТД Гульжан 2 этаж 246 бутик</p>
+                        <p class="mb-1">📞 +7 (700) 645 5057</p>
+                        <p class="mb-0">✉️ support@aslstore.kz</p>
+                    </address>
+                </div>
+            </div>
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
