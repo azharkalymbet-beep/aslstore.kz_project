@@ -1,86 +1,42 @@
+/* base.css — общие цвета бренда. Всё остальное оформление сделано классами Bootstrap. */
 :root {
-  --font-main: "Helvetica Neue", Arial, sans-serif;
-  --font-heading: "Georgia", Times, serif;
+    --purple: #6b46c1;
+    --purple-dark: #553c9a;
+    --purple-light: #e9d8fd;
 }
 
-/* Основной фон и типографика */
 body {
-  font-family: var(--font-main);
-  font-size: 16px;
-  line-height: 1.6;
-  letter-spacing: 0.5px;
-  background-color: #fdfbf7;
-  color: #2c2a29;
+    background-color: #fcfaff;
 }
 
-/* Заголовки */
-h1, h2, h3, h4 {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: #2c2a29;
+/* Фиолетовый цвет бренда (в Bootstrap такого цвета нет) */
+.text-purple { color: var(--purple) !important; }
+.bg-purple { background-color: var(--purple) !important; }
+
+.btn-purple {
+    --bs-btn-bg: var(--purple);
+    --bs-btn-border-color: var(--purple);
+    --bs-btn-color: #ffffff;
+    --bs-btn-hover-bg: var(--purple-dark);
+    --bs-btn-hover-border-color: var(--purple-dark);
+    --bs-btn-hover-color: #ffffff;
+    --bs-btn-active-bg: var(--purple-dark);
+    --bs-btn-disabled-bg: var(--purple);
+    --bs-btn-disabled-border-color: var(--purple);
 }
 
-/* Стили шапки и подвала */
-header {
-  background-color: #5b3df5; 
-  color: #ffffff;
-  padding: 12px 20px;
-  border-bottom: 3px solid #e8deff;
+.btn-outline-purple {
+    --bs-btn-color: var(--purple);
+    --bs-btn-border-color: var(--purple);
+    --bs-btn-hover-bg: var(--purple);
+    --bs-btn-hover-border-color: var(--purple);
+    --bs-btn-hover-color: #ffffff;
+    --bs-btn-active-bg: var(--purple-dark);
+    --bs-btn-active-color: #ffffff;
 }
 
-header p small,
-header h1,
-header h1 small,
-.site-logo {
-  color: #ffffff;
-}
-
-header a {
-  color: #fdfbf7;
-  text-decoration: underline;
-}
-
-nav a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 14px;
-  transition: opacity 0.2s ease;
-}
-
-nav a:hover {
-  opacity: 0.85;
-  color: #fdfbf7;
-}
-
-nav a:focus {
-  outline: 2px solid teal;
-  outline-offset: 3px;
-}
-
-footer {
-  background-color: #6632e0;
-  color: #ffffff;
-  padding: 30px 20px;
-  margin-top: 40px;
-}
-
-footer,
-footer p,
-footer span,
-footer li,
-footer td,
-footer address,
-footer a,
-footer h1, 
-footer h2, 
-footer h3, 
-footer h4 {
-  color: #ffffff;
-}
-
-footer a:hover {
-  color: #fdfbf7;
-  text-decoration: underline;
+/* Активная страница в меню */
+.navbar .nav-link.active {
+    color: var(--purple);
+    font-weight: 700;
 }

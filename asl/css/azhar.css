@@ -1,99 +1,17 @@
-:root {
-    --purple-primary: #6b46c1;
-    --purple-hover: #553c9a;
-    --purple-light: #f3e8ff;
-    --purple-bg: #faf5ff;
-    --purple-border: #e9d8fd;
-    --text-dark: #2d3748;
-}
 
-body {
-    background-color: #fcfaff;
-    color: var(--text-dark);
-}
-
-/* Фирменный стиль элементов */
 .product-card {
-    background: #ffffff;
-    border: 1px solid var(--purple-border);
+    border: 1px solid var(--purple-light) !important;
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(107, 70, 193, 0.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
+ 
 .product-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 20px rgba(107, 70, 193, 0.15);
-    border-color: var(--purple-primary);
 }
-
+ 
 .product-img {
     max-height: 200px;
     object-fit: contain;
 }
-
-.price-tag {
-    font-size: 1.15rem;
-    font-weight: bold;
-    color: var(--purple-primary);
-}
-
-.badge-discount, .promo-badge {
-    background-color: var(--purple-primary);
-    color: #ffffff;
-    padding: 3px 8px;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    font-weight: bold;
-}
-
-#hero-banner {
-    background: linear-gradient(135deg, #6b46c1 0%, #805ad5 50%, #b794f4 100%);
-    color: #ffffff;
-    padding: 35px 25px;
-    border-radius: 14px;
-    margin-bottom: 25px;
-    box-shadow: 0 4px 15px rgba(107, 70, 193, 0.2);
-}
-
-#hero-banner h2, .catalog-title {
-    color: #ffffff;
-    margin-top: 8px;
-}
-
-.info-box {
-    background-color: var(--purple-bg);
-    border: 1px solid var(--purple-border);
-    border-radius: 12px;
-    padding: 20px;
-}
-
-/* Дополнительные кастомные классы */
-.text-purple { 
-    color: var(--purple-primary) !important; 
-}
-
-.bg-purple { 
-    background-color: var(--purple-primary) !important; 
-}
-
-.btn-purple {
-    background-color: var(--purple-primary);
-    color: #ffffff;
-    border: none;
-}
-
-.btn-purple:hover {
-    background-color: var(--purple-hover);
-    color: #ffffff;
-}
-
-.btn-outline-purple {
-    color: var(--purple-primary);
-    border-color: var(--purple-primary);
-}
-
-.btn-outline-purple:hover {
-    background-color: var(--purple-primary);
-    color: #ffffff;
-}
+ 

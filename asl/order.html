@@ -3,172 +3,371 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Оформить заказ — ASLSTORE.KZ</title>
-    <!-- Bootstrap v5.3.3 CDN CSS (Комментарий: используем версию Bootstrap 5.3.3) -->
+    <meta name="description" content="ASLSTORE.KZ — унисекс одежда, обувь и аксессуары. Астана, ТД «Гулжан», бутик 246.">
+    <title>Корзина и заказ — ASLSTORE.KZ</title>
+    <!-- Bootstrap 5.3.3 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Свои стили: base — цвета бренда, azhar — каталог, akdana — корзина и оплата -->
+    <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/azhar.css">
+    <link rel="stylesheet" href="css/akdana.css">
 </head>
 <body>
 
-    <!-- Комментарий: Использован container-fluid для верхней планки -->
-    <div class="container-fluid bg-white border-bottom py-2">
-        <div class="container d-flex justify-content-between align-items-center">
-            <small class="text-muted fw-bold">⚡ БЕСПЛАТНАЯ ДОСТАВКА ОТ 30 000 ₸</small>
-            <div>
-                <a href="order.html" class="text-decoration-none text-purple me-3">👤 Регистрация / Войти</a>
-                <a href="order.html" class="btn btn-sm btn-outline-purple active">Корзина 🛒</a>
+    <!-- Шапка: верхняя планка + навигация -->
+    <header class="sticky-top">
+        <!-- container-fluid: планка на всю ширину экрана -->
+        <div class="container-fluid bg-white border-bottom py-2">
+            <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+                <small class="text-muted fw-bold">БЕСПЛАТНАЯ ДОСТАВКА ПО АСТАНЕ ОТ 30 000 ₸</small>
+                <div class="d-flex align-items-center gap-3">
+                    <a href="order.html#account" id="account-link" class="text-decoration-none text-purple fw-bold small"><span id="account-name">Войти / Регистрация</span></a>
+                    <a href="order.html" id="cart-link" class="btn btn-sm btn-outline-purple">Корзина <span id="cart-count" class="badge bg-purple">0</span></a>
+                </div>
             </div>
         </div>
-    </div>
-
-    <!-- Навигация -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold text-purple" href="index.html">ASLSTORE<sup class="text-muted">.KZ</sup></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav gap-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm" aria-label="Главное меню">
+            <div class="container">
+                <a class="navbar-brand fw-bold text-purple" href="index.html">ASLSTORE<sup class="text-muted">.KZ</sup></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Открыть меню">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav gap-lg-3">
                     <li class="nav-item"><a class="nav-link" href="index.html">ГЛАВНАЯ</a></li>
                     <li class="nav-item"><a class="nav-link" href="clothing.html">ОДЕЖДА</a></li>
                     <li class="nav-item"><a class="nav-link" href="shoesandacc.html">ОБУВЬ И АКСЕССУАРЫ</a></li>
-                    <li class="nav-item"><a class="nav-link active fw-bold text-purple" href="order.html">ЗАКАЗ</a></li>
                     <li class="nav-item"><a class="nav-link" href="sale.html">СКИДКИ</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="order.html" aria-current="page">КОРЗИНА</a></li>
                     <li class="nav-item"><a class="nav-link" href="colophon.html">О НАС</a></li>
-                </ul>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
+<main class="container my-4">
+        <!-- Навигация назад: хлебные крошки + кнопка «Назад» (Bootstrap breadcrumb) -->
+        <nav class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4" aria-label="Навигационная цепочка">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="index.html" class="link-secondary">Главная</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Корзина и заказ</li>
+            </ol>
+            <a href="index.html" class="btn btn-sm btn-outline-secondary js-back">← Назад</a>
+        </nav>
 
-    <!-- Комментарий: Использован обычный container для удобной ширины формы -->
-    <main class="container my-5">
-        
-        <section class="p-4 bg-white rounded shadow-sm text-center mb-4">
-            <h2 class="text-purple fw-bold">🛒 ОФОРМЛЕНИЕ ЗАКАЗА</h2>
-            <p class="text-muted mb-0">Заполните контактные данные и выберите удобный способ оплаты.</p>
+
+        <section class="p-4 bg-white rounded shadow-sm text-center mb-5">
+            <h1 class="h2 text-purple fw-bold">КОРЗИНА И ОФОРМЛЕНИЕ ЗАКАЗА</h1>
+            <p class="text-muted mb-0">Корзина, данные получателя, оплата — заказ оформляется после оплаты.</p>
         </section>
 
-        <form action="index.html" method="get">
+        <noscript><div class="alert alert-warning">Для корзины, входа и заказа включите JavaScript в браузере.</div></noscript>
+        <!-- Шаги оформления -->
+        <ol id="checkout-steps" class="checkout-steps d-flex gap-2 list-unstyled small text-muted mb-5" aria-label="Шаги оформления заказа">
+            <li id="step-cart" class="flex-fill pt-2 active">1. Корзина</li>
+            <li id="step-details" class="flex-fill pt-2">2. Данные</li>
+            <li id="step-pay" class="flex-fill pt-2">3. Оплата</li>
+            <li id="step-done" class="flex-fill pt-2">4. Готово</li>
+        </ol>
+
+        <!-- Подтверждение заказа (показывается после оформления) -->
+        <section id="order-success" class="p-4 p-md-5 bg-white rounded shadow-sm text-center border-start border-success border-5 mb-5 d-none" tabindex="-1">
+            <h2 id="success-title" class="h3 text-purple fw-bold mb-3">Заказ оформлен!</h2>
+            <p id="success-text" class="lead"></p>
+            <div id="order-details" class="text-start mx-auto mt-3 col-lg-8"></div>
+            <p class="text-muted mt-3">Вопросы по заказу: <a href="tel:+77006455057">+7 (700) 645 50 57</a> · Ежедневно 10:00–20:00</p>
+            <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
+                <a href="#account" class="btn btn-purple">Мои заказы</a>
+                <a href="clothing.html" class="btn btn-outline-purple">Продолжить покупки</a>
+            </div>
+        </section>
+
+        <div id="checkout-area" class="row g-4">
+
+            <!-- Левая колонка: товары и форма -->
+            <div class="col-12 col-lg-7">
+
+                <section id="cart-section" class="bg-white p-4 rounded shadow-sm mb-4">
+                    <h2 class="h4 text-purple fw-bold mb-3">Товары в корзине</h2>
+                    <ul id="cart-items" class="list-unstyled mb-0"></ul>
+                    <div id="cart-empty" class="text-center py-4 d-none">
+                        <p class="mb-3">Корзина пуста.</p>
+                        <a href="clothing.html" class="btn btn-purple">Перейти в каталог</a>
+                    </div>
+                </section>
+
+                <section id="login-required" class="bg-light border rounded-3 p-4 mb-4 d-none">
+                    <h2 class="h5 text-purple fw-bold">Войдите, чтобы оформить заказ</h2>
+                    <p class="mb-3">Корзина сохранится. После входа данные подставятся в форму, а заказ появится в «Моих заказах».</p>
+                    <a href="#account" class="btn btn-purple">Войти или зарегистрироваться ↓</a>
+                </section>
+
+                <form id="checkout-form" class="bg-white p-4 rounded shadow-sm d-none" novalidate>
+                    <h2 class="h4 text-purple fw-bold mb-4">Данные получателя</h2>
+                    <div id="checkout-error" class="alert alert-danger d-none" role="alert">Проверьте поля, выделенные красным.</div>
+
+                    <div class="mb-3">
+                        <label for="fullName" class="form-label fw-bold small">Имя и фамилия</label>
+                        <input type="text" id="fullName" name="fullName" class="form-control" autocomplete="name">
+                        <div class="invalid-feedback" id="fullName-error">Введите имя (минимум 2 буквы).</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label fw-bold small">Телефон</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="+7 700 000 00 00" autocomplete="tel">
+                        <div class="invalid-feedback" id="phone-error">Введите номер: 11 цифр, например +7 700 000 00 00.</div>
+                    </div>
+
+                    <fieldset class="mb-3">
+                        <legend class="h5 text-purple fw-bold mb-3 border-top pt-3">Получение</legend>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="delivery" id="delivery-courier" value="courier" checked>
+                            <label class="form-check-label" for="delivery-courier">Курьер по Астане (1 500 ₸, бесплатно от 30 000 ₸)</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="delivery" id="delivery-pickup" value="pickup">
+                            <label class="form-check-label" for="delivery-pickup">Самовывоз: ТД «Гулжан», бутик 246 (бесплатно)</label>
+                        </div>
+                    </fieldset>
+                    <div class="mb-3" id="address-block">
+                        <label for="address" class="form-label fw-bold small">Адрес доставки</label>
+                        <input type="text" id="address" name="address" class="form-control" placeholder="Астана, ул. Достык 10, кв. 5" autocomplete="street-address">
+                        <div class="invalid-feedback" id="address-error">Укажите адрес для курьера.</div>
+                    </div>
+
+                    <div class="mb-0">
+                        <label for="comment" class="form-label fw-bold small">Комментарий (необязательно)</label>
+                        <textarea id="comment" name="comment" class="form-control" rows="2" maxlength="300" placeholder="Например: позвоните за час"></textarea>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Правая колонка: итог -->
+            <div class="col-12 col-lg-5">
+                <aside id="order-summary" class="bg-white p-4 rounded shadow-sm order-summary">
+                    <h2 class="h4 text-purple fw-bold mb-4">Итог заказа</h2>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="text-muted">Товары (<span id="summary-count">0</span> шт.):</span>
+                        <strong id="subtotal">0 ₸</strong>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="text-muted">Доставка:</span>
+                        <strong id="delivery-cost">0 ₸</strong>
+                    </div>
+                    <p id="free-delivery-hint" class="small text-success d-none"></p>
+                    <hr>
+                    <div class="d-flex justify-content-between mb-4">
+                        <span class="fs-5 fw-bold">Итого:</span>
+                        <strong id="order-total" class="fs-4 text-purple">0 ₸</strong>
+                    </div>
+                    <button type="submit" form="checkout-form" id="order-submit" class="btn btn-purple btn-lg w-100 fw-bold" disabled>Перейти к оплате</button>
+                    <p id="submit-hint" class="text-muted small mt-2 mb-0">Добавьте товары в корзину.</p>
+                </aside>
+            </div>
+        </div>
+
+        <!-- Шаг «Оплата» -->
+        <section id="payment-section" class="d-none" tabindex="-1">
             <div class="row g-4">
-                
-                <!-- Левая колонка: Форма данных покупателя и выбор оплаты -->
                 <div class="col-12 col-lg-7">
                     <div class="bg-white p-4 rounded shadow-sm">
-                        <h4 class="text-purple fw-bold mb-4">📋 Данные покупателя</h4>
-                        
-                        <div class="mb-3">
-                            <label for="fullName" class="form-label fw-bold text-purple small">ФИО полностью:</label>
-                            <input type="text" class="form-control" id="fullName" placeholder="Иванов Иван Иванович" required>
-                        </div>
+                        <h2 class="h4 text-purple fw-bold mb-3">Способ оплаты</h2>
+                        <div id="payment-error" class="alert alert-danger d-none" role="alert">Выберите способ оплаты.</div>
+                        <form id="payment-form" novalidate>
+                            <fieldset>
+                                <legend class="visually-hidden">Способ оплаты</legend>
+                                <div class="d-grid gap-2">
+                                    <label class="pay-option d-flex align-items-center gap-3 p-3 border rounded-3 bg-white" for="pay-kaspi">
+                                        <input class="form-check-input mt-0" type="radio" name="payment" id="pay-kaspi" value="kaspi">
+                                        <span class="pay-logo d-inline-flex align-items-center justify-content-center flex-shrink-0 rounded-3 text-white fw-bold position-relative overflow-hidden" style="background:#F14635">K<img src="imagess/pay/kaspi.png" alt="" class="position-absolute top-0 start-0 w-100 h-100 object-fit-contain bg-white"></span>
+                                        <span class="d-flex flex-column"><strong>Kaspi.kz</strong><small class="text-muted">Kaspi Gold, Kaspi Red, рассрочка 0-0-12</small></span>
+                                    </label>
+                                    <label class="pay-option d-flex align-items-center gap-3 p-3 border rounded-3 bg-white" for="pay-halyk">
+                                        <input class="form-check-input mt-0" type="radio" name="payment" id="pay-halyk" value="halyk">
+                                        <span class="pay-logo d-inline-flex align-items-center justify-content-center flex-shrink-0 rounded-3 text-white fw-bold position-relative overflow-hidden" style="background:#00805F">H<img src="imagess/pay/halyk.png" alt="" class="position-absolute top-0 start-0 w-100 h-100 object-fit-contain bg-white"></span>
+                                        <span class="d-flex flex-column"><strong>Halyk Bank</strong><small class="text-muted">Оплата через приложение Homebank</small></span>
+                                    </label>
+                                    <label class="pay-option d-flex align-items-center gap-3 p-3 border rounded-3 bg-white" for="pay-freedom">
+                                        <input class="form-check-input mt-0" type="radio" name="payment" id="pay-freedom" value="freedom">
+                                        <span class="pay-logo d-inline-flex align-items-center justify-content-center flex-shrink-0 rounded-3 text-white fw-bold position-relative overflow-hidden" style="background:#6CB33F">F<img src="imagess/pay/freedom.png" alt="" class="position-absolute top-0 start-0 w-100 h-100 object-fit-contain bg-white"></span>
+                                        <span class="d-flex flex-column"><strong>Freedom Bank</strong><small class="text-muted">Оплата через приложение Freedom</small></span>
+                                    </label>
+                                    <label class="pay-option d-flex align-items-center gap-3 p-3 border rounded-3 bg-white" for="pay-applepay">
+                                        <input class="form-check-input mt-0" type="radio" name="payment" id="pay-applepay" value="applepay">
+                                        <span class="pay-logo d-inline-flex align-items-center justify-content-center flex-shrink-0 rounded-3 text-white fw-bold position-relative overflow-hidden" style="background:#000000">A<img src="imagess/pay/applepay.png" alt="" class="position-absolute top-0 start-0 w-100 h-100 object-fit-contain bg-white"></span>
+                                        <span class="d-flex flex-column"><strong>Apple Pay</strong><small class="text-muted">Подтверждение Face ID или Touch ID</small></span>
+                                    </label>
+                                    <label class="pay-option d-flex align-items-center gap-3 p-3 border rounded-3 bg-white" for="pay-card">
+                                        <input class="form-check-input mt-0" type="radio" name="payment" id="pay-card" value="card">
+                                        <span class="pay-logo d-inline-flex align-items-center justify-content-center flex-shrink-0 rounded-3 text-white fw-bold position-relative overflow-hidden" style="background:#1A1F71">V<img src="imagess/pay/card.png" alt="" class="position-absolute top-0 start-0 w-100 h-100 object-fit-contain bg-white"></span>
+                                        <span class="d-flex flex-column"><strong>Банковская карта</strong><small class="text-muted">Visa, Mastercard — на защищённой странице банка</small></span>
+                                    </label>
+                                    <label class="pay-option d-flex align-items-center gap-3 p-3 border rounded-3 bg-white" for="pay-cash" id="pay-cash-option">
+                                        <input class="form-check-input mt-0" type="radio" name="payment" id="pay-cash" value="cash">
+                                        <span class="pay-logo d-inline-flex align-items-center justify-content-center flex-shrink-0 rounded-3 text-white fw-bold position-relative overflow-hidden" style="background:#6c757d">₸<img src="imagess/pay/cash.png" alt="" class="position-absolute top-0 start-0 w-100 h-100 object-fit-contain bg-white"></span>
+                                        <span class="d-flex flex-column"><strong id="pay-cash-title">Наличными при получении</strong><small class="text-muted">Оплата курьеру или в бутике</small></span>
+                                    </label>
+                                </div>
+                            </fieldset>
+                            <div class="d-flex flex-wrap gap-2 mt-4">
+                                <button type="button" id="payment-back" class="btn btn-outline-secondary">Назад</button>
+                                <button type="submit" id="payment-submit" class="btn btn-purple flex-grow-1 fw-bold">Оплатить</button>
+                            </div>
+                        </form>
 
-                        <div class="row g-3 mb-3">
-                            <div class="col-12 col-md-6">
-                                <label for="phone" class="form-label fw-bold text-purple small">Телефон:</label>
-                                <input type="tel" class="form-control" id="phone" placeholder="+7 (700) 000-00-00" required>
+                        <!-- Экран подтверждения платежа (Kaspi / банк / Apple Pay) -->
+                        <div id="payment-process" class="d-none" role="status" aria-live="polite">
+                            <h3 id="process-title" class="h5 text-purple fw-bold mb-2"></h3>
+                            <p id="process-text" class="mb-3"></p>
+                            <div id="process-loading" class="d-flex align-items-center gap-2 text-muted mb-3 d-none">
+                                <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                                <span>Соединение с банком…</span>
                             </div>
-                            <div class="col-12 col-md-6">
-                                <label for="email" class="form-label fw-bold text-purple small">Email:</label>
-                                <input type="email" class="form-control" id="email" placeholder="example@mail.kz" required>
-                            </div>
-                        </div>
-
-                        <div class="mb-4">
-                            <label for="address" class="form-label fw-bold text-purple small">Адрес доставки:</label>
-                            <input type="text" class="form-control" id="address" placeholder="г. Астана, ул. Достык 10" required>
-                        </div>
-
-                        <!-- Секция выбора способа оплаты -->
-                        <h4 class="text-purple fw-bold mb-3 border-top pt-3">💳 Способ оплаты</h4>
-                        <div class="mb-4">
-                            <div class="form-check mb-2">
-                                <input class="form-check-input" type="radio" name="paymentMethod" id="kaspi" value="kaspi" checked>
-                                <label class="form-check-label fw-bold" for="kaspi">
-                                    Kaspi QR / Red (При получении или по ссылке)
-                                </label>
-                            </div>
-                            <div class="form-check mb-2">
-                                <input class="form-check-input" type="radio" name="paymentMethod" id="card" value="card">
-                                <label class="form-check-label" for="card">
-                                    Банковской картой онлайн (Visa / Mastercard)
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="paymentMethod" id="cash" value="cash">
-                                <label class="form-check-label" for="cash">
-                                    Наличными курьеру при получении
-                                </label>
-                            </div>
-                        </div>
-
-                <!-- Правая колонка: Чек заказа -->
-                <div class="col-12">
-                    <div class="bg-white p-4 rounded shadow-sm h-100 d-flex flex-column justify-content-between">
-                        <div>
-                            <h4 class="text-purple fw-bold mb-4">📦 Ваш заказ</h4>
-                            
-                            <div class="d-flex justify-content-between mb-2">
-                                <span class="text-muted">Товары в корзине:</span>
-                                <strong>12 500 ₸</strong>
-                            </div>
-                            <div class="d-flex justify-content-between mb-3">
-                                <span class="text-muted">Доставка по Астане:</span>
-                                <strong class="text-success">Бесплатно</strong>
-                            </div>
-                            <hr>
-                            <div class="d-flex justify-content-between mb-4">
-                                <span class="fs-5 fw-bold">Итого к оплате:</span>
-                                <strong class="fs-4 text-purple">12 500 ₸</strong>
+                            <div id="process-actions" class="d-flex flex-wrap gap-2">
+                                <button type="button" id="process-cancel" class="btn btn-outline-secondary">Отменить</button>
+                                <button type="button" id="process-confirm" class="btn btn-purple flex-grow-1 fw-bold">Я оплатил(а)</button>
                             </div>
                         </div>
-
-                        <button type="submit" class="btn btn-purple btn-lg w-100 fw-bold py-2">Подтвердить заказ ✨</button>
                     </div>
                 </div>
-
+                <div class="col-12 col-lg-5">
+                    <aside class="bg-white p-4 rounded shadow-sm">
+                        <h2 class="h4 text-purple fw-bold mb-3">К оплате</h2>
+                        <div id="pay-summary" class="small mb-3"></div>
+                        <div class="d-flex justify-content-between">
+                            <span class="fs-5 fw-bold">Итого:</span>
+                            <strong id="pay-total" class="fs-4 text-purple">0 ₸</strong>
+                        </div>
+                    </aside>
+                </div>
             </div>
-        </form>
+        </section>
 
+        <!-- Личный кабинет: вход, регистрация, мои заказы -->
+        <section id="account" class="mt-5" tabindex="-1">
+            <h2 class="h3 text-purple fw-bold mb-4">Личный кабинет</h2>
+        <div id="auth-section" class="row g-4">
+                <section class="col-12 col-lg-5">
+                    <div class="bg-white p-4 rounded shadow-sm h-100">
+                        <h3 class="h4 text-purple fw-bold mb-3">Вход</h3>
+                        <div id="login-error" class="alert alert-danger d-none" role="alert"></div>
+                        <form id="login-form" novalidate>
+                            <div class="mb-3">
+                                <label for="login-email" class="form-label fw-bold small">Email</label>
+                                <input type="email" id="login-email" name="email" class="form-control" autocomplete="email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="login-password" class="form-label fw-bold small">Пароль</label>
+                                <input type="password" id="login-password" name="password" class="form-control" autocomplete="current-password">
+                            </div>
+                            <button type="submit" id="login-submit" class="btn btn-purple w-100">Войти</button>
+                        </form>
+                    </div>
+                </section>
+
+                <section class="col-12 col-lg-7">
+                    <div class="bg-white p-4 rounded shadow-sm h-100">
+                        <h3 class="h4 text-purple fw-bold mb-3">Регистрация</h3>
+                        <div id="register-error" class="alert alert-danger d-none" role="alert"></div>
+                        <form id="register-form" novalidate>
+                            <div class="row g-3">
+                                <div class="col-12 col-md-6">
+                                    <label for="reg-name" class="form-label fw-bold small">Имя и фамилия</label>
+                                    <input type="text" id="reg-name" name="name" class="form-control" autocomplete="name">
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="reg-phone" class="form-label fw-bold small">Телефон</label>
+                                    <input type="tel" id="reg-phone" name="phone" class="form-control" placeholder="+7 700 000 00 00" autocomplete="tel">
+                                </div>
+                                <div class="col-12">
+                                    <label for="reg-email" class="form-label fw-bold small">Email</label>
+                                    <input type="email" id="reg-email" name="email" class="form-control" placeholder="example@mail.kz" autocomplete="email">
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="reg-password" class="form-label fw-bold small">Пароль (мин. 6 символов)</label>
+                                    <input type="password" id="reg-password" name="password" class="form-control" autocomplete="new-password">
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="reg-password2" class="form-label fw-bold small">Повторите пароль</label>
+                                    <input type="password" id="reg-password2" name="password2" class="form-control" autocomplete="new-password">
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" id="register-submit" class="btn btn-purple w-100">Зарегистрироваться</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+
+            <div id="profile-section" class="row g-4 d-none">
+                <section class="col-12 col-lg-4">
+                    <div class="bg-white p-4 rounded shadow-sm">
+                        <h3 class="h4 text-purple fw-bold mb-3">Мои данные</h3>
+                        <p class="mb-1"><strong>Имя:</strong> <span id="profile-name"></span></p>
+                        <p class="mb-1"><strong>Email:</strong> <span id="profile-email"></span></p>
+                        <p class="mb-3"><strong>Телефон:</strong> <span id="profile-phone"></span></p>
+                        <div class="d-grid gap-2">
+                            <a href="order.html" class="btn btn-purple">Перейти в корзину</a>
+                            <button type="button" id="logout-btn" class="btn btn-outline-secondary">Выйти</button>
+                        </div>
+                    </div>
+                </section>
+                <section class="col-12 col-lg-8">
+                    <div class="bg-white p-4 rounded shadow-sm">
+                        <h3 class="h4 text-purple fw-bold mb-3">Мои заказы</h3>
+                        <p id="orders-empty" class="text-muted d-none">Заказов пока нет. <a href="clothing.html">Выбрать одежду</a></p>
+                        <div id="orders-list"></div>
+                    </div>
+                </section>
+            </div>
+        </section>
     </main>
 
-    <!-- Подвал -->
+    <!-- Подвал (одинаковый на всех страницах) -->
     <footer class="bg-white border-top mt-5">
         <div class="container py-4">
             <div class="row g-4">
-                <div class="col-12 col-md-3">
-                    <h5 class="text-purple fw-bold">ASLSTORE.KZ</h5>
-                    <p class="text-muted small">Официальный интернет-магазин унисекс одежды, обуви и аксессуаров.</p>
-                    <p class="text-muted small">&copy; 2026 ASLSTORE.KZ. Все права защищены.</p>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h2 class="h5 text-purple fw-bold">ASLSTORE.KZ</h2>
+                    <p class="text-muted small">Магазин унисекс одежды, обуви и аксессуаров в Астане.</p>
+                    <p class="text-muted small mb-0">&copy; 2026 ASLSTORE.KZ</p>
                 </div>
-                <div class="col-12 col-md-3">
-                    <h5 class="text-purple fw-bold">КАТАЛОГ</h5>
-                    <ul class="list-unstyled text-muted small">
-                        <li><a href="clothing.html#tops" class="text-decoration-none text-muted">Футболки и Поло</a></li>
-                        <li><a href="clothing.html#outerwear" class="text-decoration-none text-muted">Куртки и Пуховики</a></li>
-                        <li><a href="clothing.html#bottoms" class="text-decoration-none text-muted">Джинсы и Брюки</a></li>
-                        <li><a href="shoesandacc.html" class="text-decoration-none text-muted">Кроссовки и Кеды</a></li>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h2 class="h5 text-purple fw-bold">КАТАЛОГ</h2>
+                    <ul class="list-unstyled small">
+                        <li><a href="clothing.html#tops" class="link-secondary text-decoration-none">Футболки</a></li>
+                        <li><a href="clothing.html#hoodies" class="link-secondary text-decoration-none">Худи и свитшоты</a></li>
+                        <li><a href="clothing.html#bottoms" class="link-secondary text-decoration-none">Джинсы и брюки</a></li>
+                        <li><a href="shoesandacc.html#sneakers" class="link-secondary text-decoration-none">Кроссовки</a></li>
+                        <li><a href="shoesandacc.html#accessories" class="link-secondary text-decoration-none">Кепки, сумки, украшения</a></li>
                     </ul>
                 </div>
-                <div class="col-12 col-md-3">
-                    <h5 class="text-purple fw-bold">ПОКУПАТЕЛЯМ</h5>
-                    <ul class="list-unstyled text-muted small">
-                        <li><a href="order.html" class="text-decoration-none text-muted">Оформить заказ</a></li>
-                        <li><a href="colophon.html" class="text-decoration-none text-muted">Доставка и оплата</a></li>
-                        <li><a href="colophon.html" class="text-decoration-none text-muted">О проекте (Colophon)</a></li>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h2 class="h5 text-purple fw-bold">ПОКУПАТЕЛЯМ</h2>
+                    <ul class="list-unstyled small">
+                        <li><a href="order.html" class="link-secondary text-decoration-none">Корзина и заказ</a></li>
+                        <li><a href="order.html#account" class="link-secondary text-decoration-none">Личный кабинет</a></li>
+                        <li><a href="colophon.html#delivery" class="link-secondary text-decoration-none">Доставка и оплата</a></li>
+                        <li><a href="colophon.html#feedback" class="link-secondary text-decoration-none">Задать вопрос</a></li>
+                        <li><a href="sale.html" class="link-secondary text-decoration-none">Скидки</a></li>
                     </ul>
                 </div>
-                <div class="col-12 col-md-3">
-                    <h5 class="text-purple fw-bold">КОНТАКТЫ</h5>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h2 class="h5 text-purple fw-bold">КОНТАКТЫ</h2>
                     <address class="text-muted small mb-0">
-                        <p class="mb-1">📍 Астана, ТД Гульжан 2 этаж 246 бутик</p>
-                        <p class="mb-1">📞 +7 (700) 645 5057</p>
-                        <p class="mb-0">✉️ support@aslstore.kz</p>
+                        <p class="mb-1">Астана, ТД «Гулжан», 2 этаж, бутик 246</p>
+                        <p class="mb-1">Ежедневно 10:00–20:00</p>
+                        <p class="mb-1"><a href="tel:+77006455057" class="link-secondary text-decoration-none">+7 (700) 645 50 57</a></p>
+                        <p class="mb-0"><a href="mailto:support@aslstore.kz" class="link-secondary text-decoration-none">support@aslstore.kz</a></p>
                     </address>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- Bootstrap JS: кнопка меню на телефоне -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Наш скрипт: корзина, аккаунт, заказ -->
+    <script src="js/main.js"></script>
 </body>
 </html>

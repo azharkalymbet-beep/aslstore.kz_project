@@ -1,90 +1,38 @@
-p {
-  margin-bottom: 0.8rem;
+/* akdana.css — корзина, шаги оформления и оплата */
+ 
+/* Итог заказа «прилипает» под шапкой на компьютере */
+@media (min-width: 992px) {
+    .order-summary {
+        position: sticky;
+        top: 140px;
+    }
 }
-
-a[href="order.html"] {
-  font-weight: bold;
-  color: #2c3e50;
+ 
+/* Шаги оформления: 1 Корзина → 2 Данные → 3 Оплата → 4 Готово */
+.checkout-steps li {
+    border-top: 3px solid var(--purple-light);
 }
-
-.price-tag strong {
-  color: #e74c3c;
+.checkout-steps li.done,
+.checkout-steps li.active {
+    border-top-color: var(--purple);
 }
-
-.tech-list > li {
-  padding: 4px 0;
+.checkout-steps li.active {
+    color: var(--purple);
+    font-weight: 700;
 }
-
-h2 + p {
-  font-size: 1.05rem;
-  color: #333;
+ 
+/* Выбранный способ оплаты */
+.pay-option {
+    cursor: pointer;
 }
-
-a:hover {
-  color: #3498db;
+.pay-option:has(input:checked) {
+    border-color: var(--purple) !important;
+    box-shadow: 0 0 0 2px var(--purple-light);
 }
-
-a:focus {
-  outline: 2px solid #3498db;
+ 
+/* Логотип банка: если файла картинки нет, видна буква на цвете банка */
+.pay-logo {
+    width: 40px;
+    height: 40px;
 }
-
-.history-list li:first-child {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-.discount-badge::before {
-  content: "🔥 ";
-}
-
-#sale-categories {
-  background-color: #f9f9f9;
-  padding: 15px;
-}
-
-#tech-stack {
-  padding: 15px;
-  background-color: #ffffff;
-}
-
-#about-project {
-  margin-bottom: 1.5rem;
-  padding: 15px;
-}
-
-.discount-badge {
-  color: #e74c3c;
-  font-weight: bold;
-}
-
-p.discount-badge {
-  color: #e74c3c;
-}
-
-.full-width-print {
-  width: 100%;
-}
-
-.fixed-contact-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #2c3e50;
-  color: #ffffff;
-  padding: 10px 15px;
-  border-radius: 20px;
-  z-index: 1000;
-}
-
-.floated-thumb {
-  margin-right: 12px;
-  margin-bottom: 8px;
-}
-
-.product-card figcaption h3 {
-  font-size: 13px;
-  font-weight: 700;
-  color: #000000;
-  margin: 0 0 4px 0;
-  text-transform: uppercase;
-}
+ 

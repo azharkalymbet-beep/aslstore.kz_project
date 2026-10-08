@@ -3,177 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>О сайте (Колофон) — ASLSTORE.KZ</title>
-    <!-- Bootstrap v5.3.3 CDN CSS (Комментарий: используем версию Bootstrap 5.3.3) -->
+    <meta name="description" content="ASLSTORE.KZ — унисекс одежда, обувь и аксессуары. Астана, ТД «Гулжан», бутик 246.">
+    <title>О нас — ASLSTORE.KZ</title>
+    <!-- Bootstrap 5.3.3 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Свои стили: base — цвета бренда, azhar — каталог, akdana — корзина и оплата -->
+    <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/azhar.css">
+    <link rel="stylesheet" href="css/akdana.css">
 </head>
 <body>
 
-    <!-- Комментарий: Использован container-fluid для верха -->
-    <div class="container-fluid bg-white border-bottom py-2">
-        <div class="container d-flex justify-content-between align-items-center">
-            <small class="text-muted fw-bold">⚡ БЕСПЛАТНАЯ ДОСТАВКА ОТ 30 000 ₸</small>
-            <div>
-                <a href="order.html" class="text-decoration-none text-purple me-3">👤 Регистрация / Войти</a>
-                <a href="order.html" class="btn btn-sm btn-outline-purple">Корзина 🛒</a>
+    <!-- Шапка: верхняя планка + навигация -->
+    <header class="sticky-top">
+        <!-- container-fluid: планка на всю ширину экрана -->
+        <div class="container-fluid bg-white border-bottom py-2">
+            <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+                <small class="text-muted fw-bold">БЕСПЛАТНАЯ ДОСТАВКА ПО АСТАНЕ ОТ 30 000 ₸</small>
+                <div class="d-flex align-items-center gap-3">
+                    <a href="order.html#account" id="account-link" class="text-decoration-none text-purple fw-bold small"><span id="account-name">Войти / Регистрация</span></a>
+                    <a href="order.html" id="cart-link" class="btn btn-sm btn-outline-purple">Корзина <span id="cart-count" class="badge bg-purple">0</span></a>
+                </div>
             </div>
         </div>
-    </div>
-
-    <!-- Навигация -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold text-purple" href="index.html">ASLSTORE<sup class="text-muted">.KZ</sup></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav gap-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm" aria-label="Главное меню">
+            <div class="container">
+                <a class="navbar-brand fw-bold text-purple" href="index.html">ASLSTORE<sup class="text-muted">.KZ</sup></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Открыть меню">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav gap-lg-3">
                     <li class="nav-item"><a class="nav-link" href="index.html">ГЛАВНАЯ</a></li>
                     <li class="nav-item"><a class="nav-link" href="clothing.html">ОДЕЖДА</a></li>
                     <li class="nav-item"><a class="nav-link" href="shoesandacc.html">ОБУВЬ И АКСЕССУАРЫ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="order.html">ЗАКАЗ</a></li>
                     <li class="nav-item"><a class="nav-link" href="sale.html">СКИДКИ</a></li>
-                    <li class="nav-item"><a class="nav-link active fw-bold text-purple" href="colophon.html">О НАС</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Основной контент -->
-    <main class="container my-5">
-        
-        <!-- Герой-баннер -->
-        <section class="p-4 bg-white rounded shadow-sm text-center mb-4">
-            <h2 class="text-purple fw-bold">ℹ️ О ПРОЕКТЕ (КОЛОФОН)</h2>
-            <p class="text-muted mb-0">Информация об авторстве, используемых технологиях и структуре ресурса.</p>
-        </section>
-
-        <div class="row g-4">
-            <!-- Информация о проекте -->
-            <div class="col-12 col-lg-6">
-                <div class="bg-white p-4 rounded shadow-sm h-100">
-                    <h4 class="text-purple fw-bold mb-3">📍 Информация о проекте и авторстве</h4>
-                    <p class="text-muted mb-0">
-                        Данный веб-сайт разработан в рамках учебного курса по веб-технологиям для интернет-магазина <strong>aslstore.kz</strong>, расположенного по адресу: <em>г. Астана, ТД «Гүлжан», 2 этаж, бутик 246</em>.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Использованные технологии -->
-            <div class="col-12 col-lg-6">
-                <div class="bg-white p-4 rounded shadow-sm h-100">
-                    <h4 class="text-purple fw-bold mb-3">🛠️ Использованные технологии и стандарты</h4>
-                    <ul class="list-unstyled text-muted mb-0">
-                        <li class="mb-2"><strong>Стандарт верстки:</strong> Чистый HTML5, CSS3 & Bootstrap v5.3.3 (без JavaScript).</li>
-                        <li class="mb-2"><strong>Валидация:</strong> Код проверен и соответствует спецификации W3C HTML5 Validator.</li>
-                        <li class="mb-2"><strong>Семантические теги:</strong> <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;footer&gt;</code>.</li>
-                        <li class="mb-0"><strong>Инструменты разработки:</strong> Visual Studio Code, Git, GitHub Pages.</li>
+                    <li class="nav-item"><a class="nav-link" href="order.html">КОРЗИНА</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="colophon.html" aria-current="page">О НАС</a></li>
                     </ul>
                 </div>
             </div>
+        </nav>
+    </header>
+<main class="container my-4">
+        <!-- Навигация назад: хлебные крошки + кнопка «Назад» (Bootstrap breadcrumb) -->
+        <nav class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4" aria-label="Навигационная цепочка">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="index.html" class="link-secondary">Главная</a></li>
+                <li class="breadcrumb-item active" aria-current="page">О нас</li>
+            </ol>
+            <a href="index.html" class="btn btn-sm btn-outline-secondary js-back">← Назад</a>
+        </nav>
+
+
+        <section class="p-4 bg-white rounded shadow-sm text-center mb-5">
+            <h1 class="h2 text-purple fw-bold">О МАГАЗИНЕ ASLSTORE.KZ</h1>
+            <p class="text-muted mb-0">Бутик уличной унисекс одежды в Астане: доставка, оплата, контакты и связь с нами.</p>
+        </section>
+
+        <div class="row g-4 mb-4">
+            <section id="about" class="col-12 col-lg-6">
+                <div class="bg-white p-4 rounded shadow-sm h-100">
+                    <h2 class="h4 text-purple fw-bold mb-3">Кто мы</h2>
+                    <p>ASLSTORE.KZ — небольшой бутик в ТД «Гулжан». Мы подбираем уличную одежду, кроссовки и аксессуары унисекс: оверсайз-футболки, худи, широкие джинсы, кепки и сумки.</p>
+                    <p class="mb-0">В бутике можно примерить вещи и получить совет по размеру. Заказ через сайт мы подтверждаем звонком.</p>
+                </div>
+            </section>
+            <section id="contacts" class="col-12 col-lg-6">
+                <div class="bg-white p-4 rounded shadow-sm h-100">
+                    <h2 class="h4 text-purple fw-bold mb-3">Адрес и часы работы</h2>
+                    <address class="mb-0">
+                        <p class="mb-2"><strong>Адрес:</strong> Астана, ТД «Гулжан», 2 этаж, бутик 246</p>
+                        <p class="mb-2"><strong>Часы:</strong> Ежедневно 10:00–20:00</p>
+                        <p class="mb-2"><strong>Телефон / WhatsApp:</strong> <a href="tel:+77006455057">+7 (700) 645 50 57</a></p>
+                        <p class="mb-0"><strong>Email:</strong> <a href="mailto:support@aslstore.kz">support@aslstore.kz</a></p>
+                    </address>
+                </div>
+            </section>
         </div>
 
-        <!-- Карта сайта -->
-        <section class="bg-white p-4 rounded shadow-sm my-4">
-            <h4 class="text-purple fw-bold mb-3">🗺️ Карта и структура страниц сайта</h4>
+        <section id="delivery" class="bg-white p-4 rounded shadow-sm mb-4">
+            <h2 class="h4 text-purple fw-bold mb-3">Доставка и оплата</h2>
             <div class="table-responsive">
-                <table class="table table-bordered table-hover align-middle mb-0">
+                <table class="table table-bordered align-middle mb-3">
                     <thead class="table-light">
-                        <tr>
-                            <th scope="col">Имя файла</th>
-                            <th scope="col">Название страницы</th>
-                            <th scope="col">Основное назначение</th>
-                        </tr>
+                        <tr><th scope="col">Способ</th><th scope="col">Стоимость</th><th scope="col">Срок</th></tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><code>index.html</code></td>
-                            <td class="fw-bold text-purple">Главная страница</td>
-                            <td>Приветствие, популярные товары и общая информация о бутике 246.</td>
-                        </tr>
-                        <tr>
-                            <td><code>clothing.html</code></td>
-                            <td class="fw-bold text-purple">Одежда</td>
-                            <td>Каталог оверсайз одежды унисекс (футболки, худи, брюки).</td>
-                        </tr>
-                        <tr>
-                            <td><code>shoesandacc.html</code></td>
-                            <td class="fw-bold text-purple">Обувь и аксессуары</td>
-                            <td>Каталог обуви, кепок и сумок с сеткой товаров.</td>
-                        </tr>
-                        <tr>
-                            <td><code>sale.html</code></td>
-                            <td class="fw-bold text-purple">СКИДКИ</td>
-                            <td>Акционные товары со скидками и сводной таблицей распродажи.</td>
-                        </tr>
-                        <tr>
-                            <td><code>order.html</code></td>
-                            <td class="fw-bold text-purple">Оформить заказ</td>
-                            <td>HTML-форма для оформления покупки и ввода контактных данных.</td>
-                        </tr>
-                        <tr>
-                            <td><code>colophon.html</code></td>
-                            <td class="fw-bold text-purple">О нас (Колофон)</td>
-                            <td>Техническое описание проекта, стандарты и карта сайта.</td>
-                        </tr>
+                        <tr><td>Курьер по Астане</td><td>1 500 ₸, бесплатно от 30 000 ₸</td><td>1–2 дня</td></tr>
+                        <tr><td>Самовывоз из бутика 246</td><td>Бесплатно</td><td>В день подтверждения</td></tr>
                     </tbody>
                 </table>
             </div>
+            <p class="mb-1"><strong>Оплата онлайн:</strong> Kaspi.kz (в том числе рассрочка), Halyk Bank, Freedom Bank, Apple Pay, карта Visa/Mastercard. Или наличными при получении.</p>
+            <p class="mb-0"><strong>Обмен и возврат:</strong> в течение 14 дней, если вещь не носили и сохранены бирки.</p>
         </section>
 
-        <!-- История разработки -->
-        <section class="bg-white p-4 rounded shadow-sm">
-            <h4 class="text-purple fw-bold mb-3">📜 История разработки</h4>
-            <ol class="history-list mb-0 ps-3 text-muted">
-                <li class="mb-2">Проектирование семантической структуры страниц в HTML5.</li>
-                <li class="mb-2">Подготовка и оптимизация изображений товаров в папке <code>imagess/</code>.</li>
-                <li class="mb-2">Оформление CSS-стилей, добавление эффекта наведения и фиолетового оформления.</li>
-                <li class="mb-0">Публикация готового статичного сайта на GitHub Pages.</li>
-            </ol>
+        <section id="feedback" class="bg-white p-4 rounded shadow-sm">
+            <h2 class="h4 text-purple fw-bold mb-3">Задать вопрос</h2>
+            <p class="text-muted">Спросите про наличие, размер или доставку — ответим по телефону.</p>
+            <div id="feedback-error" class="alert alert-danger d-none" role="alert">Заполните имя, телефон (11 цифр) и вопрос.</div>
+            <div id="feedback-success" class="alert alert-success d-none" role="status"></div>
+            <form id="feedback-form" action="colophon.html#feedback" method="get">
+                <div class="row g-3">
+                    <div class="col-12 col-md-6">
+                        <label for="fb-name" class="form-label fw-bold small">Имя</label>
+                        <input type="text" id="fb-name" name="name" class="form-control" autocomplete="name" required>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="fb-phone" class="form-label fw-bold small">Телефон</label>
+                        <input type="tel" id="fb-phone" name="phone" class="form-control" placeholder="+7 700 000 00 00" autocomplete="tel" pattern="[+0-9 ()-]{10,18}" required>
+                    </div>
+                    <div class="col-12">
+                        <label for="fb-topic" class="form-label fw-bold small">Тема</label>
+                        <select id="fb-topic" name="topic" class="form-select">
+                            <option value="stock">Наличие товара</option>
+                            <option value="size">Подбор размера</option>
+                            <option value="delivery">Доставка и оплата</option>
+                            <option value="other">Другое</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label for="fb-message" class="form-label fw-bold small">Вопрос</label>
+                        <textarea id="fb-message" name="message" class="form-control" rows="3" maxlength="500" required></textarea>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" id="feedback-submit" class="btn btn-purple">Отправить вопрос</button>
+                    </div>
+                </div>
+            </form>
         </section>
-
     </main>
 
-    <!-- Подвал -->
+    <!-- Подвал (одинаковый на всех страницах) -->
     <footer class="bg-white border-top mt-5">
         <div class="container py-4">
             <div class="row g-4">
-                <div class="col-12 col-md-3">
-                    <h5 class="text-purple fw-bold">ASLSTORE.KZ</h5>
-                    <p class="text-muted small">Официальный интернет-магазин унисекс одежды, обуви и аксессуаров.</p>
-                    <p class="text-muted small">&copy; 2026 ASLSTORE.KZ. Все права защищены.</p>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h2 class="h5 text-purple fw-bold">ASLSTORE.KZ</h2>
+                    <p class="text-muted small">Магазин унисекс одежды, обуви и аксессуаров в Астане.</p>
+                    <p class="text-muted small mb-0">&copy; 2026 ASLSTORE.KZ</p>
                 </div>
-                <div class="col-12 col-md-3">
-                    <h5 class="text-purple fw-bold">КАТАЛОГ</h5>
-                    <ul class="list-unstyled text-muted small">
-                        <li><a href="clothing.html#tops" class="text-decoration-none text-muted">Футболки и Поло</a></li>
-                        <li><a href="clothing.html#outerwear" class="text-decoration-none text-muted">Куртки и Пуховики</a></li>
-                        <li><a href="clothing.html#bottoms" class="text-decoration-none text-muted">Джинсы и Брюки</a></li>
-                        <li><a href="shoesandacc.html" class="text-decoration-none text-muted">Кроссовки и Кеды</a></li>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h2 class="h5 text-purple fw-bold">КАТАЛОГ</h2>
+                    <ul class="list-unstyled small">
+                        <li><a href="clothing.html#tops" class="link-secondary text-decoration-none">Футболки</a></li>
+                        <li><a href="clothing.html#hoodies" class="link-secondary text-decoration-none">Худи и свитшоты</a></li>
+                        <li><a href="clothing.html#bottoms" class="link-secondary text-decoration-none">Джинсы и брюки</a></li>
+                        <li><a href="shoesandacc.html#sneakers" class="link-secondary text-decoration-none">Кроссовки</a></li>
+                        <li><a href="shoesandacc.html#accessories" class="link-secondary text-decoration-none">Кепки, сумки, украшения</a></li>
                     </ul>
                 </div>
-                <div class="col-12 col-md-3">
-                    <h5 class="text-purple fw-bold">ПОКУПАТЕЛЯМ</h5>
-                    <ul class="list-unstyled text-muted small">
-                        <li><a href="order.html" class="text-decoration-none text-muted">Оформить заказ</a></li>
-                        <li><a href="colophon.html" class="text-decoration-none text-muted">Доставка и оплата</a></li>
-                        <li><a href="colophon.html" class="text-decoration-none text-muted">О проекте (Colophon)</a></li>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h2 class="h5 text-purple fw-bold">ПОКУПАТЕЛЯМ</h2>
+                    <ul class="list-unstyled small">
+                        <li><a href="order.html" class="link-secondary text-decoration-none">Корзина и заказ</a></li>
+                        <li><a href="order.html#account" class="link-secondary text-decoration-none">Личный кабинет</a></li>
+                        <li><a href="colophon.html#delivery" class="link-secondary text-decoration-none">Доставка и оплата</a></li>
+                        <li><a href="colophon.html#feedback" class="link-secondary text-decoration-none">Задать вопрос</a></li>
+                        <li><a href="sale.html" class="link-secondary text-decoration-none">Скидки</a></li>
                     </ul>
                 </div>
-                <div class="col-12 col-md-3">
-                    <h5 class="text-purple fw-bold">КОНТАКТЫ</h5>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h2 class="h5 text-purple fw-bold">КОНТАКТЫ</h2>
                     <address class="text-muted small mb-0">
-                        <p class="mb-1">📍 Астана, ТД Гульжан 2 этаж 246 бутик</p>
-                        <p class="mb-1">📞 +7 (700) 645 5057</p>
-                        <p class="mb-0">✉️ support@aslstore.kz</p>
+                        <p class="mb-1">Астана, ТД «Гулжан», 2 этаж, бутик 246</p>
+                        <p class="mb-1">Ежедневно 10:00–20:00</p>
+                        <p class="mb-1"><a href="tel:+77006455057" class="link-secondary text-decoration-none">+7 (700) 645 50 57</a></p>
+                        <p class="mb-0"><a href="mailto:support@aslstore.kz" class="link-secondary text-decoration-none">support@aslstore.kz</a></p>
                     </address>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- Bootstrap JS: кнопка меню на телефоне -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Наш скрипт: корзина, аккаунт, заказ -->
+    <script src="js/main.js"></script>
 </body>
 </html>

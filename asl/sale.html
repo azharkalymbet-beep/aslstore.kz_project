@@ -3,290 +3,274 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Скидки и распродажа — ASLSTORE.KZ</title>
-    <!-- Bootstrap v5.3.3 CDN CSS (Комментарий: используем версию Bootstrap 5.3.3) -->
+    <meta name="description" content="ASLSTORE.KZ — унисекс одежда, обувь и аксессуары. Астана, ТД «Гулжан», бутик 246.">
+    <title>Скидки — ASLSTORE.KZ</title>
+    <!-- Bootstrap 5.3.3 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Свои стили: base — цвета бренда, azhar — каталог, akdana — корзина и оплата -->
+    <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/azhar.css">
+    <link rel="stylesheet" href="css/akdana.css">
 </head>
-<body> 
+<body>
 
-    <!-- Комментарий: Использован container-fluid для растяжения верхней панели -->
-    <div class="container-fluid bg-white border-bottom py-2">
-        <div class="container d-flex justify-content-between align-items-center">
-            <small class="text-muted fw-bold">⚡ БЕСПЛАТНАЯ ДОСТАВКА ОТ 30 000 ₸</small>
-            <div>
-                <a href="order.html" class="text-decoration-none text-purple me-3">👤 Регистрация / Войти</a>
-                <a href="order.html" class="btn btn-sm btn-outline-purple">Корзина 🛒</a>
+    <!-- Шапка: верхняя планка + навигация -->
+    <header class="sticky-top">
+        <!-- container-fluid: планка на всю ширину экрана -->
+        <div class="container-fluid bg-white border-bottom py-2">
+            <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+                <small class="text-muted fw-bold">БЕСПЛАТНАЯ ДОСТАВКА ПО АСТАНЕ ОТ 30 000 ₸</small>
+                <div class="d-flex align-items-center gap-3">
+                    <a href="order.html#account" id="account-link" class="text-decoration-none text-purple fw-bold small"><span id="account-name">Войти / Регистрация</span></a>
+                    <a href="order.html" id="cart-link" class="btn btn-sm btn-outline-purple">Корзина <span id="cart-count" class="badge bg-purple">0</span></a>
+                </div>
             </div>
         </div>
-    </div>
-
-    <!-- Навигация -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold text-purple" href="index.html">ASLSTORE<sup class="text-muted">.KZ</sup></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav gap-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm" aria-label="Главное меню">
+            <div class="container">
+                <a class="navbar-brand fw-bold text-purple" href="index.html">ASLSTORE<sup class="text-muted">.KZ</sup></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Открыть меню">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav gap-lg-3">
                     <li class="nav-item"><a class="nav-link" href="index.html">ГЛАВНАЯ</a></li>
                     <li class="nav-item"><a class="nav-link" href="clothing.html">ОДЕЖДА</a></li>
                     <li class="nav-item"><a class="nav-link" href="shoesandacc.html">ОБУВЬ И АКСЕССУАРЫ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="order.html">ЗАКАЗ</a></li>
-                    <li class="nav-item"><a class="nav-link active fw-bold text-purple" href="sale.html">СКИДКИ</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="sale.html" aria-current="page">СКИДКИ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="order.html">КОРЗИНА</a></li>
                     <li class="nav-item"><a class="nav-link" href="colophon.html">О НАС</a></li>
-                </ul>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
+<main class="container my-4">
+        <!-- Навигация назад: хлебные крошки + кнопка «Назад» (Bootstrap breadcrumb) -->
+        <nav class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4" aria-label="Навигационная цепочка">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="index.html" class="link-secondary">Главная</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Скидки</li>
+            </ol>
+            <a href="index.html" class="btn btn-sm btn-outline-secondary js-back">← Назад</a>
+        </nav>
 
-    <!-- Комментарий: Использован фиксированный container -->
-    <main class="container my-5">
-        
-        <!-- Герой-баннер -->
+
         <section class="p-4 bg-white rounded shadow-sm text-center mb-5">
-            <h2 class="text-purple fw-bold">🔥 РАСПРОДАЖА И СКИДКИ</h2>
-            <p class="text-muted mb-0">Успейте приобрести вещи по выгодным ценам!</p>
+            <h1 class="h2 text-purple fw-bold">РАСПРОДАЖА И СКИДКИ</h1>
+            <p class="text-muted mb-0">Скидки до 50% действуют до 15 ноября 2026 года.</p>
         </section>
 
-        <!-- Верхняя одежда со скидкой -->
-        <section id="outerwear-sale" class="mb-5">
-            <h3 class="text-purple fw-bold mb-4">🧥 ВЕРХНЯЯ ОДЕЖДА СО СКИДКОЙ</h3>
-            <div class="row g-4">
-                
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="card h-100 shadow-sm border-0 product-card p-3 position-relative">
-                        <span class="badge bg-danger position-absolute top-0 start-0 m-3 fs-6">-50%</span>
-                        <img src="imagess/burberryjack.jpg" class="card-img-top mx-auto product-img" alt="Куртка Burberry">
-                        <div class="card-body d-flex flex-column text-center">
-                            <h5 class="card-title text-purple fw-bold fs-6">Куртка Burberry</h5>
-                            <p class="card-text text-muted mb-2"><strong>12 495 ₸</strong> <s class="text-danger small">24 990 ₸</s></p>
-                            <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="card h-100 shadow-sm border-0 product-card p-3 position-relative">
-                        <span class="badge bg-danger position-absolute top-0 start-0 m-3 fs-6">-50%</span>
-                        <img src="imagess/amisweatshirt.jpg" class="card-img-top mx-auto product-img" alt="Свитшот Ami">
-                        <div class="card-body d-flex flex-column text-center">
-                            <h5 class="card-title text-purple fw-bold fs-6">Свитшот Ami</h5>
-                            <p class="card-text text-muted mb-2"><strong>6 995 ₸</strong> <s class="text-danger small">13 990 ₸</s></p>
-                            <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="card h-100 shadow-sm border-0 product-card p-3 position-relative">
-                        <span class="badge bg-danger position-absolute top-0 start-0 m-3 fs-6">-15%</span>
-                        <img src="imagess/poloralph.jpg" class="card-img-top mx-auto product-img" alt="Свитер Polo Ralph Lauren">
-                        <div class="card-body d-flex flex-column text-center">
-                            <h5 class="card-title text-purple fw-bold fs-6">Свитер Polo Ralph Lauren</h5>
-                            <p class="card-text text-muted mb-2"><strong>11 900 ₸</strong> <s class="text-danger small">14 000 ₸</s></p>
-                            <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="card h-100 shadow-sm border-0 product-card p-3 position-relative">
-                        <span class="badge bg-danger position-absolute top-0 start-0 m-3 fs-6">-20%</span>
-                        <img src="imagess/corteizzip.jpg" class="card-img-top mx-auto product-img" alt="Зип-худи Corteiz">
-                        <div class="card-body d-flex flex-column text-center">
-                            <h5 class="card-title text-purple fw-bold fs-6">Зип-худи Corteiz</h5>
-                            <p class="card-text text-muted mb-2"><strong>16 000 ₸</strong> <s class="text-danger small">20 000 ₸</s></p>
-                            <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Футболки со скидкой -->
-        <section id="tees-sale" class="mb-5">
-            <h3 class="text-purple fw-bold mb-4">👕 ФУТБОЛКИ</h3>
-            <div class="row g-4">
-                
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="card h-100 shadow-sm border-0 product-card p-3 position-relative">
-                        <span class="badge bg-danger position-absolute top-0 start-0 m-3 fs-6">-15%</span>
-                        <img src="imagess/t-shirt.jpg" class="card-img-top mx-auto product-img" alt="Футболка Corteiz">
-                        <div class="card-body d-flex flex-column text-center">
-                            <h5 class="card-title text-purple fw-bold fs-6">Футболка Corteiz</h5>
-                            <p class="card-text text-muted mb-2"><strong>6 375 ₸</strong> <s class="text-danger small">7 490 ₸</s></p>
-                            <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="card h-100 shadow-sm border-0 product-card p-3 position-relative">
-                        <span class="badge bg-danger position-absolute top-0 start-0 m-3 fs-6">-10%</span>
-                        <img src="imagess/boss.jpg" class="card-img-top mx-auto product-img" alt="Футболка BOSS">
-                        <div class="card-body d-flex flex-column text-center">
-                            <h5 class="card-title text-purple fw-bold fs-6">Футболка BOSS</h5>
-                            <p class="card-text text-muted mb-2"><strong>5 990 ₸</strong> <s class="text-danger small">6 990 ₸</s></p>
-                            <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Шорты и низ со скидкой -->
-        <section id="bottoms-sale" class="mb-5">
-            <h3 class="text-purple fw-bold mb-4">👖 ШОРТЫ И НИЗ</h3>
-            <div class="row g-4">
-                
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="card h-100 shadow-sm border-0 product-card p-3 position-relative">
-                        <span class="badge bg-danger position-absolute top-0 start-0 m-3 fs-6">-20%</span>
-                        <img src="imagess/dime-jeans.jpg" class="card-img-top mx-auto product-img" alt="Dime Jeans">
-                        <div class="card-body d-flex flex-column text-center">
-                            <h5 class="card-title text-purple fw-bold fs-6">Dime Jeans</h5>
-                            <p class="card-text text-muted mb-2"><strong>10 400 ₸</strong> <s class="text-danger small">12 990 ₸</s></p>
-                            <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="card h-100 shadow-sm border-0 product-card p-3 position-relative">
-                        <span class="badge bg-danger position-absolute top-0 start-0 m-3 fs-6">-20%</span>
-                        <img src="imagess/corteiz-shorts.jpg" class="card-img-top mx-auto product-img" alt="Шорты Corteiz">
-                        <div class="card-body d-flex flex-column text-center">
-                            <h5 class="card-title text-purple fw-bold fs-6">Шорты Corteiz</h5>
-                            <p class="card-text text-muted mb-2"><strong>7 910 ₸</strong> <s class="text-danger small">9 890 ₸</s></p>
-                            <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="card h-100 shadow-sm border-0 product-card p-3 position-relative">
-                        <span class="badge bg-danger position-absolute top-0 start-0 m-3 fs-6">-10%</span>
-                        <img src="imagess/basicpants.jpg" class="card-img-top mx-auto product-img" alt="Брюки Basic Pants">
-                        <div class="card-body d-flex flex-column text-center">
-                            <h5 class="card-title text-purple fw-bold fs-6">Брюки Basic Pants</h5>
-                            <p class="card-text text-muted mb-2"><strong>10 790 ₸</strong> <s class="text-danger small">11 990 ₸</s></p>
-                            <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Сумки со скидкой -->
-        <section id="bags-sale" class="mb-5">
-            <h3 class="text-purple fw-bold mb-4">🎒 СУМКИ</h3>
-            <div class="row g-4">
-                
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="card h-100 shadow-sm border-0 product-card p-3 position-relative">
-                        <span class="badge bg-danger position-absolute top-0 start-0 m-3 fs-6">-30%</span>
-                        <img src="imagess/сумка.jpg" class="card-img-top mx-auto product-img" alt="Рюкзак Tommy Hilfiger">
-                        <div class="card-body d-flex flex-column text-center">
-                            <h5 class="card-title text-purple fw-bold fs-6">Рюкзак Tommy Hilfiger</h5>
-                            <p class="card-text text-muted mb-2"><strong>12 440 ₸</strong> <s class="text-danger small">17 770 ₸</s></p>
-                            <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="card h-100 shadow-sm border-0 product-card p-3 position-relative">
-                        <span class="badge bg-danger position-absolute top-0 start-0 m-3 fs-6">-10%</span>
-                        <img src="imagess/nikebag.jpg" class="card-img-top mx-auto product-img" alt="Сумка Nike">
-                        <div class="card-body d-flex flex-column text-center">
-                            <h5 class="card-title text-purple fw-bold fs-6">Сумка Nike</h5>
-                            <p class="card-text text-muted mb-2"><strong>5 400 ₸</strong> <s class="text-danger small">5 990 ₸</s></p>
-                            <a href="order.html" class="btn btn-purple mt-auto">В корзину 🛒</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Bootstrap Component: Table Styling -->
-        <section class="bg-white p-4 rounded shadow-sm my-5">
-            <h4 class="text-purple fw-bold mb-3">📋 Сводная таблица распродажи</h4>
+        <section id="sale-table" class="bg-white p-4 rounded shadow-sm mb-5">
+            <h2 class="h4 text-purple fw-bold mb-3">Условия распродажи</h2>
             <div class="table-responsive">
                 <table class="table table-bordered table-hover mb-0">
                     <thead class="table-light">
-                        <tr>
-                            <th scope="col">Категория</th>
-                            <th scope="col">Максимальная скидка</th>
-                            <th scope="col">Сроки проведения</th>
-                        </tr>
+                        <tr><th scope="col">Категория</th><th scope="col">Скидка</th><th scope="col">Сроки</th></tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Верхняя одежда</td>
-                            <td><span class="badge bg-danger">До 50%</span></td>
-                            <td>До окончания запасов</td>
-                        </tr>
-                        <tr>
-                            <td>Футболки</td>
-                            <td><span class="badge bg-danger">До 15%</span></td>
-                            <td>Сезонная распродажа</td>
-                        </tr>
-                        <tr>
-                            <td>Сумки</td>
-                            <td><span class="badge bg-danger">До 30%</span></td>
-                            <td>Специальное предложение</td>
-                        </tr>
+                        <tr><td><a href="#outerwear-sale">Верхняя одежда</a></td><td><span class="badge bg-danger">10–50%</span></td><td>1 октября — 31 октября 2026</td></tr>
+                        <tr><td><a href="#tees-sale">Футболки</a></td><td><span class="badge bg-danger">10–15%</span></td><td>1 октября — 31 октября 2026</td></tr>
+                        <tr><td><a href="#bottoms-sale">Шорты и низ</a></td><td><span class="badge bg-danger">10–20%</span></td><td>1 октября — 15 ноября 2026</td></tr>
+                        <tr><td><a href="#bags-sale">Сумки</a></td><td><span class="badge bg-danger">10–30%</span></td><td>1 октября — 15 ноября 2026</td></tr>
                     </tbody>
                 </table>
+            </div>
+            <p class="text-muted small mt-2 mb-0">Количество товаров по скидке ограничено. Скидки не суммируются.</p>
+        </section>
+
+        <section id="outerwear-sale" class="mb-5">
+            <h2 class="h3 text-purple fw-bold mb-4">ВЕРХНЯЯ ОДЕЖДА</h2>
+            <div class="row g-4">
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <article id="product-sale-burberry" class="card h-100 border-0 product-card p-3 position-relative" data-product-id="sale-burberry" data-name="Куртка Burberry" data-price="12495">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-3 fs-6">−50%</span>
+                        <img src="imagess/burberryjack.jpg" class="card-img-top mx-auto product-img" alt="Куртка Burberry">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h3 class="h5 card-title text-purple fw-bold">Куртка Burberry</h3>
+                            <p class="fw-bold text-purple mb-3"><strong>12 495 ₸</strong> <s class="text-danger small">24 990 ₸</s></p>
+                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-burberry">В корзину</button>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <article id="product-sale-ami" class="card h-100 border-0 product-card p-3 position-relative" data-product-id="sale-ami" data-name="Свитшот Ami" data-price="6995">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-3 fs-6">−50%</span>
+                        <img src="imagess/amisweatshirt.jpg" class="card-img-top mx-auto product-img" alt="Свитшот Ami">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h3 class="h5 card-title text-purple fw-bold">Свитшот Ami</h3>
+                            <p class="fw-bold text-purple mb-3"><strong>6 995 ₸</strong> <s class="text-danger small">13 990 ₸</s></p>
+                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-ami">В корзину</button>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <article id="product-sale-polo" class="card h-100 border-0 product-card p-3 position-relative" data-product-id="sale-polo" data-name="Свитер Polo Ralph Lauren" data-price="11900">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-3 fs-6">−15%</span>
+                        <img src="imagess/poloralph.jpg" class="card-img-top mx-auto product-img" alt="Свитер Polo Ralph Lauren">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h3 class="h5 card-title text-purple fw-bold">Свитер Polo Ralph Lauren</h3>
+                            <p class="fw-bold text-purple mb-3"><strong>11 900 ₸</strong> <s class="text-danger small">14 000 ₸</s></p>
+                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-polo">В корзину</button>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <article id="product-sale-corteiz-zip" class="card h-100 border-0 product-card p-3 position-relative" data-product-id="sale-corteiz-zip" data-name="Зип-худи Corteiz" data-price="16000">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-3 fs-6">−20%</span>
+                        <img src="imagess/corteizzip.jpg" class="card-img-top mx-auto product-img" alt="Зип-худи Corteiz">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h3 class="h5 card-title text-purple fw-bold">Зип-худи Corteiz</h3>
+                            <p class="fw-bold text-purple mb-3"><strong>16 000 ₸</strong> <s class="text-danger small">20 000 ₸</s></p>
+                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-corteiz-zip">В корзину</button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="tees-sale" class="mb-5">
+            <h2 class="h3 text-purple fw-bold mb-4">ФУТБОЛКИ</h2>
+            <div class="row g-4">
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <article id="product-sale-corteiz-tee" class="card h-100 border-0 product-card p-3 position-relative" data-product-id="sale-corteiz-tee" data-name="Футболка Corteiz" data-price="6375">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-3 fs-6">−15%</span>
+                        <img src="imagess/t-shirt.jpg" class="card-img-top mx-auto product-img" alt="Футболка Corteiz">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h3 class="h5 card-title text-purple fw-bold">Футболка Corteiz</h3>
+                            <p class="fw-bold text-purple mb-3"><strong>6 375 ₸</strong> <s class="text-danger small">7 490 ₸</s></p>
+                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-corteiz-tee">В корзину</button>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <article id="product-sale-boss-tee" class="card h-100 border-0 product-card p-3 position-relative" data-product-id="sale-boss-tee" data-name="Футболка BOSS" data-price="5990">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-3 fs-6">−10%</span>
+                        <img src="imagess/boss.jpg" class="card-img-top mx-auto product-img" alt="Футболка BOSS">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h3 class="h5 card-title text-purple fw-bold">Футболка BOSS</h3>
+                            <p class="fw-bold text-purple mb-3"><strong>5 990 ₸</strong> <s class="text-danger small">6 990 ₸</s></p>
+                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-boss-tee">В корзину</button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="bottoms-sale" class="mb-5">
+            <h2 class="h3 text-purple fw-bold mb-4">ШОРТЫ И НИЗ</h2>
+            <div class="row g-4">
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <article id="product-sale-dime-jeans" class="card h-100 border-0 product-card p-3 position-relative" data-product-id="sale-dime-jeans" data-name="Джинсы Dime" data-price="10400">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-3 fs-6">−20%</span>
+                        <img src="imagess/dime-jeans.jpg" class="card-img-top mx-auto product-img" alt="Джинсы Dime">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h3 class="h5 card-title text-purple fw-bold">Джинсы Dime</h3>
+                            <p class="fw-bold text-purple mb-3"><strong>10 400 ₸</strong> <s class="text-danger small">12 990 ₸</s></p>
+                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-dime-jeans">В корзину</button>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <article id="product-sale-corteiz-shorts" class="card h-100 border-0 product-card p-3 position-relative" data-product-id="sale-corteiz-shorts" data-name="Шорты Corteiz" data-price="7910">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-3 fs-6">−20%</span>
+                        <img src="imagess/corteiz-shorts.jpg" class="card-img-top mx-auto product-img" alt="Шорты Corteiz">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h3 class="h5 card-title text-purple fw-bold">Шорты Corteiz</h3>
+                            <p class="fw-bold text-purple mb-3"><strong>7 910 ₸</strong> <s class="text-danger small">9 890 ₸</s></p>
+                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-corteiz-shorts">В корзину</button>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <article id="product-sale-basic-pants" class="card h-100 border-0 product-card p-3 position-relative" data-product-id="sale-basic-pants" data-name="Брюки Basic Pants" data-price="10790">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-3 fs-6">−10%</span>
+                        <img src="imagess/basicpants.jpg" class="card-img-top mx-auto product-img" alt="Брюки Basic Pants">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h3 class="h5 card-title text-purple fw-bold">Брюки Basic Pants</h3>
+                            <p class="fw-bold text-purple mb-3"><strong>10 790 ₸</strong> <s class="text-danger small">11 990 ₸</s></p>
+                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-basic-pants">В корзину</button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="bags-sale" class="mb-5">
+            <h2 class="h3 text-purple fw-bold mb-4">СУМКИ</h2>
+            <div class="row g-4">
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <article id="product-sale-tommy-backpack" class="card h-100 border-0 product-card p-3 position-relative" data-product-id="sale-tommy-backpack" data-name="Рюкзак Tommy Hilfiger" data-price="12440">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-3 fs-6">−30%</span>
+                        <img src="imagess/сумка.jpg" class="card-img-top mx-auto product-img" alt="Рюкзак Tommy Hilfiger">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h3 class="h5 card-title text-purple fw-bold">Рюкзак Tommy Hilfiger</h3>
+                            <p class="fw-bold text-purple mb-3"><strong>12 440 ₸</strong> <s class="text-danger small">17 770 ₸</s></p>
+                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-tommy-backpack">В корзину</button>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <article id="product-sale-nike-bag" class="card h-100 border-0 product-card p-3 position-relative" data-product-id="sale-nike-bag" data-name="Сумка Nike" data-price="5400">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-3 fs-6">−10%</span>
+                        <img src="imagess/nikebag.jpg" class="card-img-top mx-auto product-img" alt="Сумка Nike">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h3 class="h5 card-title text-purple fw-bold">Сумка Nike</h3>
+                            <p class="fw-bold text-purple mb-3"><strong>5 400 ₸</strong> <s class="text-danger small">5 990 ₸</s></p>
+                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-nike-bag">В корзину</button>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
 
     </main>
 
-    <!-- Подвал -->
+    <!-- Подвал (одинаковый на всех страницах) -->
     <footer class="bg-white border-top mt-5">
         <div class="container py-4">
             <div class="row g-4">
-                <div class="col-12 col-md-3">
-                    <h5 class="text-purple fw-bold">ASLSTORE.KZ</h5>
-                    <p class="text-muted small">Официальный интернет-магазин унисекс одежды, обуви и аксессуаров.</p>
-                    <p class="text-muted small">&copy; 2026 ASLSTORE.KZ. Все права защищены.</p>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h2 class="h5 text-purple fw-bold">ASLSTORE.KZ</h2>
+                    <p class="text-muted small">Магазин унисекс одежды, обуви и аксессуаров в Астане.</p>
+                    <p class="text-muted small mb-0">&copy; 2026 ASLSTORE.KZ</p>
                 </div>
-                <div class="col-12 col-md-3">
-                    <h5 class="text-purple fw-bold">КАТАЛОГ</h5>
-                    <ul class="list-unstyled text-muted small">
-                        <li><a href="clothing.html#tops" class="text-decoration-none text-muted">Футболки и Поло</a></li>
-                        <li><a href="clothing.html#outerwear" class="text-decoration-none text-muted">Куртки и Пуховики</a></li>
-                        <li><a href="clothing.html#bottoms" class="text-decoration-none text-muted">Джинсы и Брюки</a></li>
-                        <li><a href="shoesandacc.html" class="text-decoration-none text-muted">Кроссовки и Кеды</a></li>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h2 class="h5 text-purple fw-bold">КАТАЛОГ</h2>
+                    <ul class="list-unstyled small">
+                        <li><a href="clothing.html#tops" class="link-secondary text-decoration-none">Футболки</a></li>
+                        <li><a href="clothing.html#hoodies" class="link-secondary text-decoration-none">Худи и свитшоты</a></li>
+                        <li><a href="clothing.html#bottoms" class="link-secondary text-decoration-none">Джинсы и брюки</a></li>
+                        <li><a href="shoesandacc.html#sneakers" class="link-secondary text-decoration-none">Кроссовки</a></li>
+                        <li><a href="shoesandacc.html#accessories" class="link-secondary text-decoration-none">Кепки, сумки, украшения</a></li>
                     </ul>
                 </div>
-                <div class="col-12 col-md-3">
-                    <h5 class="text-purple fw-bold">ПОКУПАТЕЛЯМ</h5>
-                    <ul class="list-unstyled text-muted small">
-                        <li><a href="order.html" class="text-decoration-none text-muted">Оформить заказ</a></li>
-                        <li><a href="colophon.html" class="text-decoration-none text-muted">Доставка и оплата</a></li>
-                        <li><a href="colophon.html" class="text-decoration-none text-muted">О проекте (Colophon)</a></li>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h2 class="h5 text-purple fw-bold">ПОКУПАТЕЛЯМ</h2>
+                    <ul class="list-unstyled small">
+                        <li><a href="order.html" class="link-secondary text-decoration-none">Корзина и заказ</a></li>
+                        <li><a href="order.html#account" class="link-secondary text-decoration-none">Личный кабинет</a></li>
+                        <li><a href="colophon.html#delivery" class="link-secondary text-decoration-none">Доставка и оплата</a></li>
+                        <li><a href="colophon.html#feedback" class="link-secondary text-decoration-none">Задать вопрос</a></li>
+                        <li><a href="sale.html" class="link-secondary text-decoration-none">Скидки</a></li>
                     </ul>
                 </div>
-                <div class="col-12 col-md-3">
-                    <h5 class="text-purple fw-bold">КОНТАКТЫ</h5>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h2 class="h5 text-purple fw-bold">КОНТАКТЫ</h2>
                     <address class="text-muted small mb-0">
-                        <p class="mb-1">📍 Астана, ТД Гульжан 2 этаж 246 бутик</p>
-                        <p class="mb-1">📞 +7 (700) 645 5057</p>
-                        <p class="mb-0">✉️ support@aslstore.kz</p>
+                        <p class="mb-1">Астана, ТД «Гулжан», 2 этаж, бутик 246</p>
+                        <p class="mb-1">Ежедневно 10:00–20:00</p>
+                        <p class="mb-1"><a href="tel:+77006455057" class="link-secondary text-decoration-none">+7 (700) 645 50 57</a></p>
+                        <p class="mb-0"><a href="mailto:support@aslstore.kz" class="link-secondary text-decoration-none">support@aslstore.kz</a></p>
                     </address>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- Bootstrap JS: кнопка меню на телефоне -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Наш скрипт: корзина, аккаунт, заказ -->
+    <script src="js/main.js"></script>
 </body>
 </html>
