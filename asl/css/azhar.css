@@ -1,17 +1,16 @@
-
+/* azhar.css — карточки товаров в каталоге */
 .product-card {
     border: 1px solid var(--purple-light) !important;
     border-radius: 12px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
- 
+
 .product-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 20px rgba(107, 70, 193, 0.15);
 }
- 
+
 .product-img {
     max-height: 200px;
     object-fit: contain;
 }
- 

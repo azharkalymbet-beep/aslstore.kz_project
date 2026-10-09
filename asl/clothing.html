@@ -1,4 +1,3 @@
-Clothing.html · TXT
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -14,32 +13,26 @@ Clothing.html · TXT
     <link rel="stylesheet" href="css/akdana.css">
 </head>
 <body>
- 
+
     <!-- Шапка: верхняя планка + навигация -->
     <header class="sticky-top">
         <!-- container-fluid: планка на всю ширину экрана -->
         <div class="container-fluid bg-white border-bottom py-2">
             <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
                 <small class="text-muted fw-bold">БЕСПЛАТНАЯ ДОСТАВКА ПО АСТАНЕ ОТ 30 000 ₸</small>
-                <div class="d-flex align-items-center gap-3">
-                    <a href="order.html#account" id="account-link" class="text-decoration-none text-purple fw-bold small"><span id="account-name">Войти / Регистрация</span></a>
-                    <a href="order.html" id="cart-link" class="btn btn-sm btn-outline-purple">Корзина <span id="cart-count" class="badge bg-purple">0</span></a>
-                </div>
+                <a href="order.html" id="cart-link" class="btn btn-sm btn-outline-purple">Оформить заказ <span id="cart-count" class="badge bg-purple hidden" data-count="0">0</span></a>
             </div>
         </div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm" aria-label="Главное меню">
-            <div class="container">
+        <nav class="navbar navbar-expand navbar-light bg-white shadow-sm" aria-label="Главное меню">
+            <div class="container flex-wrap">
                 <a class="navbar-brand fw-bold text-purple" href="index.html">ASLSTORE<sup class="text-muted">.KZ</sup></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Открыть меню">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav gap-lg-3">
+                <div class="navbar-nav-wrap ms-lg-auto" id="navbarNav">
+                    <ul class="navbar-nav flex-wrap column-gap-3">
                     <li class="nav-item"><a class="nav-link" href="index.html">ГЛАВНАЯ</a></li>
                     <li class="nav-item"><a class="nav-link active" href="clothing.html" aria-current="page">ОДЕЖДА</a></li>
                     <li class="nav-item"><a class="nav-link" href="shoesandacc.html">ОБУВЬ И АКСЕССУАРЫ</a></li>
                     <li class="nav-item"><a class="nav-link" href="sale.html">СКИДКИ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="order.html">КОРЗИНА</a></li>
+                    <li class="nav-item"><a class="nav-link" href="order.html">ЗАКАЗ</a></li>
                     <li class="nav-item"><a class="nav-link" href="colophon.html">О НАС</a></li>
                     </ul>
                 </div>
@@ -55,30 +48,20 @@ Clothing.html · TXT
             </ol>
             <a href="index.html" class="btn btn-sm btn-outline-secondary js-back">← Назад</a>
         </nav>
- 
- 
+
+
         <section class="p-4 bg-white rounded shadow-sm text-center mb-5">
             <h1 class="h2 text-purple fw-bold">КАТАЛОГ ОДЕЖДЫ (УНИСЕКС)</h1>
-            <p class="text-muted mb-0">Оверсайз-фасоны и единая линейка размеров S–XL. Выберите размер и добавьте товар в корзину.</p>
-            <form id="search-form" class="row g-2 justify-content-center mt-3" action="clothing.html" method="get" role="search">
-                <div class="col-12 col-sm-8 col-md-6">
-                    <label for="search-input" class="visually-hidden">Поиск по одежде</label>
-                    <input type="search" id="search-input" name="q" class="form-control" placeholder="Например: худи, джинсы">
-                </div>
-                <div class="col-12 col-sm-auto">
-                    <button type="submit" class="btn btn-purple w-100">Найти</button>
-                </div>
-            </form>
-            <p id="search-empty" class="d-none text-danger small mt-2 mb-0">Ничего не найдено. Попробуйте другое слово.</p>
+            <p class="text-muted mb-0">Оверсайз-фасоны и единая линейка размеров S–XL. Размер выбирается при оформлении заказа.</p>
         </section>
- 
+
         <nav class="d-flex flex-wrap gap-2 justify-content-center mb-5" aria-label="Разделы каталога">
             <a href="#tops" class="btn btn-sm btn-outline-purple filter-btn" data-filter="tops">Футболки</a>
             <a href="#hoodies" class="btn btn-sm btn-outline-purple filter-btn" data-filter="hoodies">Худи и свитшоты</a>
             <a href="#bottoms" class="btn btn-sm btn-outline-purple filter-btn" data-filter="bottoms">Брюки и джинсы</a>
             <a href="#size-guide" class="btn btn-sm btn-outline-purple">Таблица размеров</a>
         </nav>
- 
+
         <section id="tops" class="mb-5">
             <h2 class="h3 text-purple fw-bold mb-4">ФУТБОЛКИ</h2>
             <div class="row g-4">
@@ -88,10 +71,8 @@ Clothing.html · TXT
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Футболка AMIRI Dove Black</h3>
                             <p class="text-muted small">Чёрная оверсайз футболка с принтом белого голубя.</p>
-                            <label for="size-amiri-dove" class="form-label small text-muted mb-1">Размер</label>
-                            <select id="size-amiri-dove" name="size" class="form-select form-select-sm mb-3 size-select"><option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option></select>
                             <p class="fw-bold text-purple fs-5 mb-3">12 500 ₸</p>
-                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="amiri-dove">В корзину</button>
+                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="amiri-dove">Заказать</a>
                         </div>
                     </article>
                 </div>
@@ -101,10 +82,8 @@ Clothing.html · TXT
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Футболка NPC Pixel Black</h3>
                             <p class="text-muted small">Чёрная плотная футболка с пиксельной надписью.</p>
-                            <label for="size-npc-pixel" class="form-label small text-muted mb-1">Размер</label>
-                            <select id="size-npc-pixel" name="size" class="form-select form-select-sm mb-3 size-select"><option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option></select>
                             <p class="fw-bold text-purple fs-5 mb-3">10 000 ₸</p>
-                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="npc-pixel">В корзину</button>
+                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="npc-pixel">Заказать</a>
                         </div>
                     </article>
                 </div>
@@ -114,16 +93,14 @@ Clothing.html · TXT
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Футболка Chief Keef 2012 White</h3>
                             <p class="text-muted small">Белая футболка с принтом Chief Keef.</p>
-                            <label for="size-keef-2012" class="form-label small text-muted mb-1">Размер</label>
-                            <select id="size-keef-2012" name="size" class="form-select form-select-sm mb-3 size-select"><option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option></select>
                             <p class="fw-bold text-purple fs-5 mb-3">10 000 ₸</p>
-                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="keef-2012">В корзину</button>
+                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="keef-2012">Заказать</a>
                         </div>
                     </article>
                 </div>
             </div>
         </section>
- 
+
         <section id="hoodies" class="mb-5">
             <h2 class="h3 text-purple fw-bold mb-4">ХУДИ И СВИТШОТЫ</h2>
             <div class="row g-4">
@@ -133,10 +110,8 @@ Clothing.html · TXT
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Худи оверсайз с балаклавой</h3>
                             <p class="text-muted small">Плотное чёрное худи со встроенной маской-балаклавой.</p>
-                            <label for="size-hoodie-balaclava" class="form-label small text-muted mb-1">Размер</label>
-                            <select id="size-hoodie-balaclava" name="size" class="form-select form-select-sm mb-3 size-select"><option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option></select>
                             <p class="fw-bold text-purple fs-5 mb-3">22 000 ₸</p>
-                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="hoodie-balaclava">В корзину</button>
+                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="hoodie-balaclava">Заказать</a>
                         </div>
                     </article>
                 </div>
@@ -146,16 +121,14 @@ Clothing.html · TXT
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Винтажный свитшот Grunge</h3>
                             <p class="text-muted small">Свитшот с эффектом потёртости и состаренным принтом.</p>
-                            <label for="size-sweat-grunge" class="form-label small text-muted mb-1">Размер</label>
-                            <select id="size-sweat-grunge" name="size" class="form-select form-select-sm mb-3 size-select"><option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option></select>
                             <p class="fw-bold text-purple fs-5 mb-3">18 500 ₸</p>
-                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="sweat-grunge">В корзину</button>
+                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="sweat-grunge">Заказать</a>
                         </div>
                     </article>
                 </div>
             </div>
         </section>
- 
+
         <section id="bottoms" class="mb-5">
             <h2 class="h3 text-purple fw-bold mb-4">БРЮКИ И ДЖИНСЫ</h2>
             <div class="row g-4">
@@ -165,10 +138,8 @@ Clothing.html · TXT
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Широкие джинсы Baggy Dark</h3>
                             <p class="text-muted small">Свободные тёмные джинсы с варёным эффектом.</p>
-                            <label for="size-jeans-baggy" class="form-label small text-muted mb-1">Размер</label>
-                            <select id="size-jeans-baggy" name="size" class="form-select form-select-sm mb-3 size-select"><option value="28">28</option><option value="30">30</option><option value="32">32</option><option value="34">34</option></select>
                             <p class="fw-bold text-purple fs-5 mb-3">20 000 ₸</p>
-                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="jeans-baggy">В корзину</button>
+                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="jeans-baggy">Заказать</a>
                         </div>
                     </article>
                 </div>
@@ -178,16 +149,14 @@ Clothing.html · TXT
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Брюки-карго Utility Black</h3>
                             <p class="text-muted small">Брюки с большими боковыми карманами и фиксаторами.</p>
-                            <label for="size-cargo-utility" class="form-label small text-muted mb-1">Размер</label>
-                            <select id="size-cargo-utility" name="size" class="form-select form-select-sm mb-3 size-select"><option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option></select>
                             <p class="fw-bold text-purple fs-5 mb-3">19 000 ₸</p>
-                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="cargo-utility">В корзину</button>
+                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="cargo-utility">Заказать</a>
                         </div>
                     </article>
                 </div>
             </div>
         </section>
- 
+
         <section id="size-guide" class="bg-white p-4 rounded shadow-sm mb-5">
             <h2 class="h4 text-purple fw-bold mb-3">Таблица размеров (унисекс)</h2>
             <div class="table-responsive">
@@ -205,9 +174,9 @@ Clothing.html · TXT
             </div>
             <p class="text-muted small mt-2 mb-0">Модели оверсайз: если сомневаетесь, берите свой обычный размер.</p>
         </section>
- 
+
     </main>
- 
+
     <!-- Подвал (одинаковый на всех страницах) -->
     <footer class="bg-white border-top mt-5">
         <div class="container py-4">
@@ -230,8 +199,7 @@ Clothing.html · TXT
                 <div class="col-12 col-md-6 col-lg-3">
                     <h2 class="h5 text-purple fw-bold">ПОКУПАТЕЛЯМ</h2>
                     <ul class="list-unstyled small">
-                        <li><a href="order.html" class="link-secondary text-decoration-none">Корзина и заказ</a></li>
-                        <li><a href="order.html#account" class="link-secondary text-decoration-none">Личный кабинет</a></li>
+                        <li><a href="order.html" class="link-secondary text-decoration-none">Оформить заказ</a></li>
                         <li><a href="colophon.html#delivery" class="link-secondary text-decoration-none">Доставка и оплата</a></li>
                         <li><a href="colophon.html#feedback" class="link-secondary text-decoration-none">Задать вопрос</a></li>
                         <li><a href="sale.html" class="link-secondary text-decoration-none">Скидки</a></li>
@@ -249,10 +217,5 @@ Clothing.html · TXT
             </div>
         </div>
     </footer>
- 
-    <!-- Bootstrap JS: кнопка меню на телефоне -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Наш скрипт: корзина, аккаунт, заказ -->
-    <script src="js/main.js"></script>
 </body>
 </html>

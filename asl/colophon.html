@@ -20,25 +20,19 @@
         <div class="container-fluid bg-white border-bottom py-2">
             <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
                 <small class="text-muted fw-bold">БЕСПЛАТНАЯ ДОСТАВКА ПО АСТАНЕ ОТ 30 000 ₸</small>
-                <div class="d-flex align-items-center gap-3">
-                    <a href="order.html#account" id="account-link" class="text-decoration-none text-purple fw-bold small"><span id="account-name">Войти / Регистрация</span></a>
-                    <a href="order.html" id="cart-link" class="btn btn-sm btn-outline-purple">Корзина <span id="cart-count" class="badge bg-purple">0</span></a>
-                </div>
+                <a href="order.html" id="cart-link" class="btn btn-sm btn-outline-purple">Оформить заказ <span id="cart-count" class="badge bg-purple hidden" data-count="0">0</span></a>
             </div>
         </div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm" aria-label="Главное меню">
-            <div class="container">
+        <nav class="navbar navbar-expand navbar-light bg-white shadow-sm" aria-label="Главное меню">
+            <div class="container flex-wrap">
                 <a class="navbar-brand fw-bold text-purple" href="index.html">ASLSTORE<sup class="text-muted">.KZ</sup></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Открыть меню">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav gap-lg-3">
+                <div class="navbar-nav-wrap ms-lg-auto" id="navbarNav">
+                    <ul class="navbar-nav flex-wrap column-gap-3">
                     <li class="nav-item"><a class="nav-link" href="index.html">ГЛАВНАЯ</a></li>
                     <li class="nav-item"><a class="nav-link" href="clothing.html">ОДЕЖДА</a></li>
                     <li class="nav-item"><a class="nav-link" href="shoesandacc.html">ОБУВЬ И АКСЕССУАРЫ</a></li>
                     <li class="nav-item"><a class="nav-link" href="sale.html">СКИДКИ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="order.html">КОРЗИНА</a></li>
+                    <li class="nav-item"><a class="nav-link" href="order.html">ЗАКАЗ</a></li>
                     <li class="nav-item"><a class="nav-link active" href="colophon.html" aria-current="page">О НАС</a></li>
                     </ul>
                 </div>
@@ -95,16 +89,16 @@
                     </tbody>
                 </table>
             </div>
-            <p class="mb-1"><strong>Оплата онлайн:</strong> Kaspi.kz (в том числе рассрочка), Halyk Bank, Freedom Bank, Apple Pay, карта Visa/Mastercard. Или наличными при получении.</p>
+            <p class="mb-1"><strong>Оплата онлайн:</strong> после оформления заказа счёт приходит в Kaspi.kz (есть рассрочка), Halyk Bank, Freedom Bank, Apple Pay или по ссылке для карты Visa/Mastercard. Или наличными при получении.</p>
             <p class="mb-0"><strong>Обмен и возврат:</strong> в течение 14 дней, если вещь не носили и сохранены бирки.</p>
         </section>
 
         <section id="feedback" class="bg-white p-4 rounded shadow-sm">
             <h2 class="h4 text-purple fw-bold mb-3">Задать вопрос</h2>
             <p class="text-muted">Спросите про наличие, размер или доставку — ответим по телефону.</p>
-            <div id="feedback-error" class="alert alert-danger d-none" role="alert">Заполните имя, телефон (11 цифр) и вопрос.</div>
-            <div id="feedback-success" class="alert alert-success d-none" role="status"></div>
-            <form id="feedback-form" action="colophon.html#feedback" method="get">
+            <div id="feedback-error" class="alert alert-danger hidden" role="alert">Заполните имя, телефон (11 цифр) и вопрос.</div>
+            <div id="feedback-done" class="alert alert-success feedback-done" role="status" tabindex="-1">Спасибо! Вопрос отправлен. Мы перезвоним в рабочее время (Ежедневно 10:00–20:00).</div>
+            <form id="feedback-form" action="colophon.html#feedback-done" method="get">
                 <div class="row g-3">
                     <div class="col-12 col-md-6">
                         <label for="fb-name" class="form-label fw-bold small">Имя</label>
@@ -112,7 +106,7 @@
                     </div>
                     <div class="col-12 col-md-6">
                         <label for="fb-phone" class="form-label fw-bold small">Телефон</label>
-                        <input type="tel" id="fb-phone" name="phone" class="form-control" placeholder="+7 700 000 00 00" autocomplete="tel" pattern="[+0-9 ()-]{10,18}" required>
+                        <input type="tel" id="fb-phone" name="phone" class="form-control" placeholder="+7 700 000 00 00" autocomplete="tel" pattern="[+]?[0-9 ()-]{10,18}" required>
                     </div>
                     <div class="col-12">
                         <label for="fb-topic" class="form-label fw-bold small">Тема</label>
@@ -157,8 +151,7 @@
                 <div class="col-12 col-md-6 col-lg-3">
                     <h2 class="h5 text-purple fw-bold">ПОКУПАТЕЛЯМ</h2>
                     <ul class="list-unstyled small">
-                        <li><a href="order.html" class="link-secondary text-decoration-none">Корзина и заказ</a></li>
-                        <li><a href="order.html#account" class="link-secondary text-decoration-none">Личный кабинет</a></li>
+                        <li><a href="order.html" class="link-secondary text-decoration-none">Оформить заказ</a></li>
                         <li><a href="colophon.html#delivery" class="link-secondary text-decoration-none">Доставка и оплата</a></li>
                         <li><a href="colophon.html#feedback" class="link-secondary text-decoration-none">Задать вопрос</a></li>
                         <li><a href="sale.html" class="link-secondary text-decoration-none">Скидки</a></li>
@@ -176,10 +169,5 @@
             </div>
         </div>
     </footer>
-
-    <!-- Bootstrap JS: кнопка меню на телефоне -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Наш скрипт: корзина, аккаунт, заказ -->
-    <script src="js/main.js"></script>
 </body>
 </html>

@@ -20,25 +20,19 @@
         <div class="container-fluid bg-white border-bottom py-2">
             <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
                 <small class="text-muted fw-bold">БЕСПЛАТНАЯ ДОСТАВКА ПО АСТАНЕ ОТ 30 000 ₸</small>
-                <div class="d-flex align-items-center gap-3">
-                    <a href="order.html#account" id="account-link" class="text-decoration-none text-purple fw-bold small"><span id="account-name">Войти / Регистрация</span></a>
-                    <a href="order.html" id="cart-link" class="btn btn-sm btn-outline-purple">Корзина <span id="cart-count" class="badge bg-purple">0</span></a>
-                </div>
+                <a href="order.html" id="cart-link" class="btn btn-sm btn-outline-purple">Оформить заказ <span id="cart-count" class="badge bg-purple hidden" data-count="0">0</span></a>
             </div>
         </div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm" aria-label="Главное меню">
-            <div class="container">
+        <nav class="navbar navbar-expand navbar-light bg-white shadow-sm" aria-label="Главное меню">
+            <div class="container flex-wrap">
                 <a class="navbar-brand fw-bold text-purple" href="index.html">ASLSTORE<sup class="text-muted">.KZ</sup></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Открыть меню">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav gap-lg-3">
+                <div class="navbar-nav-wrap ms-lg-auto" id="navbarNav">
+                    <ul class="navbar-nav flex-wrap column-gap-3">
                     <li class="nav-item"><a class="nav-link" href="index.html">ГЛАВНАЯ</a></li>
                     <li class="nav-item"><a class="nav-link" href="clothing.html">ОДЕЖДА</a></li>
                     <li class="nav-item"><a class="nav-link" href="shoesandacc.html">ОБУВЬ И АКСЕССУАРЫ</a></li>
                     <li class="nav-item"><a class="nav-link active" href="sale.html" aria-current="page">СКИДКИ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="order.html">КОРЗИНА</a></li>
+                    <li class="nav-item"><a class="nav-link" href="order.html">ЗАКАЗ</a></li>
                     <li class="nav-item"><a class="nav-link" href="colophon.html">О НАС</a></li>
                     </ul>
                 </div>
@@ -89,7 +83,7 @@
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Куртка Burberry</h3>
                             <p class="fw-bold text-purple mb-3"><strong>12 495 ₸</strong> <s class="text-danger small">24 990 ₸</s></p>
-                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-burberry">В корзину</button>
+                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-burberry">Заказать</a>
                         </div>
                     </article>
                 </div>
@@ -100,7 +94,7 @@
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Свитшот Ami</h3>
                             <p class="fw-bold text-purple mb-3"><strong>6 995 ₸</strong> <s class="text-danger small">13 990 ₸</s></p>
-                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-ami">В корзину</button>
+                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-ami">Заказать</a>
                         </div>
                     </article>
                 </div>
@@ -111,7 +105,7 @@
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Свитер Polo Ralph Lauren</h3>
                             <p class="fw-bold text-purple mb-3"><strong>11 900 ₸</strong> <s class="text-danger small">14 000 ₸</s></p>
-                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-polo">В корзину</button>
+                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-polo">Заказать</a>
                         </div>
                     </article>
                 </div>
@@ -122,7 +116,7 @@
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Зип-худи Corteiz</h3>
                             <p class="fw-bold text-purple mb-3"><strong>16 000 ₸</strong> <s class="text-danger small">20 000 ₸</s></p>
-                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-corteiz-zip">В корзину</button>
+                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-corteiz-zip">Заказать</a>
                         </div>
                     </article>
                 </div>
@@ -139,7 +133,7 @@
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Футболка Corteiz</h3>
                             <p class="fw-bold text-purple mb-3"><strong>6 375 ₸</strong> <s class="text-danger small">7 490 ₸</s></p>
-                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-corteiz-tee">В корзину</button>
+                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-corteiz-tee">Заказать</a>
                         </div>
                     </article>
                 </div>
@@ -150,7 +144,7 @@
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Футболка BOSS</h3>
                             <p class="fw-bold text-purple mb-3"><strong>5 990 ₸</strong> <s class="text-danger small">6 990 ₸</s></p>
-                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-boss-tee">В корзину</button>
+                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-boss-tee">Заказать</a>
                         </div>
                     </article>
                 </div>
@@ -167,7 +161,7 @@
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Джинсы Dime</h3>
                             <p class="fw-bold text-purple mb-3"><strong>10 400 ₸</strong> <s class="text-danger small">12 990 ₸</s></p>
-                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-dime-jeans">В корзину</button>
+                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-dime-jeans">Заказать</a>
                         </div>
                     </article>
                 </div>
@@ -178,7 +172,7 @@
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Шорты Corteiz</h3>
                             <p class="fw-bold text-purple mb-3"><strong>7 910 ₸</strong> <s class="text-danger small">9 890 ₸</s></p>
-                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-corteiz-shorts">В корзину</button>
+                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-corteiz-shorts">Заказать</a>
                         </div>
                     </article>
                 </div>
@@ -189,7 +183,7 @@
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Брюки Basic Pants</h3>
                             <p class="fw-bold text-purple mb-3"><strong>10 790 ₸</strong> <s class="text-danger small">11 990 ₸</s></p>
-                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-basic-pants">В корзину</button>
+                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-basic-pants">Заказать</a>
                         </div>
                     </article>
                 </div>
@@ -206,7 +200,7 @@
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Рюкзак Tommy Hilfiger</h3>
                             <p class="fw-bold text-purple mb-3"><strong>12 440 ₸</strong> <s class="text-danger small">17 770 ₸</s></p>
-                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-tommy-backpack">В корзину</button>
+                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-tommy-backpack">Заказать</a>
                         </div>
                     </article>
                 </div>
@@ -217,7 +211,7 @@
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Сумка Nike</h3>
                             <p class="fw-bold text-purple mb-3"><strong>5 400 ₸</strong> <s class="text-danger small">5 990 ₸</s></p>
-                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-nike-bag">В корзину</button>
+                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="sale-nike-bag">Заказать</a>
                         </div>
                     </article>
                 </div>
@@ -248,8 +242,7 @@
                 <div class="col-12 col-md-6 col-lg-3">
                     <h2 class="h5 text-purple fw-bold">ПОКУПАТЕЛЯМ</h2>
                     <ul class="list-unstyled small">
-                        <li><a href="order.html" class="link-secondary text-decoration-none">Корзина и заказ</a></li>
-                        <li><a href="order.html#account" class="link-secondary text-decoration-none">Личный кабинет</a></li>
+                        <li><a href="order.html" class="link-secondary text-decoration-none">Оформить заказ</a></li>
                         <li><a href="colophon.html#delivery" class="link-secondary text-decoration-none">Доставка и оплата</a></li>
                         <li><a href="colophon.html#feedback" class="link-secondary text-decoration-none">Задать вопрос</a></li>
                         <li><a href="sale.html" class="link-secondary text-decoration-none">Скидки</a></li>
@@ -267,10 +260,5 @@
             </div>
         </div>
     </footer>
-
-    <!-- Bootstrap JS: кнопка меню на телефоне -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Наш скрипт: корзина, аккаунт, заказ -->
-    <script src="js/main.js"></script>
 </body>
 </html>

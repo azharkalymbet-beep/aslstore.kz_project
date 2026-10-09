@@ -20,25 +20,19 @@
         <div class="container-fluid bg-white border-bottom py-2">
             <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
                 <small class="text-muted fw-bold">БЕСПЛАТНАЯ ДОСТАВКА ПО АСТАНЕ ОТ 30 000 ₸</small>
-                <div class="d-flex align-items-center gap-3">
-                    <a href="order.html#account" id="account-link" class="text-decoration-none text-purple fw-bold small"><span id="account-name">Войти / Регистрация</span></a>
-                    <a href="order.html" id="cart-link" class="btn btn-sm btn-outline-purple">Корзина <span id="cart-count" class="badge bg-purple">0</span></a>
-                </div>
+                <a href="order.html" id="cart-link" class="btn btn-sm btn-outline-purple">Оформить заказ <span id="cart-count" class="badge bg-purple hidden" data-count="0">0</span></a>
             </div>
         </div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm" aria-label="Главное меню">
-            <div class="container">
+        <nav class="navbar navbar-expand navbar-light bg-white shadow-sm" aria-label="Главное меню">
+            <div class="container flex-wrap">
                 <a class="navbar-brand fw-bold text-purple" href="index.html">ASLSTORE<sup class="text-muted">.KZ</sup></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Открыть меню">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav gap-lg-3">
+                <div class="navbar-nav-wrap ms-lg-auto" id="navbarNav">
+                    <ul class="navbar-nav flex-wrap column-gap-3">
                     <li class="nav-item"><a class="nav-link" href="index.html">ГЛАВНАЯ</a></li>
                     <li class="nav-item"><a class="nav-link" href="clothing.html">ОДЕЖДА</a></li>
                     <li class="nav-item"><a class="nav-link active" href="shoesandacc.html" aria-current="page">ОБУВЬ И АКСЕССУАРЫ</a></li>
                     <li class="nav-item"><a class="nav-link" href="sale.html">СКИДКИ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="order.html">КОРЗИНА</a></li>
+                    <li class="nav-item"><a class="nav-link" href="order.html">ЗАКАЗ</a></li>
                     <li class="nav-item"><a class="nav-link" href="colophon.html">О НАС</a></li>
                     </ul>
                 </div>
@@ -76,10 +70,8 @@
                         <img src="imagess/NikeAF1.jpg" class="card-img-top mx-auto product-img" alt="Кроссовки Nike Air Force 1 x Nocta">
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Кроссовки Nike AF1 x Nocta</h3>
-                            <label for="size-nike-af1-nocta" class="form-label small text-muted mb-1">Размер</label>
-                            <select id="size-nike-af1-nocta" name="size" class="form-select form-select-sm mb-3 size-select"><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option></select>
                             <p class="fw-bold text-purple fs-5 mb-3">19 900 ₸</p>
-                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="nike-af1-nocta">В корзину</button>
+                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="nike-af1-nocta">Заказать</a>
                         </div>
                     </article>
                 </div>
@@ -88,10 +80,8 @@
                         <img src="imagess/MMY-shoes.jpg" class="card-img-top mx-auto product-img" alt="Кроссовки MMY">
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Кроссовки MMY</h3>
-                            <label for="size-mmy-sneaker" class="form-label small text-muted mb-1">Размер</label>
-                            <select id="size-mmy-sneaker" name="size" class="form-select form-select-sm mb-3 size-select"><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option></select>
                             <p class="fw-bold text-purple fs-5 mb-3">21 490 ₸</p>
-                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="mmy-sneaker">В корзину</button>
+                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="mmy-sneaker">Заказать</a>
                         </div>
                     </article>
                 </div>
@@ -109,7 +99,7 @@
                             <h3 class="h5 card-title text-purple fw-bold">Кепка Corteiz</h3>
                             <p class="text-muted small">Регулируемый размер.</p>
                             <p class="fw-bold text-purple fs-5 mb-3">2 990 ₸</p>
-                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="cap-corteiz">В корзину</button>
+                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="cap-corteiz">Заказать</a>
                         </div>
                     </article>
                 </div>
@@ -120,7 +110,7 @@
                             <h3 class="h5 card-title text-purple fw-bold">Кепка Compton</h3>
                             <p class="text-muted small">Регулируемый размер.</p>
                             <p class="fw-bold text-purple fs-5 mb-3">3 490 ₸</p>
-                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="cap-compton">В корзину</button>
+                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="cap-compton">Заказать</a>
                         </div>
                     </article>
                 </div>
@@ -131,7 +121,7 @@
                             <h3 class="h5 card-title text-purple fw-bold">Кепка LA</h3>
                             <p class="text-muted small">Регулируемый размер.</p>
                             <p class="fw-bold text-purple fs-5 mb-3">5 790 ₸</p>
-                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="cap-la">В корзину</button>
+                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="cap-la">Заказать</a>
                         </div>
                     </article>
                 </div>
@@ -148,7 +138,7 @@
                             <h3 class="h5 card-title text-purple fw-bold">Сумка Trapstar</h3>
                             <p class="text-muted small">Регулируемый ремень.</p>
                             <p class="fw-bold text-purple fs-5 mb-3">5 790 ₸</p>
-                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="bag-trapstar">В корзину</button>
+                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="bag-trapstar">Заказать</a>
                         </div>
                     </article>
                 </div>
@@ -159,7 +149,7 @@
                             <h3 class="h5 card-title text-purple fw-bold">Сумка Nike</h3>
                             <p class="text-muted small">Регулируемый ремень.</p>
                             <p class="fw-bold text-purple fs-5 mb-3">4 490 ₸</p>
-                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="bag-nike">В корзину</button>
+                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="bag-nike">Заказать</a>
                         </div>
                     </article>
                 </div>
@@ -176,7 +166,7 @@
                             <h3 class="h5 card-title text-purple fw-bold">Браслет Pandora x Spider-Man</h3>
                             <p class="text-muted small">Регулируемый размер.</p>
                             <p class="fw-bold text-purple fs-5 mb-3">7 990 ₸</p>
-                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="pandora-spiderman">В корзину</button>
+                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="pandora-spiderman">Заказать</a>
                         </div>
                     </article>
                 </div>
@@ -187,7 +177,7 @@
                             <h3 class="h5 card-title text-purple fw-bold">Шарм для браслета Pandora №1</h3>
                             <p class="text-muted small">Подходит к браслету Pandora.</p>
                             <p class="fw-bold text-purple fs-5 mb-3">1 990 ₸</p>
-                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="charm-1">В корзину</button>
+                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="charm-1">Заказать</a>
                         </div>
                     </article>
                 </div>
@@ -198,7 +188,7 @@
                             <h3 class="h5 card-title text-purple fw-bold">Шарм для браслета Pandora №2</h3>
                             <p class="text-muted small">Подходит к браслету Pandora.</p>
                             <p class="fw-bold text-purple fs-5 mb-3">1 990 ₸</p>
-                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="charm-2">В корзину</button>
+                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="charm-2">Заказать</a>
                         </div>
                     </article>
                 </div>
@@ -209,7 +199,7 @@
                             <h3 class="h5 card-title text-purple fw-bold">Шарм для браслета Pandora №3</h3>
                             <p class="text-muted small">Подходит к браслету Pandora.</p>
                             <p class="fw-bold text-purple fs-5 mb-3">1 990 ₸</p>
-                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="charm-3">В корзину</button>
+                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="charm-3">Заказать</a>
                         </div>
                     </article>
                 </div>
@@ -220,7 +210,7 @@
                             <h3 class="h5 card-title text-purple fw-bold">Шарм для браслета Pandora №4</h3>
                             <p class="text-muted small">Подходит к браслету Pandora.</p>
                             <p class="fw-bold text-purple fs-5 mb-3">1 990 ₸</p>
-                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="charm-4">В корзину</button>
+                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="charm-4">Заказать</a>
                         </div>
                     </article>
                 </div>
@@ -251,8 +241,7 @@
                 <div class="col-12 col-md-6 col-lg-3">
                     <h2 class="h5 text-purple fw-bold">ПОКУПАТЕЛЯМ</h2>
                     <ul class="list-unstyled small">
-                        <li><a href="order.html" class="link-secondary text-decoration-none">Корзина и заказ</a></li>
-                        <li><a href="order.html#account" class="link-secondary text-decoration-none">Личный кабинет</a></li>
+                        <li><a href="order.html" class="link-secondary text-decoration-none">Оформить заказ</a></li>
                         <li><a href="colophon.html#delivery" class="link-secondary text-decoration-none">Доставка и оплата</a></li>
                         <li><a href="colophon.html#feedback" class="link-secondary text-decoration-none">Задать вопрос</a></li>
                         <li><a href="sale.html" class="link-secondary text-decoration-none">Скидки</a></li>
@@ -270,10 +259,5 @@
             </div>
         </div>
     </footer>
-
-    <!-- Bootstrap JS: кнопка меню на телефоне -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Наш скрипт: корзина, аккаунт, заказ -->
-    <script src="js/main.js"></script>
 </body>
 </html>

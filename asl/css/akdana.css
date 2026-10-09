@@ -1,5 +1,5 @@
 /* akdana.css — корзина, шаги оформления и оплата */
- 
+
 /* Итог заказа «прилипает» под шапкой на компьютере */
 @media (min-width: 992px) {
     .order-summary {
@@ -7,20 +7,26 @@
         top: 140px;
     }
 }
- 
-/* Шаги оформления: 1 Корзина → 2 Данные → 3 Оплата → 4 Готово */
+
+/* Шаги оформления: 1 Товары → 2 Данные → 3 Оплата → 4 Готово */
 .checkout-steps li {
-    border-top: 3px solid var(--purple-light);
+    border-top: 3px solid var(--purple);
 }
-.checkout-steps li.done,
-.checkout-steps li.active {
-    border-top-color: var(--purple);
+
+/* Подтверждение без JavaScript: скрыто, пока адрес не заканчивается на #order-done */
+.order-done,
+.feedback-done {
+    display: none;
 }
-.checkout-steps li.active {
-    color: var(--purple);
-    font-weight: 700;
+.order-done:target,
+.feedback-done:target {
+    display: block;
 }
- 
+/* Когда заказ принят, форму прячем (селектор «следующий сосед» ~) */
+.order-done:target ~ .checkout {
+    display: none;
+}
+
 /* Выбранный способ оплаты */
 .pay-option {
     cursor: pointer;
@@ -29,10 +35,9 @@
     border-color: var(--purple) !important;
     box-shadow: 0 0 0 2px var(--purple-light);
 }
- 
-/* Логотип банка: если файла картинки нет, видна буква на цвете банка */
+
+/* Логотип банка: если файла нет, object показывает букву на цвете банка */
 .pay-logo {
     width: 40px;
     height: 40px;
 }
- 

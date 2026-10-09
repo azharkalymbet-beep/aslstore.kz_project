@@ -40,3 +40,9 @@ body {
     color: var(--purple);
     font-weight: 700;
 }
+
+/* Классы состояний — заготовки для будущего JavaScript */
+.hidden { display: none !important; }
+.selected { border-color: var(--purple) !important; }
+.error { border-color: #dc3545 !important; }
+.success { border-left: 5px solid #198754; }
