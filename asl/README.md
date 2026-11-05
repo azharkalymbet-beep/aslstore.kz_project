@@ -26,17 +26,19 @@ The number of pages is the same as at the start of the project — 6. The order 
 ## Three visitor paths
 
 1. **Order a hoodie (main path).**
-   Home → "Смотреть одежду" → Clothing → section "Худи" → "Заказать" → `order.html` → step 1: choose the hoodie, size M, quantity 2 (more products under "Добавить ещё товары") → step 2: name, phone, courier or pickup, address → step 3: choose Kaspi.kz → tick the agreement → "Оформить заказ и получить счёт" → **"Заказ принят"**: the invoice will come to the Kaspi.kz app on the given phone number.
+   Home → "Смотреть одежду" → Clothing → section "Худи" → "Заказать" → `order.html` → step 1: choose "Худи оверсайз с балаклавой — размер M", quantity 2 (more products under "Добавить ещё товары") → step 2: name, phone, courier or pickup, address → step 3: choose Kaspi.kz → tick the agreement → "Оформить заказ и получить счёт" → **"Заказ принят"**: the invoice will come to the Kaspi.kz app on the given phone number.
 2. **Find the address and opening hours.** Any page → footer (address, hours, phone) **or** Home → "Контакты и как добраться" → `colophon.html#contacts`.
 3. **Ask a question about size.** Clothing → "Таблица размеров" → footer "Задать вопрос" → `colophon.html#feedback` → topic "Подбор размера" → "Отправить вопрос" → message "Спасибо! Вопрос отправлен" under the form.
 
 ## How the order works without JavaScript
 
 - The order form uses only HTML: `required`, `minlength`, `pattern` (phone), `type="email"`, `type="number" min="1" max="10"`. The browser itself does not let the visitor submit an empty or wrong form.
+- Product and size are chosen in **one** `<select>`: every product is an `<optgroup>` that contains only its own sizes (T-shirts S–XL, jeans 28–34, sneakers 36–45, accessories without size). A wrong pair like "T-shirt + size 40" cannot be chosen, and no JavaScript is needed.
 - Extra products are hidden in `<details>` / `<summary>` ("Добавить ещё товары") — this opens and closes without JavaScript.
 - Payment methods: Kaspi.kz, Halyk Bank, Freedom Bank, Apple Pay, bank card, cash on delivery. One of them must be chosen (`required` radio group).
 - The form is sent with `action="order.html#order-done" method="get"`. The confirmation block `#order-done` is hidden by CSS and shown with the `:target` selector; the form after it is hidden with `.order-done:target ~ .checkout`. The question form on `colophon.html` works the same way (`#feedback-done`).
 - A static site cannot charge money or calculate a total without JavaScript and a server, so the total is shown in the bank invoice, and the price of every product is listed in "Цены всех товаров". This is how the order is finished: the visitor chooses how to pay and gets the invoice from the bank.
+- `autocomplete="name"`, `"tel"`, `"email"`, `"street-address"` let the browser remember the buyer's data after the first order and fill it in next time.
 - The menu is always expanded (`navbar-expand`) and wraps on a phone, because the Bootstrap hamburger button needs Bootstrap's JavaScript.
 
 ## Prepared for JavaScript (next assignment)
@@ -60,18 +62,16 @@ The site was first built with plain HTML, then CSS was added, then everything po
 
 ## Payment method logos
 
-Each payment method has a place for a logo (`<object>`). While there is no image file, the fallback inside `<object>` is shown — a letter on the bank's color (K, H, F, A, V, ₸). To use real logos, put square PNG files (80×80 recommended) here:
+Each payment method shows the bank logo with `<object>`. If an image file is missing, the fallback inside `<object>` is shown — a letter on the bank's color.
 
-```
-imagess/pay/kaspi.png
-imagess/pay/halyk.png
-imagess/pay/freedom.png
-imagess/pay/applepay.png
-imagess/pay/card.png
-imagess/pay/cash.png
-```
-
-Take the logos from the banks' official websites (partner / media kit section).
+| Method | File |
+|---|---|
+| Kaspi.kz | `imagess/kaspi.jpg` |
+| Halyk Bank | `imagess/halyk.jpg` |
+| Freedom Bank | `imagess/freedom.jpg` |
+| Apple Pay | `imagess/pay.jpg` |
+| Bank card | `imagess/inion.jpg` |
+| Cash | `imagess/cash.jpg` |
 
 ## Issues found and fixed
 
