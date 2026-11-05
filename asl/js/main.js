@@ -1,16 +1,18 @@
 'use strict';
 
 /* ==========================================================================
-   ASLSTORE.KZ — main.js
-   Общий код для ВСЕХ страниц (сквозная функция команды):
-   - массив товаров PRODUCTS (единый источник цен и размеров);
-   - корзина в localStorage: добавление, подсчёт, счётчик в шапке;
-   - общие функции: форматирование цены, расчёт сумм и доставки,
-     валидация имени/телефона/email, вывод ошибок рядом с полем;
-   - кнопка «← Назад».
-   Файлы страниц (catalog.js, order.js, feedback.js) используют эти функции,
-   поэтому main.js подключается ПЕРВЫМ.
+   ASLSTORE.KZ — main.js (Assignment 6: jQuery)
+   Подключается на ВСЕХ страницах сразу после jQuery 3.7.1 (CDN).
+
+   Часть 1 — данные и чистая логика без работы с DOM (массив PRODUCTS,
+   корзина в localStorage, расчёты, проверки форматов). Здесь jQuery не нужен,
+   потому что эти функции не трогают страницу.
+   Часть 2 — общие jQuery-функции для всех страниц: ошибка под полем,
+   плавный показ/скрытие блоков, счётчик корзины.
+   Часть 3 — сквозное поведение (кнопки «В корзину», счётчик корзины) внутри $(function () { ... }).
    ========================================================================== */
+
+/* ===================== Часть 1. Данные и логика ===================== */
 
 const STORAGE_KEY = 'asl_cart';
 const MAX_QTY = 10;               // не больше 10 шт. одного товара
@@ -83,18 +85,6 @@ function hasSizes(product) {
 // 12500 → «12 500 ₸»
 function formatPrice(amount) {
     return `${Number(amount).toLocaleString('ru-RU')} ₸`;
-}
-
-// Создать DOM-элемент с классами и текстом. Текст всегда через textContent (безопасно).
-function createEl(tag, className, text) {
-    const node = document.createElement(tag);
-    if (className) {
-        node.className = className;
-    }
-    if (text !== undefined) {
-        node.textContent = text;
-    }
-    return node;
 }
 
 /* ---------- Корзина ---------- */
@@ -207,79 +197,109 @@ function isValidEmail(value) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value.trim());
 }
 
-// Показать или убрать ошибку под полем. Блок ошибки создаётся через DOM один раз.
-// Классы is-invalid / is-valid / invalid-feedback — из подключённого Bootstrap, hidden — из base.css.
-function setFieldError(field, anchor, message, markValid) {
-    const errorId = `${field.name || field.id}-error`;
-    let box = document.getElementById(errorId);
-    if (box === null) {
-        box = createEl('div', 'invalid-feedback d-block');
-        box.id = errorId;
-        anchor.after(box);
+
+/* ===================== Часть 2. Общие jQuery-функции ===================== */
+
+// Плавно показать блок. Если на блоке висит класс hidden (display: none !important),
+// сначала прячем его через .hide() и снимаем класс — иначе эффект не будет виден.
+function revealBlock($block, duration, effect) {
+    if ($block.hasClass('hidden')) {
+        $block.hide().removeClass('hidden');
+    }
+    $block.stop(true, true);
+    return effect === 'slide' ? $block.slideDown(duration) : $block.fadeIn(duration);
+}
+
+// Плавно скрыть блок. В callback (выполняется ПОСЛЕ анимации) возвращаем класс hidden
+// и убираем временный инлайн-стиль, который оставил эффект.
+function concealBlock($block, duration, effect, onDone) {
+    if ($block.hasClass('hidden')) {
+        if (onDone) {
+            onDone();
+        }
+        return $block;
+    }
+    const afterHide = function () {
+        $(this).addClass('hidden').removeAttr('style');
+        if (onDone) {
+            onDone();
+        }
+    };
+    $block.stop(true, true);
+    return effect === 'slide' ? $block.slideUp(duration, afterHide) : $block.fadeOut(duration, afterHide);
+}
+
+/* Рефакторинг №1: setFieldError() → showFieldError() (старая версия в old-js-version.js).
+   getElementById / createElement / after / classList.toggle / setAttribute заменены на
+   $('#id'), $('<div>').insertAfter(), .toggleClass() и .attr({...}); код стал примерно на треть короче,
+   а цепочка читается как одно действие. Честно: плавное появление (slideDown) добавило пару строк. */
+function showFieldError($field, $anchor, message, markValid) {
+    const errorId = `${$field.attr('name') || $field.attr('id')}-error`;
+    let $box = $(`#${errorId}`);
+    if ($box.length === 0) {
+        $box = $('<div>').attr('id', errorId).addClass('invalid-feedback hidden').insertAfter($anchor);
     }
     const hasError = message !== '';
-    box.textContent = message;
-    box.classList.toggle('hidden', !hasError);
-    field.classList.toggle('is-invalid', hasError);
-    field.classList.toggle('is-valid', !hasError && markValid === true);
-    field.setAttribute('aria-invalid', String(hasError));
-    field.setAttribute('aria-describedby', errorId);
+
+    $field
+        .toggleClass('is-invalid', hasError)
+        .toggleClass('is-valid', !hasError && markValid === true)
+        .attr({ 'aria-invalid': String(hasError), 'aria-describedby': errorId });
+
+    if (hasError) {
+        // .text(), а не .html(): текст ошибки вставляется как обычный текст, теги не выполняются
+        $box.text(message);
+        revealBlock($box, 150, 'slide');
+    } else {
+        concealBlock($box, 150, 'slide');
+    }
     return hasError;
 }
 
-/* ---------- Сквозное поведение на всех страницах ---------- */
-
-// Счётчик товаров в шапке
+/* Рефакторинг №2: updateCartBadge() — показ/скрытие счётчика корзины (старая версия в old-js-version.js).
+   getElementById + проверки на null + textContent + dataset + classList.toggle заменены одной цепочкой
+   .text().attr().toggleClass(). Код короче в 2 раза: jQuery сам ничего не делает, если элемента нет на странице. */
 function updateCartBadge() {
-    const badge = document.getElementById('cart-count');
-    if (badge === null) {
-        return;
-    }
     const count = countItems(loadCart());
-    badge.textContent = String(count);
-    badge.dataset.count = String(count);
-    badge.classList.toggle('hidden', count === 0);
-    const link = document.getElementById('cart-link');
-    if (link !== null) {
-        link.setAttribute('aria-label', `Корзина, товаров: ${count}`);
-    }
+    $('#cart-count')
+        .text(count)
+        .attr('data-count', count)
+        .toggleClass('hidden', count === 0);
+    $('#cart-link').attr('aria-label', `Корзина, товаров: ${count}`);
 }
 
-// Кнопки «В корзину» / «Заказать» на карточках товаров
-function initAddToCart() {
-    document.querySelectorAll('.add-to-cart').forEach((button) => {
-        button.addEventListener('click', (event) => {
-            event.preventDefault(); // у ссылок «Заказать» не уходим со страницы
-            const product = findProduct(button.dataset.productId);
-            if (product === null) {
-                return;
-            }
-            const card = button.closest('.product-card');
-            const sizeSelect = card !== null ? card.querySelector('.size-select') : null;
-            const size = sizeSelect !== null ? sizeSelect.value : '';
-            const result = addToCart(product.id, size);
-            const sizeText = size !== '' ? `, ${size}` : '';
-            button.textContent = result.added
-                ? `В корзине${sizeText}: ${result.qty} шт.`
-                : `Максимум ${MAX_QTY} шт.`;
-            updateCartBadge();
-        });
+/* ===================== Часть 3. Сквозное поведение ===================== */
+
+/* jQuery 3.7.1 подключается с CDN (code.jquery.com) перед этим файлом.
+   $(function () { ... }) — краткая форма $(document).ready(): код внутри запускается,
+   когда браузер построил весь DOM. Без этой строки скрипт мог бы искать кнопки и формы,
+   которых ещё нет на странице, и обработчики не подключились бы. */
+$(function () {
+    updateCartBadge();
+
+    // Кнопки «В корзину» (index, clothing) и ссылки «Заказать» (sale, shoesandacc)
+    $('.add-to-cart').on('click', function (event) {
+        // preventDefault: «Заказать» — это ссылка <a href="order.html">. Без него браузер сразу
+        // ушёл бы на страницу заказа, и покупатель не увидел бы, что товар добавлен, и не смог бы выбрать ещё.
+        event.preventDefault();
+
+        const $button = $(this);                          // кнопка, по которой кликнули
+        const product = findProduct($button.attr('data-product-id'));
+        if (product === null) {
+            return;
+        }
+        const $sizeSelect = $button.closest('.product-card').find('.size-select');
+        const size = $sizeSelect.length > 0 ? $sizeSelect.val() : '';
+        const result = addToCart(product.id, size);
+        const sizeText = size !== '' ? `, ${size}` : '';
+
+        $button.text(result.added ? `В корзине${sizeText}: ${result.qty} шт.` : `Максимум ${MAX_QTY} шт.`);
+        updateCartBadge();
+
+        // Короткое «мигание» счётчика: покупатель видит, куда попал товар
+        $('#cart-count').stop(true, true).animate({ opacity: 0.3 }, 120).animate({ opacity: 1 }, 120);
     });
-}
 
-// Кнопка «← Назад»: возвращает на предыдущую страницу, если она есть
-function initBackLinks() {
-    document.querySelectorAll('.js-back').forEach((link) => {
-        link.addEventListener('click', (event) => {
-            if (history.length > 1 && document.referrer !== '') {
-                event.preventDefault();
-                history.back();
-            }
-        });
-    });
-}
-
-initAddToCart();
-initBackLinks();
-updateCartBadge();
-window.addEventListener('storage', updateCartBadge); // корзина изменилась в другой вкладке
+    // Корзину изменили в другой вкладке — обновляем счётчик
+    $(window).on('storage', updateCartBadge);
+});

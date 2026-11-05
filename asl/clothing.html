@@ -40,13 +40,12 @@
         </nav>
     </header>
 <main class="container my-4">
-        <!-- Навигация назад: хлебные крошки + кнопка «Назад» (Bootstrap breadcrumb) -->
+        <!-- Навигация: хлебные крошки (Bootstrap breadcrumb) -->
         <nav class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4" aria-label="Навигационная цепочка">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item"><a href="index.html" class="link-secondary">Главная</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Одежда</li>
             </ol>
-            <a href="index.html" class="btn btn-sm btn-outline-secondary js-back">← Назад</a>
         </nav>
 
 
@@ -324,6 +323,9 @@
     </footer>
 
     <!-- JavaScript: корзина -->
-    <script src="js/main.js"></script>
+    <!-- jQuery 3.7.1 (CDN) — подключается ПЕРВЫМ, наши скрипты строго после него -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/catalog.js" defer></script>
 </body>
 </html>
