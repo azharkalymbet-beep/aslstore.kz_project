@@ -20,7 +20,7 @@
         <div class="container-fluid bg-white border-bottom py-2">
             <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
                 <small class="text-muted fw-bold">БЕСПЛАТНАЯ ДОСТАВКА ПО АСТАНЕ ОТ 30 000 ₸</small>
-                <a href="order.html" id="cart-link" class="btn btn-sm btn-outline-purple">Оформить заказ <span id="cart-count" class="badge bg-purple hidden" data-count="0">0</span></a>
+                <a href="order.html" id="cart-link" class="btn btn-sm btn-outline-purple">Корзина <span id="cart-count" class="badge bg-purple">0</span></a>
             </div>
         </div>
         <nav class="navbar navbar-expand navbar-light bg-white shadow-sm" aria-label="Главное меню">
@@ -52,7 +52,7 @@
 
         <section class="p-4 bg-white rounded shadow-sm text-center mb-5">
             <h1 class="h2 text-purple fw-bold">КАТАЛОГ ОДЕЖДЫ (УНИСЕКС)</h1>
-            <p class="text-muted mb-0">Оверсайз-фасоны и единая линейка размеров S–XL. Размер выбирается при оформлении заказа.</p>
+            <p class="text-muted mb-0">Оверсайз-фасоны и единая линейка размеров S–XL. Выберите размер и добавьте товар в корзину.</p>
         </section>
 
         <nav class="d-flex flex-wrap gap-2 justify-content-center mb-5" aria-label="Разделы каталога">
@@ -71,8 +71,10 @@
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Футболка AMIRI Dove Black</h3>
                             <p class="text-muted small">Чёрная оверсайз футболка с принтом белого голубя.</p>
+                            <label for="size-amiri-dove" class="form-label small text-muted mb-1">Размер</label>
+                            <select id="size-amiri-dove" class="form-select form-select-sm mb-3 size-select"><option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option></select>
                             <p class="fw-bold text-purple fs-5 mb-3">12 500 ₸</p>
-                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="amiri-dove">Заказать</a>
+                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="amiri-dove">В корзину</button>
                         </div>
                     </article>
                 </div>
@@ -82,30 +84,36 @@
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Футболка NPC Pixel Black</h3>
                             <p class="text-muted small">Чёрная плотная футболка с пиксельной надписью.</p>
+                            <label for="size-npc-pixel" class="form-label small text-muted mb-1">Размер</label>
+                            <select id="size-npc-pixel" class="form-select form-select-sm mb-3 size-select"><option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option></select>
                             <p class="fw-bold text-purple fs-5 mb-3">10 000 ₸</p>
-                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="npc-pixel">Заказать</a>
+                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="npc-pixel">В корзину</button>
                         </div>
                     </article>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
-                    <article id="product-npc-pixel" class="card h-100 border-0 product-card p-3 position-relative" data-product-id="npc-pixel" data-name="Футболка NPC Pixel Black" data-price="10000">
+                    <article id="product-trapstar-polo" class="card h-100 border-0 product-card p-3 position-relative" data-product-id="trapstar-polo" data-name="Футболка Trapstar Polo" data-price="9000">
                         <img src="imagess/trapstar.jpg" class="card-img-top mx-auto product-img" alt="Чёрная футболка с пиксельной надписью NPC">
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Футболка Trapstar Polo</h3>
                             <p class="text-muted small">Чёрная поло футболка с надписью </p>
+                            <label for="size-trapstar-polo" class="form-label small text-muted mb-1">Размер</label>
+                            <select id="size-trapstar-polo" class="form-select form-select-sm mb-3 size-select"><option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option></select>
                             <p class="fw-bold text-purple fs-5 mb-3">9 000 ₸</p>
-                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="npc-pixel">Заказать</a>
+                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="trapstar-polo">В корзину</button>
                         </div>
                     </article>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
-                    <article id="product-npc-pixel" class="card h-100 border-0 product-card p-3 position-relative" data-product-id="npc-pixel" data-name="Футболка NPC Pixel Black" data-price="10000">
+                    <article id="product-iammusic-tee" class="card h-100 border-0 product-card p-3 position-relative" data-product-id="iammusic-tee" data-name="Футболка I am music" data-price="10000">
                         <img src="imagess/iammusic.jpg" class="card-img-top mx-auto product-img" alt="Чёрная футболка с пиксельной надписью NPC">
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Футболка I am music</h3>
                             <p class="text-muted small">Чёрная плотная футболка с двойной надписью.</p>
+                            <label for="size-iammusic-tee" class="form-label small text-muted mb-1">Размер</label>
+                            <select id="size-iammusic-tee" class="form-select form-select-sm mb-3 size-select"><option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option></select>
                             <p class="fw-bold text-purple fs-5 mb-3">10 000 ₸</p>
-                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="npc-pixel">Заказать</a>
+                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="iammusic-tee">В корзину</button>
                         </div>
                     </article>
                 </div>
@@ -115,8 +123,10 @@
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Футболка Chief Keef 2012 White</h3>
                             <p class="text-muted small">Белая футболка с принтом Chief Keef.</p>
+                            <label for="size-keef-2012" class="form-label small text-muted mb-1">Размер</label>
+                            <select id="size-keef-2012" class="form-select form-select-sm mb-3 size-select"><option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option></select>
                             <p class="fw-bold text-purple fs-5 mb-3">10 000 ₸</p>
-                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="keef-2012">Заказать</a>
+                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="keef-2012">В корзину</button>
                         </div>
                     </article>
                 </div>
@@ -132,8 +142,10 @@
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Худи оверсайз с балаклавой</h3>
                             <p class="text-muted small">Плотное чёрное худи со встроенной маской-балаклавой.</p>
+                            <label for="size-hoodie-balaclava" class="form-label small text-muted mb-1">Размер</label>
+                            <select id="size-hoodie-balaclava" class="form-select form-select-sm mb-3 size-select"><option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option></select>
                             <p class="fw-bold text-purple fs-5 mb-3">22 000 ₸</p>
-                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="hoodie-balaclava">Заказать</a>
+                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="hoodie-balaclava">В корзину</button>
                         </div>
                     </article>
                 </div>
@@ -143,30 +155,36 @@
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Винтажный свитшот Grunge</h3>
                             <p class="text-muted small">Свитшот с эффектом потёртости и состаренным принтом.</p>
+                            <label for="size-sweat-grunge" class="form-label small text-muted mb-1">Размер</label>
+                            <select id="size-sweat-grunge" class="form-select form-select-sm mb-3 size-select"><option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option></select>
                             <p class="fw-bold text-purple fs-5 mb-3">18 500 ₸</p>
-                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="sweat-grunge">Заказать</a>
+                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="sweat-grunge">В корзину</button>
                         </div>
                     </article>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
-                    <article id="product-sweat-grunge" class="card h-100 border-0 product-card p-3 position-relative" data-product-id="sweat-grunge" data-name="Винтажный свитшот Grunge" data-price="18500">
+                    <article id="product-amiri-hoodie" class="card h-100 border-0 product-card p-3 position-relative" data-product-id="amiri-hoodie" data-name="Худи Amiri Hoodie" data-price="14490">
                         <img src="imagess/amiri.jpg" class="card-img-top mx-auto product-img" alt="Винтажный свитшот с потёртым принтом">
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Худи Amiri Hoodie</h3>
                             <p class="text-muted small">Худи с принтом.</p>
+                            <label for="size-amiri-hoodie" class="form-label small text-muted mb-1">Размер</label>
+                            <select id="size-amiri-hoodie" class="form-select form-select-sm mb-3 size-select"><option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option></select>
                             <p class="fw-bold text-purple fs-5 mb-3">14 490 ₸</p>
-                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="sweat-grunge">Заказать</a>
+                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="amiri-hoodie">В корзину</button>
                         </div>
                     </article>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
-                    <article id="product-sweat-grunge" class="card h-100 border-0 product-card p-3 position-relative" data-product-id="sweat-grunge" data-name="Винтажный свитшот Grunge" data-price="18500">
+                    <article id="product-friendly-hoodie" class="card h-100 border-0 product-card p-3 position-relative" data-product-id="friendly-hoodie" data-name="Винтажный худи Friendly" data-price="13490">
                         <img src="imagess/friendly.jpg" class="card-img-top mx-auto product-img" alt="Винтажный свитшот с потёртым принтом">
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Винтажный худи Friendly</h3>
                             <p class="text-muted small">Худи с флагами стран</p>
+                            <label for="size-friendly-hoodie" class="form-label small text-muted mb-1">Размер</label>
+                            <select id="size-friendly-hoodie" class="form-select form-select-sm mb-3 size-select"><option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option></select>
                             <p class="fw-bold text-purple fs-5 mb-3">13 490 ₸</p>
-                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="sweat-grunge">Заказать</a>
+                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="friendly-hoodie">В корзину</button>
                         </div>
                     </article>
                 </div>
@@ -182,8 +200,10 @@
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Широкие джинсы Baggy Dark</h3>
                             <p class="text-muted small">Свободные тёмные джинсы с варёным эффектом.</p>
+                            <label for="size-jeans-baggy" class="form-label small text-muted mb-1">Размер</label>
+                            <select id="size-jeans-baggy" class="form-select form-select-sm mb-3 size-select"><option value="28">28</option><option value="30">30</option><option value="32">32</option><option value="34">34</option></select>
                             <p class="fw-bold text-purple fs-5 mb-3">20 000 ₸</p>
-                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="jeans-baggy">Заказать</a>
+                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="jeans-baggy">В корзину</button>
                         </div>
                     </article>
                 </div>
@@ -193,41 +213,49 @@
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Брюки-карго Utility Black</h3>
                             <p class="text-muted small">Брюки с большими боковыми карманами и фиксаторами.</p>
+                            <label for="size-cargo-utility" class="form-label small text-muted mb-1">Размер</label>
+                            <select id="size-cargo-utility" class="form-select form-select-sm mb-3 size-select"><option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option></select>
                             <p class="fw-bold text-purple fs-5 mb-3">19 000 ₸</p>
-                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="cargo-utility">Заказать</a>
+                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="cargo-utility">В корзину</button>
                         </div>
                     </article>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
-                    <article id="product-cargo-utility" class="card h-100 border-0 product-card p-3 position-relative" data-product-id="cargo-utility" data-name="Брюки-карго Utility Black" data-price="19000">
+                    <article id="product-regular-fit-jeans" class="card h-100 border-0 product-card p-3 position-relative" data-product-id="regular-fit-jeans" data-name="Джинсы черные Regular Fit Jeans" data-price="12000">
                         <img src="imagess/chernyi.jpg" class="card-img-top mx-auto product-img" alt="Чёрные брюки-карго с боковыми карманами">
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Джинсы черные Regular Fit Jeans</h3>
                             <p class="text-muted small">Джинсы в винтажном стиле</p>
+                            <label for="size-regular-fit-jeans" class="form-label small text-muted mb-1">Размер</label>
+                            <select id="size-regular-fit-jeans" class="form-select form-select-sm mb-3 size-select"><option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option></select>
                             <p class="fw-bold text-purple fs-5 mb-3">12 000 ₸</p>
-                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="cargo-utility">Заказать</a>
+                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="regular-fit-jeans">В корзину</button>
                         </div>
                     </article>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
-                    <article id="product-cargo-utility" class="card h-100 border-0 product-card p-3 position-relative" data-product-id="cargo-utility" data-name="Брюки-карго Utility Black" data-price="19000">
+                    <article id="product-sakura-jeans" class="card h-100 border-0 product-card p-3 position-relative" data-product-id="sakura-jeans" data-name="Sakura Jeans" data-price="15000">
                         <img src="imagess/sakura.jpg" class="card-img-top mx-auto product-img" alt="Чёрные брюки-карго с боковыми карманами">
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Sakura Jeans</h3>
                             <p class="text-muted small">Джинсы с цветочным принтом</p>
+                            <label for="size-sakura-jeans" class="form-label small text-muted mb-1">Размер</label>
+                            <select id="size-sakura-jeans" class="form-select form-select-sm mb-3 size-select"><option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option></select>
                             <p class="fw-bold text-purple fs-5 mb-3">15 000 ₸</p>
-                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="cargo-utility">Заказать</a>
+                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="sakura-jeans">В корзину</button>
                         </div>
                     </article>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
-                    <article id="product-cargo-utility" class="card h-100 border-0 product-card p-3 position-relative" data-product-id="cargo-utility" data-name="Брюки-карго Utility Black" data-price="19000">
+                    <article id="product-vescartes-jeans" class="card h-100 border-0 product-card p-3 position-relative" data-product-id="vescartes-jeans" data-name="Vescartes Jeans" data-price="18000">
                         <img src="imagess/l;bycs.jpg" class="card-img-top mx-auto product-img" alt="Чёрные брюки-карго с боковыми карманами">
                         <div class="card-body d-flex flex-column text-center">
                             <h3 class="h5 card-title text-purple fw-bold">Vescartes Jeans</h3>
                             <p class="text-muted small">Джинсы с принтом и фиксаторами.</p>
+                            <label for="size-vescartes-jeans" class="form-label small text-muted mb-1">Размер</label>
+                            <select id="size-vescartes-jeans" class="form-select form-select-sm mb-3 size-select"><option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option></select>
                             <p class="fw-bold text-purple fs-5 mb-3">18 000 ₸</p>
-                            <a href="order.html" class="btn btn-purple mt-auto add-to-cart" data-product-id="cargo-utility">Заказать</a>
+                            <button type="button" class="btn btn-purple mt-auto add-to-cart" data-product-id="vescartes-jeans">В корзину</button>
                         </div>
                     </article>
                 </div>
@@ -294,5 +322,8 @@
             </div>
         </div>
     </footer>
+
+    <!-- JavaScript: корзина -->
+    <script src="js/main.js"></script>
 </body>
 </html>
