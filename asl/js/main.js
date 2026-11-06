@@ -1,49 +1,33 @@
 'use strict';
 
-/* ==========================================================================
-   ASLSTORE.KZ — main.js (Assignment 6: jQuery)
-   Подключается на ВСЕХ страницах сразу после jQuery 3.7.1 (CDN).
 
-   Часть 1 — данные и чистая логика без работы с DOM (массив PRODUCTS,
-   корзина в localStorage, расчёты, проверки форматов). Здесь jQuery не нужен,
-   потому что эти функции не трогают страницу.
-   Часть 2 — общие jQuery-функции для всех страниц: ошибка под полем,
-   плавный показ/скрытие блоков, счётчик корзины.
-   Часть 3 — сквозное поведение (кнопки «В корзину», счётчик корзины) внутри $(function () { ... }).
-   ========================================================================== */
-
-/* ===================== Часть 1. Данные и логика ===================== */
 
 const STORAGE_KEY = 'asl_cart';
-const MAX_QTY = 10;               // не больше 10 шт. одного товара
-const FREE_DELIVERY_FROM = 30000; // бесплатная доставка от 30 000 ₸
-const COURIER_PRICE = 1500;       // курьер по Астане
+const MAX_QTY = 10;               
+const FREE_DELIVERY_FROM = 30000; 
+const COURIER_PRICE = 1500;       
 
 const CLOTHES_SIZES = ['S', 'M', 'L', 'XL'];
 const JEANS_SIZES = ['28', '30', '32', '34'];
 const NO_SIZE = [];
 
-/* Все товары магазина. Каждый объект: id, name, price, category, sizes
-   (у товаров со скидкой ещё oldPrice). id совпадают с data-product-id в HTML. */
+
 const PRODUCTS = [
-    // Одежда — футболки
     { id: 'amiri-dove', name: 'Футболка AMIRI Dove Black', price: 12500, category: 'tops', sizes: CLOTHES_SIZES },
     { id: 'npc-pixel', name: 'Футболка NPC Pixel Black', price: 10000, category: 'tops', sizes: CLOTHES_SIZES },
     { id: 'trapstar-polo', name: 'Футболка Trapstar Polo', price: 9000, category: 'tops', sizes: CLOTHES_SIZES },
     { id: 'iammusic-tee', name: 'Футболка I am music', price: 10000, category: 'tops', sizes: CLOTHES_SIZES },
     { id: 'keef-2012', name: 'Футболка Chief Keef 2012 White', price: 10000, category: 'tops', sizes: CLOTHES_SIZES },
-    // Одежда — худи и свитшоты
     { id: 'hoodie-balaclava', name: 'Худи оверсайз с балаклавой', price: 22000, category: 'hoodies', sizes: CLOTHES_SIZES },
     { id: 'sweat-grunge', name: 'Винтажный свитшот Grunge', price: 18500, category: 'hoodies', sizes: CLOTHES_SIZES },
     { id: 'amiri-hoodie', name: 'Худи Amiri Hoodie', price: 14490, category: 'hoodies', sizes: CLOTHES_SIZES },
     { id: 'friendly-hoodie', name: 'Винтажный худи Friendly', price: 13490, category: 'hoodies', sizes: CLOTHES_SIZES },
-    // Одежда — брюки и джинсы
     { id: 'jeans-baggy', name: 'Широкие джинсы Baggy Dark', price: 20000, category: 'bottoms', sizes: JEANS_SIZES },
     { id: 'cargo-utility', name: 'Брюки-карго Utility Black', price: 19000, category: 'bottoms', sizes: CLOTHES_SIZES },
     { id: 'regular-fit-jeans', name: 'Джинсы черные Regular Fit Jeans', price: 12000, category: 'bottoms', sizes: CLOTHES_SIZES },
     { id: 'sakura-jeans', name: 'Sakura Jeans', price: 15000, category: 'bottoms', sizes: CLOTHES_SIZES },
     { id: 'vescartes-jeans', name: 'Vescartes Jeans', price: 18000, category: 'bottoms', sizes: CLOTHES_SIZES },
-    // Обувь и аксессуары
+
     { id: 'nike-af1-nocta', name: 'Кроссовки Nike AF1 x Nocta', price: 19900, category: 'sneakers', sizes: ['37', '38', '39', '40', '41'] },
     { id: 'mmy-sneaker', name: 'Кроссовки MMY', price: 21490, category: 'sneakers', sizes: ['36', '37', '38', '39', '40', '41', '42', '43', '44', '45'] },
     { id: 'cap-corteiz', name: 'Кепка Corteiz', price: 2990, category: 'caps', sizes: NO_SIZE },
@@ -56,7 +40,7 @@ const PRODUCTS = [
     { id: 'charm-2', name: 'Шарм для браслета Pandora №2', price: 1990, category: 'jewelry', sizes: NO_SIZE },
     { id: 'charm-3', name: 'Шарм для браслета Pandora №3', price: 1990, category: 'jewelry', sizes: NO_SIZE },
     { id: 'charm-4', name: 'Шарм для браслета Pandora №4', price: 1990, category: 'jewelry', sizes: NO_SIZE },
-    // Скидки
+
     { id: 'sale-burberry', name: 'Куртка Burberry', price: 12495, oldPrice: 24990, category: 'outerwear-sale', sizes: CLOTHES_SIZES },
     { id: 'sale-ami', name: 'Свитшот Ami', price: 6995, oldPrice: 13990, category: 'outerwear-sale', sizes: CLOTHES_SIZES },
     { id: 'sale-polo', name: 'Свитер Polo Ralph Lauren', price: 11900, oldPrice: 14000, category: 'outerwear-sale', sizes: CLOTHES_SIZES },
@@ -70,28 +54,21 @@ const PRODUCTS = [
     { id: 'sale-nike-bag', name: 'Сумка Nike', price: 5400, oldPrice: 5990, category: 'bags-sale', sizes: NO_SIZE }
 ];
 
-/* ---------- Товары ---------- */
 
-// Найти товар по id. Возвращает объект или null.
 function findProduct(id) {
     return PRODUCTS.find((product) => product.id === id) || null;
 }
 
-// Есть ли у товара выбор размера
+
 function hasSizes(product) {
     return product !== null && product.sizes.length > 0;
 }
 
-// 12500 → «12 500 ₸»
 function formatPrice(amount) {
     return `${Number(amount).toLocaleString('ru-RU')} ₸`;
 }
 
-/* ---------- Корзина ---------- */
-// Строка корзины: { id: 'amiri-dove', size: 'M', qty: 2 }
 
-// Привести корзину в порядок: убрать несуществующие товары,
-// объединить одинаковые (товар + размер), ограничить количество.
 function normalizeCart(items) {
     const result = [];
     items.forEach((item) => {
@@ -111,7 +88,7 @@ function normalizeCart(items) {
     return result;
 }
 
-// Прочитать корзину из localStorage (если данных нет или они битые — пустая корзина)
+
 function loadCart() {
     try {
         const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY));
@@ -121,22 +98,20 @@ function loadCart() {
     }
 }
 
-// Сохранить корзину
+
 function saveCart(cart) {
     try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
     } catch (error) {
-        // localStorage недоступен (приватный режим) — корзина работает до перезагрузки
+        
     }
     return cart;
 }
 
-// Общее количество штук в корзине
 function countItems(cart) {
     return cart.reduce((sum, item) => sum + item.qty, 0);
 }
 
-// Добавить товар: если такой же товар с тем же размером уже есть — увеличиваем количество
 function addToCart(productId, size) {
     const cart = loadCart();
     const existing = cart.find((item) => item.id === productId && item.size === size);
@@ -153,20 +128,18 @@ function addToCart(productId, size) {
     return { added: true, qty: line.qty };
 }
 
-/* ---------- Расчёты ---------- */
 
-// Сумма одной строки: цена × количество (вызывает findProduct)
 function calcLineTotal(line) {
     const product = findProduct(line.id);
     return product === null ? 0 : product.price * line.qty;
 }
 
-// Сумма всех строк (вызывает calcLineTotal)
+
 function calcSubtotal(lines) {
     return lines.reduce((sum, line) => sum + calcLineTotal(line), 0);
 }
 
-// Стоимость доставки: самовывоз бесплатно, курьер 1 500 ₸, от 30 000 ₸ бесплатно
+
 function calcDelivery(subtotal, method) {
     if (method === 'pickup' || subtotal === 0) {
         return 0;
@@ -174,20 +147,20 @@ function calcDelivery(subtotal, method) {
     return subtotal >= FREE_DELIVERY_FROM ? 0 : COURIER_PRICE;
 }
 
-// Демонстрационный номер заказа/обращения: префикс + 6 случайных цифр
+
 function generateDemoNumber(prefix) {
     const random = Math.floor(Math.random() * 900000) + 100000;
     return `${prefix}-${random}`;
 }
 
-/* ---------- Валидация (общая для форм заказа и вопроса) ---------- */
+
 
 function isValidName(value) {
     const name = value.trim();
     return name.length >= 2 && /^[A-Za-zА-Яа-яЁёӘәҒғҚқҢңӨөҰұҮүҺһІі\s-]+$/.test(name);
 }
 
-// Казахстанский номер: 11 цифр, начинается с 7 или 8 (+7 700 000 00 00)
+
 function isValidPhone(value) {
     const digits = value.replace(/\D/g, '');
     return digits.length === 11 && (digits.startsWith('7') || digits.startsWith('8'));
@@ -198,10 +171,7 @@ function isValidEmail(value) {
 }
 
 
-/* ===================== Часть 2. Общие jQuery-функции ===================== */
 
-// Плавно показать блок. Если на блоке висит класс hidden (display: none !important),
-// сначала прячем его через .hide() и снимаем класс — иначе эффект не будет виден.
 function revealBlock($block, duration, effect) {
     if ($block.hasClass('hidden')) {
         $block.hide().removeClass('hidden');
@@ -210,8 +180,7 @@ function revealBlock($block, duration, effect) {
     return effect === 'slide' ? $block.slideDown(duration) : $block.fadeIn(duration);
 }
 
-// Плавно скрыть блок. В callback (выполняется ПОСЛЕ анимации) возвращаем класс hidden
-// и убираем временный инлайн-стиль, который оставил эффект.
+
 function concealBlock($block, duration, effect, onDone) {
     if ($block.hasClass('hidden')) {
         if (onDone) {
@@ -229,10 +198,7 @@ function concealBlock($block, duration, effect, onDone) {
     return effect === 'slide' ? $block.slideUp(duration, afterHide) : $block.fadeOut(duration, afterHide);
 }
 
-/* Рефакторинг №1: setFieldError() → showFieldError() (старая версия в old-js-version.js).
-   getElementById / createElement / after / classList.toggle / setAttribute заменены на
-   $('#id'), $('<div>').insertAfter(), .toggleClass() и .attr({...}); код стал примерно на треть короче,
-   а цепочка читается как одно действие. Честно: плавное появление (slideDown) добавило пару строк. */
+
 function showFieldError($field, $anchor, message, markValid) {
     const errorId = `${$field.attr('name') || $field.attr('id')}-error`;
     let $box = $(`#${errorId}`);
@@ -247,7 +213,7 @@ function showFieldError($field, $anchor, message, markValid) {
         .attr({ 'aria-invalid': String(hasError), 'aria-describedby': errorId });
 
     if (hasError) {
-        // .text(), а не .html(): текст ошибки вставляется как обычный текст, теги не выполняются
+
         $box.text(message);
         revealBlock($box, 150, 'slide');
     } else {
@@ -256,9 +222,7 @@ function showFieldError($field, $anchor, message, markValid) {
     return hasError;
 }
 
-/* Рефакторинг №2: updateCartBadge() — показ/скрытие счётчика корзины (старая версия в old-js-version.js).
-   getElementById + проверки на null + textContent + dataset + classList.toggle заменены одной цепочкой
-   .text().attr().toggleClass(). Код короче в 2 раза: jQuery сам ничего не делает, если элемента нет на странице. */
+
 function updateCartBadge() {
     const count = countItems(loadCart());
     $('#cart-count')
@@ -268,22 +232,14 @@ function updateCartBadge() {
     $('#cart-link').attr('aria-label', `Корзина, товаров: ${count}`);
 }
 
-/* ===================== Часть 3. Сквозное поведение ===================== */
 
-/* jQuery 3.7.1 подключается с CDN (code.jquery.com) перед этим файлом.
-   $(function () { ... }) — краткая форма $(document).ready(): код внутри запускается,
-   когда браузер построил весь DOM. Без этой строки скрипт мог бы искать кнопки и формы,
-   которых ещё нет на странице, и обработчики не подключились бы. */
 $(function () {
     updateCartBadge();
 
-    // Кнопки «В корзину» (index, clothing) и ссылки «Заказать» (sale, shoesandacc)
     $('.add-to-cart').on('click', function (event) {
-        // preventDefault: «Заказать» — это ссылка <a href="order.html">. Без него браузер сразу
-        // ушёл бы на страницу заказа, и покупатель не увидел бы, что товар добавлен, и не смог бы выбрать ещё.
         event.preventDefault();
 
-        const $button = $(this);                          // кнопка, по которой кликнули
+        const $button = $(this);                        
         const product = findProduct($button.attr('data-product-id'));
         if (product === null) {
             return;
@@ -296,10 +252,9 @@ $(function () {
         $button.text(result.added ? `В корзине${sizeText}: ${result.qty} шт.` : `Максимум ${MAX_QTY} шт.`);
         updateCartBadge();
 
-        // Короткое «мигание» счётчика: покупатель видит, куда попал товар
         $('#cart-count').stop(true, true).animate({ opacity: 0.3 }, 120).animate({ opacity: 1 }, 120);
     });
 
-    // Корзину изменили в другой вкладке — обновляем счётчик
+
     $(window).on('storage', updateCartBadge);
 });
