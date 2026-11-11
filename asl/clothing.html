@@ -322,10 +322,15 @@
         </div>
     </footer>
 
-    <!-- JavaScript: корзина -->
-    <!-- jQuery 3.7.1 (CDN) — подключается ПЕРВЫМ, наши скрипты строго после него -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+    <!-- Чистый JavaScript (без jQuery) -->
+    <script src="js/data.js" defer></script>
     <script src="js/main.js" defer></script>
     <script src="js/catalog.js" defer></script>
+    <script src="js/size-finder.js" defer></script>
+    <!-- jQuery-часть: сначала библиотека jQuery 3.7.1 с CDN, потом наши jQuery-файлы -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+    <script src="js/gallery.js" defer></script>
+    <script src="js/minicart.js" defer></script>
+    <script src="js/quickview.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,96 @@
+$(function () {
+    $('<button>')                          // создать кнопку
+        .text('Новая кнопка')              // текст
+        .addClass('btn btn-purple')        // ваш фиолетовый стиль
+        .on('click', function () {         // клик
+            $(this).text('Нажата');
+        })
+        .appendTo('main');                 // вставить в конец <main>
+});
+
+$(function () {
+    $('.product-img').on('click', function () {
+        if ($(this).hasClass('selected')) {
+            $(this).removeClass('selected').animate({ maxHeight: 200 }, 300);  // обратно
+        } else {
+            $(this).addClass('selected').animate({ maxHeight: 400 }, 300);     // увеличить
+        }
+    });
+});
+
+
+$(function () {
+    $('#phone').on('input', function () {
+        const digits = $(this).val().replace(/\D/g, '');  // оставить только цифры
+        $(this).next('.alert').remove();                    // убрать старое предупреждение
+        if (digits.length !== 11) {
+            $(this).after('<div class="alert alert-warning">Номер введён неверно</div>');
+        }
+    });
+});
+
+
+$(function () {
+    $('.product-img').on('click', function () {
+        const $img = $(this);                        // картинка, по которой кликнули
+        if ($img.hasClass('selected')) {             // уже увеличена → уменьшаем
+            $img.removeClass('selected').stop().animate({ width: 90, height: 90 }, 300);
+        } else {                                     // обычная → увеличиваем
+            $img.addClass('selected').stop().animate({ width: 160, height: 160 }, 300);
+        }
+    });
+
+    // Вариант «зум при наведении»:
+    // $('.product-img').on('mouseenter', function () { $(this).stop().animate({ width: 160, height: 160 }, 200); })
+    //                  .on('mouseleave', function () { $(this).stop().animate({ width: 90, height: 90 }, 200); });
+});
+
+$(function () {
+    $('#phone').on('input', function () {
+        const $phone = $(this);
+        const digits = $phone.val().replace(/\D/g, '');   // '+7 700 123 45 67' → '77001234567'
+
+        $phone.next('.alert').remove();                     // старый блок убираем, чтобы не дублировать
+        if (digits.length !== 11) {
+            $phone.addClass('is-invalid');
+            $('<div>')                                      // создаём новый блок
+                .addClass('alert alert-warning')
+                .text('Номер введён неверно: нужно 11 цифр, например +7 700 123 45 67')
+                .hide()
+                .insertAfter($phone)                        // ставим сразу под полем
+                .fadeIn(200);
+        } else {
+            $phone.removeClass('is-invalid');
+        }
+    });
+});
+
+$(function () {
+    $('#order-form').on('submit', function (event) {
+        event.preventDefault();
+        const $name = $('#fullName');
+        const name = $name.val().trim();
+
+        $name.next('.invalid-feedback').remove();   // убрать старую ошибку, чтобы не дублировать
+        if (name === '') {
+            $name.addClass('is-invalid')
+                 .after($('<div>').addClass('invalid-feedback').text('Введите имя'));
+            $name.trigger('focus');
+        } else {
+            $name.removeClass('is-invalid');
+        }
+    });
+});
+
+$(function () {
+    $('.filter-btn').on('click', function () {
+        const category = $(this).attr('data-filter');
+
+        $(this).addClass('active').siblings('.filter-btn').removeClass('active');
+
+        $('.product-card').each(function () {
+            const $card = $(this);
+            $card.toggleClass('hidden', $card.attr('data-category') !== category);
+        });
+    });
+});

@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ASLSTORE.KZ — унисекс одежда, обувь и аксессуары. Астана, ТД «Гулжан», бутик 246.">
+    <title>Оформление заказа — ASLSTORE.KZ</title>
+    <!-- Bootstrap 5.3.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Свои стили: base — цвета бренда, azhar — каталог, akdana — корзина и оплата -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/azhar.css">
+    <link rel="stylesheet" href="css/akdana.css">
+</head>
+<body>
+
+    <!-- Шапка: верхняя планка + навигация -->
+    <header class="sticky-top">
+        <!-- container-fluid: планка на всю ширину экрана -->
+        <div class="container-fluid bg-white border-bottom py-2">
+            <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+                <small class="text-muted fw-bold">БЕСПЛАТНАЯ ДОСТАВКА ПО АСТАНЕ ОТ 30 000 ₸</small>
+                <a href="order.html" id="cart-link" class="btn btn-sm btn-outline-purple">Корзина <span id="cart-count" class="badge bg-purple">0</span></a>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand navbar-light bg-white shadow-sm" aria-label="Главное меню">
+            <div class="container flex-wrap">
+                <a class="navbar-brand fw-bold text-purple" href="index.html">ASLSTORE<sup class="text-muted">.KZ</sup></a>
+                <div class="navbar-nav-wrap ms-lg-auto" id="navbarNav">
+                    <ul class="navbar-nav flex-wrap column-gap-3">
+                    <li class="nav-item"><a class="nav-link" href="index.html">ГЛАВНАЯ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="clothing.html">ОДЕЖДА</a></li>
+                    <li class="nav-item"><a class="nav-link" href="shoesandacc.html">ОБУВЬ И АКСЕССУАРЫ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sale.html">СКИДКИ</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="order.html" aria-current="page">ЗАКАЗ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="colophon.html">О НАС</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+<main class="container my-4">
+        <!-- Навигация: хлебные крошки (Bootstrap breadcrumb) -->
+        <nav class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4" aria-label="Навигационная цепочка">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="index.html" class="link-secondary">Главная</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Оформление заказа</li>
+            </ol>
+        </nav>
+
+        <!-- Подтверждение: показывается через CSS :target, когда адрес заканчивается на #order-done -->
+        <section id="order-done" class="order-done p-4 p-md-5 bg-white rounded-3 shadow-sm text-center border-start border-success border-5 mb-5" tabindex="-1">
+            <h1 class="h2 text-purple fw-bold mb-3">Заказ принят</h1>
+            <p class="lead mb-2">Спасибо! Ваша заявка отправлена в бутик ASLSTORE.KZ.</p>
+            <p class="mb-2">Если вы выбрали Kaspi.kz, Halyk, Freedom, Apple Pay или карту — счёт на оплату придёт в приложение банка или в SMS на указанный номер в течение 15 минут в рабочее время. После оплаты заказ передаётся курьеру.</p>
+            <p class="mb-4">Если вы выбрали оплату наличными — менеджер позвонит, чтобы подтвердить заказ и время доставки.</p>
+            <p class="text-muted small">Вопросы: <a href="tel:+77006455057" class="link-secondary">+7 (700) 645 50 57</a> · Ежедневно 10:00–20:00</p>
+            <div class="d-flex flex-wrap justify-content-center gap-2">
+                <a href="index.html" class="btn btn-purple">На главную</a>
+                <a href="clothing.html" class="btn btn-outline-purple">Продолжить покупки</a>
+            </div>
+        </section>
+
+        <div id="checkout" class="checkout">
+            <section class="p-4 bg-white rounded-3 shadow-sm text-center mb-4">
+                <h1 class="h2 text-purple fw-bold">ОФОРМЛЕНИЕ ЗАКАЗА</h1>
+                <p class="text-muted mb-0">Выберите товар сразу с нужным размером, укажите данные и способ оплаты. Поля со звёздочкой обязательны.</p>
+            </section>
+
+            <!-- Шаги оформления -->
+            <ol class="checkout-steps d-flex gap-2 list-unstyled small text-muted mb-4" aria-label="Шаги оформления заказа">
+                <li class="flex-fill pt-2"><a href="#step-items" class="link-secondary text-decoration-none">1. Товары</a></li>
+                <li class="flex-fill pt-2"><a href="#step-contacts" class="link-secondary text-decoration-none">2. Данные</a></li>
+                <li class="flex-fill pt-2"><a href="#step-payment" class="link-secondary text-decoration-none">3. Оплата</a></li>
+                <li class="flex-fill pt-2">4. Готово</li>
+            </ol>
+
+            <!-- Заготовка для JS: сюда скрипт сможет выводить ошибки формы -->
+            <div id="order-error" class="alert alert-danger hidden" role="alert"></div>
+
+            <div class="row g-4">
+                <div class="col-12 col-lg-8">
+                    <form id="order-form" action="order.html#order-done" method="get" autocomplete="on">
+
+                        <fieldset id="step-items" class="bg-white p-4 rounded-3 shadow-sm mb-4">
+                            <legend class="h4 text-purple fw-bold mb-3">1. Товары</legend>
+                            <!-- Корзина (JavaScript, в процессе): список товаров, добавленных в каталоге -->
+                            <h3 class="h6 fw-bold">В корзине:</h3>
+                            <ul id="cart-items" class="list-unstyled mb-3"></ul>
+                            <p id="cart-empty" class="small text-muted mb-3 hidden">Корзина пуста. Добавьте товары в каталоге или выберите ниже.</p>
+                            <div class="row g-2 mb-3" id="item-1" data-row="1">
+                                <div class="col-12 col-md-9">
+                                    <label for="product-1" class="form-label small fw-bold">Или выберите товар здесь</label>
+                                    <select id="product-1" name="item1" class="form-select">
+                                        <option value="" selected>— не выбран —</option>
+                                        <optgroup label="Футболка AMIRI Dove Black — 12 500 ₸">
+                                            <option value="amiri-dove|S">Футболка AMIRI Dove Black — размер S</option>
+                                            <option value="amiri-dove|M">Футболка AMIRI Dove Black — размер M</option>
+                                            <option value="amiri-dove|L">Футболка AMIRI Dove Black — размер L</option>
+                                            <option value="amiri-dove|XL">Футболка AMIRI Dove Black — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Футболка NPC Pixel Black — 10 000 ₸">
+                                            <option value="npc-pixel|S">Футболка NPC Pixel Black — размер S</option>
+                                            <option value="npc-pixel|M">Футболка NPC Pixel Black — размер M</option>
+                                            <option value="npc-pixel|L">Футболка NPC Pixel Black — размер L</option>
+                                            <option value="npc-pixel|XL">Футболка NPC Pixel Black — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Футболка Chief Keef 2012 White — 10 000 ₸">
+                                            <option value="keef-2012|S">Футболка Chief Keef 2012 White — размер S</option>
+                                            <option value="keef-2012|M">Футболка Chief Keef 2012 White — размер M</option>
+                                            <option value="keef-2012|L">Футболка Chief Keef 2012 White — размер L</option>
+                                            <option value="keef-2012|XL">Футболка Chief Keef 2012 White — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Худи оверсайз с балаклавой — 22 000 ₸">
+                                            <option value="hoodie-balaclava|S">Худи оверсайз с балаклавой — размер S</option>
+                                            <option value="hoodie-balaclava|M">Худи оверсайз с балаклавой — размер M</option>
+                                            <option value="hoodie-balaclava|L">Худи оверсайз с балаклавой — размер L</option>
+                                            <option value="hoodie-balaclava|XL">Худи оверсайз с балаклавой — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Винтажный свитшот Grunge — 18 500 ₸">
+                                            <option value="sweat-grunge|S">Винтажный свитшот Grunge — размер S</option>
+                                            <option value="sweat-grunge|M">Винтажный свитшот Grunge — размер M</option>
+                                            <option value="sweat-grunge|L">Винтажный свитшот Grunge — размер L</option>
+                                            <option value="sweat-grunge|XL">Винтажный свитшот Grunge — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Широкие джинсы Baggy Dark — 20 000 ₸">
+                                            <option value="jeans-baggy|28">Широкие джинсы Baggy Dark — размер 28</option>
+                                            <option value="jeans-baggy|30">Широкие джинсы Baggy Dark — размер 30</option>
+                                            <option value="jeans-baggy|32">Широкие джинсы Baggy Dark — размер 32</option>
+                                            <option value="jeans-baggy|34">Широкие джинсы Baggy Dark — размер 34</option>
+                                        </optgroup>
+                                        <optgroup label="Брюки-карго Utility Black — 19 000 ₸">
+                                            <option value="cargo-utility|S">Брюки-карго Utility Black — размер S</option>
+                                            <option value="cargo-utility|M">Брюки-карго Utility Black — размер M</option>
+                                            <option value="cargo-utility|L">Брюки-карго Utility Black — размер L</option>
+                                            <option value="cargo-utility|XL">Брюки-карго Utility Black — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Кроссовки Nike AF1 x Nocta — 19 900 ₸">
+                                            <option value="nike-af1-nocta|37">Кроссовки Nike AF1 x Nocta — размер 37</option>
+                                            <option value="nike-af1-nocta|38">Кроссовки Nike AF1 x Nocta — размер 38</option>
+                                            <option value="nike-af1-nocta|39">Кроссовки Nike AF1 x Nocta — размер 39</option>
+                                            <option value="nike-af1-nocta|40">Кроссовки Nike AF1 x Nocta — размер 40</option>
+                                            <option value="nike-af1-nocta|41">Кроссовки Nike AF1 x Nocta — размер 41</option>
+                                        </optgroup>
+                                        <optgroup label="Кроссовки MMY — 21 490 ₸">
+                                            <option value="mmy-sneaker|36">Кроссовки MMY — размер 36</option>
+                                            <option value="mmy-sneaker|37">Кроссовки MMY — размер 37</option>
+                                            <option value="mmy-sneaker|38">Кроссовки MMY — размер 38</option>
+                                            <option value="mmy-sneaker|39">Кроссовки MMY — размер 39</option>
+                                            <option value="mmy-sneaker|40">Кроссовки MMY — размер 40</option>
+                                            <option value="mmy-sneaker|41">Кроссовки MMY — размер 41</option>
+                                            <option value="mmy-sneaker|42">Кроссовки MMY — размер 42</option>
+                                            <option value="mmy-sneaker|43">Кроссовки MMY — размер 43</option>
+                                            <option value="mmy-sneaker|44">Кроссовки MMY — размер 44</option>
+                                            <option value="mmy-sneaker|45">Кроссовки MMY — размер 45</option>
+                                        </optgroup>
+                                        <optgroup label="Куртка Burberry — 12 495 ₸">
+                                            <option value="sale-burberry|S">Куртка Burberry — размер S</option>
+                                            <option value="sale-burberry|M">Куртка Burberry — размер M</option>
+                                            <option value="sale-burberry|L">Куртка Burberry — размер L</option>
+                                            <option value="sale-burberry|XL">Куртка Burberry — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Свитшот Ami — 6 995 ₸">
+                                            <option value="sale-ami|S">Свитшот Ami — размер S</option>
+                                            <option value="sale-ami|M">Свитшот Ami — размер M</option>
+                                            <option value="sale-ami|L">Свитшот Ami — размер L</option>
+                                            <option value="sale-ami|XL">Свитшот Ami — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Свитер Polo Ralph Lauren — 11 900 ₸">
+                                            <option value="sale-polo|S">Свитер Polo Ralph Lauren — размер S</option>
+                                            <option value="sale-polo|M">Свитер Polo Ralph Lauren — размер M</option>
+                                            <option value="sale-polo|L">Свитер Polo Ralph Lauren — размер L</option>
+                                            <option value="sale-polo|XL">Свитер Polo Ralph Lauren — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Зип-худи Corteiz — 16 000 ₸">
+                                            <option value="sale-corteiz-zip|S">Зип-худи Corteiz — размер S</option>
+                                            <option value="sale-corteiz-zip|M">Зип-худи Corteiz — размер M</option>
+                                            <option value="sale-corteiz-zip|L">Зип-худи Corteiz — размер L</option>
+                                            <option value="sale-corteiz-zip|XL">Зип-худи Corteiz — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Футболка Corteiz — 6 375 ₸">
+                                            <option value="sale-corteiz-tee|S">Футболка Corteiz — размер S</option>
+                                            <option value="sale-corteiz-tee|M">Футболка Corteiz — размер M</option>
+                                            <option value="sale-corteiz-tee|L">Футболка Corteiz — размер L</option>
+                                            <option value="sale-corteiz-tee|XL">Футболка Corteiz — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Футболка BOSS — 5 990 ₸">
+                                            <option value="sale-boss-tee|S">Футболка BOSS — размер S</option>
+                                            <option value="sale-boss-tee|M">Футболка BOSS — размер M</option>
+                                            <option value="sale-boss-tee|L">Футболка BOSS — размер L</option>
+                                            <option value="sale-boss-tee|XL">Футболка BOSS — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Джинсы Dime — 10 400 ₸">
+                                            <option value="sale-dime-jeans|S">Джинсы Dime — размер S</option>
+                                            <option value="sale-dime-jeans|M">Джинсы Dime — размер M</option>
+                                            <option value="sale-dime-jeans|L">Джинсы Dime — размер L</option>
+                                            <option value="sale-dime-jeans|XL">Джинсы Dime — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Шорты Corteiz — 7 910 ₸">
+                                            <option value="sale-corteiz-shorts|S">Шорты Corteiz — размер S</option>
+                                            <option value="sale-corteiz-shorts|M">Шорты Corteiz — размер M</option>
+                                            <option value="sale-corteiz-shorts|L">Шорты Corteiz — размер L</option>
+                                            <option value="sale-corteiz-shorts|XL">Шорты Corteiz — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Брюки Basic Pants — 10 790 ₸">
+                                            <option value="sale-basic-pants|S">Брюки Basic Pants — размер S</option>
+                                            <option value="sale-basic-pants|M">Брюки Basic Pants — размер M</option>
+                                            <option value="sale-basic-pants|L">Брюки Basic Pants — размер L</option>
+                                            <option value="sale-basic-pants|XL">Брюки Basic Pants — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Аксессуары (без размера)">
+                                            <option value="cap-corteiz|one">Кепка Corteiz — 2 990 ₸</option>
+                                            <option value="cap-compton|one">Кепка Compton — 3 490 ₸</option>
+                                            <option value="cap-la|one">Кепка LA — 5 790 ₸</option>
+                                            <option value="bag-trapstar|one">Сумка Trapstar — 5 790 ₸</option>
+                                            <option value="bag-nike|one">Сумка Nike — 4 490 ₸</option>
+                                            <option value="pandora-spiderman|one">Браслет Pandora x Spider-Man — 7 990 ₸</option>
+                                            <option value="charm-1|one">Шарм для браслета Pandora №1 — 1 990 ₸</option>
+                                            <option value="charm-2|one">Шарм для браслета Pandora №2 — 1 990 ₸</option>
+                                            <option value="charm-3|one">Шарм для браслета Pandora №3 — 1 990 ₸</option>
+                                            <option value="charm-4|one">Шарм для браслета Pandora №4 — 1 990 ₸</option>
+                                            <option value="sale-tommy-backpack|one">Рюкзак Tommy Hilfiger — 12 440 ₸</option>
+                                            <option value="sale-nike-bag|one">Сумка Nike — 5 400 ₸</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-md-3">
+                                    <label for="qty-1" class="form-label small fw-bold">Количество</label>
+                                    <input type="number" id="qty-1" name="qty1" class="form-control" min="1" max="10" value="1">
+                                </div>
+                            </div>
+                            <details class="mb-0">
+                                <summary class="text-purple fw-bold mb-3">Добавить ещё товары</summary>
+                            <div class="row g-2 mb-3" id="item-2" data-row="2">
+                                <div class="col-12 col-md-9">
+                                    <label for="product-2" class="form-label small fw-bold">Товар 2 и размер</label>
+                                    <select id="product-2" name="item2" class="form-select">
+                                        <option value="" selected>— не выбран —</option>
+                                        <optgroup label="Футболка AMIRI Dove Black — 12 500 ₸">
+                                            <option value="amiri-dove|S">Футболка AMIRI Dove Black — размер S</option>
+                                            <option value="amiri-dove|M">Футболка AMIRI Dove Black — размер M</option>
+                                            <option value="amiri-dove|L">Футболка AMIRI Dove Black — размер L</option>
+                                            <option value="amiri-dove|XL">Футболка AMIRI Dove Black — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Футболка NPC Pixel Black — 10 000 ₸">
+                                            <option value="npc-pixel|S">Футболка NPC Pixel Black — размер S</option>
+                                            <option value="npc-pixel|M">Футболка NPC Pixel Black — размер M</option>
+                                            <option value="npc-pixel|L">Футболка NPC Pixel Black — размер L</option>
+                                            <option value="npc-pixel|XL">Футболка NPC Pixel Black — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Футболка Chief Keef 2012 White — 10 000 ₸">
+                                            <option value="keef-2012|S">Футболка Chief Keef 2012 White — размер S</option>
+                                            <option value="keef-2012|M">Футболка Chief Keef 2012 White — размер M</option>
+                                            <option value="keef-2012|L">Футболка Chief Keef 2012 White — размер L</option>
+                                            <option value="keef-2012|XL">Футболка Chief Keef 2012 White — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Худи оверсайз с балаклавой — 22 000 ₸">
+                                            <option value="hoodie-balaclava|S">Худи оверсайз с балаклавой — размер S</option>
+                                            <option value="hoodie-balaclava|M">Худи оверсайз с балаклавой — размер M</option>
+                                            <option value="hoodie-balaclava|L">Худи оверсайз с балаклавой — размер L</option>
+                                            <option value="hoodie-balaclava|XL">Худи оверсайз с балаклавой — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Винтажный свитшот Grunge — 18 500 ₸">
+                                            <option value="sweat-grunge|S">Винтажный свитшот Grunge — размер S</option>
+                                            <option value="sweat-grunge|M">Винтажный свитшот Grunge — размер M</option>
+                                            <option value="sweat-grunge|L">Винтажный свитшот Grunge — размер L</option>
+                                            <option value="sweat-grunge|XL">Винтажный свитшот Grunge — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Широкие джинсы Baggy Dark — 20 000 ₸">
+                                            <option value="jeans-baggy|28">Широкие джинсы Baggy Dark — размер 28</option>
+                                            <option value="jeans-baggy|30">Широкие джинсы Baggy Dark — размер 30</option>
+                                            <option value="jeans-baggy|32">Широкие джинсы Baggy Dark — размер 32</option>
+                                            <option value="jeans-baggy|34">Широкие джинсы Baggy Dark — размер 34</option>
+                                        </optgroup>
+                                        <optgroup label="Брюки-карго Utility Black — 19 000 ₸">
+                                            <option value="cargo-utility|S">Брюки-карго Utility Black — размер S</option>
+                                            <option value="cargo-utility|M">Брюки-карго Utility Black — размер M</option>
+                                            <option value="cargo-utility|L">Брюки-карго Utility Black — размер L</option>
+                                            <option value="cargo-utility|XL">Брюки-карго Utility Black — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Кроссовки Nike AF1 x Nocta — 19 900 ₸">
+                                            <option value="nike-af1-nocta|37">Кроссовки Nike AF1 x Nocta — размер 37</option>
+                                            <option value="nike-af1-nocta|38">Кроссовки Nike AF1 x Nocta — размер 38</option>
+                                            <option value="nike-af1-nocta|39">Кроссовки Nike AF1 x Nocta — размер 39</option>
+                                            <option value="nike-af1-nocta|40">Кроссовки Nike AF1 x Nocta — размер 40</option>
+                                            <option value="nike-af1-nocta|41">Кроссовки Nike AF1 x Nocta — размер 41</option>
+                                        </optgroup>
+                                        <optgroup label="Кроссовки MMY — 21 490 ₸">
+                                            <option value="mmy-sneaker|36">Кроссовки MMY — размер 36</option>
+                                            <option value="mmy-sneaker|37">Кроссовки MMY — размер 37</option>
+                                            <option value="mmy-sneaker|38">Кроссовки MMY — размер 38</option>
+                                            <option value="mmy-sneaker|39">Кроссовки MMY — размер 39</option>
+                                            <option value="mmy-sneaker|40">Кроссовки MMY — размер 40</option>
+                                            <option value="mmy-sneaker|41">Кроссовки MMY — размер 41</option>
+                                            <option value="mmy-sneaker|42">Кроссовки MMY — размер 42</option>
+                                            <option value="mmy-sneaker|43">Кроссовки MMY — размер 43</option>
+                                            <option value="mmy-sneaker|44">Кроссовки MMY — размер 44</option>
+                                            <option value="mmy-sneaker|45">Кроссовки MMY — размер 45</option>
+                                        </optgroup>
+                                        <optgroup label="Куртка Burberry — 12 495 ₸">
+                                            <option value="sale-burberry|S">Куртка Burberry — размер S</option>
+                                            <option value="sale-burberry|M">Куртка Burberry — размер M</option>
+                                            <option value="sale-burberry|L">Куртка Burberry — размер L</option>
+                                            <option value="sale-burberry|XL">Куртка Burberry — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Свитшот Ami — 6 995 ₸">
+                                            <option value="sale-ami|S">Свитшот Ami — размер S</option>
+                                            <option value="sale-ami|M">Свитшот Ami — размер M</option>
+                                            <option value="sale-ami|L">Свитшот Ami — размер L</option>
+                                            <option value="sale-ami|XL">Свитшот Ami — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Свитер Polo Ralph Lauren — 11 900 ₸">
+                                            <option value="sale-polo|S">Свитер Polo Ralph Lauren — размер S</option>
+                                            <option value="sale-polo|M">Свитер Polo Ralph Lauren — размер M</option>
+                                            <option value="sale-polo|L">Свитер Polo Ralph Lauren — размер L</option>
+                                            <option value="sale-polo|XL">Свитер Polo Ralph Lauren — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Зип-худи Corteiz — 16 000 ₸">
+                                            <option value="sale-corteiz-zip|S">Зип-худи Corteiz — размер S</option>
+                                            <option value="sale-corteiz-zip|M">Зип-худи Corteiz — размер M</option>
+                                            <option value="sale-corteiz-zip|L">Зип-худи Corteiz — размер L</option>
+                                            <option value="sale-corteiz-zip|XL">Зип-худи Corteiz — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Футболка Corteiz — 6 375 ₸">
+                                            <option value="sale-corteiz-tee|S">Футболка Corteiz — размер S</option>
+                                            <option value="sale-corteiz-tee|M">Футболка Corteiz — размер M</option>
+                                            <option value="sale-corteiz-tee|L">Футболка Corteiz — размер L</option>
+                                            <option value="sale-corteiz-tee|XL">Футболка Corteiz — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Футболка BOSS — 5 990 ₸">
+                                            <option value="sale-boss-tee|S">Футболка BOSS — размер S</option>
+                                            <option value="sale-boss-tee|M">Футболка BOSS — размер M</option>
+                                            <option value="sale-boss-tee|L">Футболка BOSS — размер L</option>
+                                            <option value="sale-boss-tee|XL">Футболка BOSS — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Джинсы Dime — 10 400 ₸">
+                                            <option value="sale-dime-jeans|S">Джинсы Dime — размер S</option>
+                                            <option value="sale-dime-jeans|M">Джинсы Dime — размер M</option>
+                                            <option value="sale-dime-jeans|L">Джинсы Dime — размер L</option>
+                                            <option value="sale-dime-jeans|XL">Джинсы Dime — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Шорты Corteiz — 7 910 ₸">
+                                            <option value="sale-corteiz-shorts|S">Шорты Corteiz — размер S</option>
+                                            <option value="sale-corteiz-shorts|M">Шорты Corteiz — размер M</option>
+                                            <option value="sale-corteiz-shorts|L">Шорты Corteiz — размер L</option>
+                                            <option value="sale-corteiz-shorts|XL">Шорты Corteiz — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Брюки Basic Pants — 10 790 ₸">
+                                            <option value="sale-basic-pants|S">Брюки Basic Pants — размер S</option>
+                                            <option value="sale-basic-pants|M">Брюки Basic Pants — размер M</option>
+                                            <option value="sale-basic-pants|L">Брюки Basic Pants — размер L</option>
+                                            <option value="sale-basic-pants|XL">Брюки Basic Pants — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Аксессуары (без размера)">
+                                            <option value="cap-corteiz|one">Кепка Corteiz — 2 990 ₸</option>
+                                            <option value="cap-compton|one">Кепка Compton — 3 490 ₸</option>
+                                            <option value="cap-la|one">Кепка LA — 5 790 ₸</option>
+                                            <option value="bag-trapstar|one">Сумка Trapstar — 5 790 ₸</option>
+                                            <option value="bag-nike|one">Сумка Nike — 4 490 ₸</option>
+                                            <option value="pandora-spiderman|one">Браслет Pandora x Spider-Man — 7 990 ₸</option>
+                                            <option value="charm-1|one">Шарм для браслета Pandora №1 — 1 990 ₸</option>
+                                            <option value="charm-2|one">Шарм для браслета Pandora №2 — 1 990 ₸</option>
+                                            <option value="charm-3|one">Шарм для браслета Pandora №3 — 1 990 ₸</option>
+                                            <option value="charm-4|one">Шарм для браслета Pandora №4 — 1 990 ₸</option>
+                                            <option value="sale-tommy-backpack|one">Рюкзак Tommy Hilfiger — 12 440 ₸</option>
+                                            <option value="sale-nike-bag|one">Сумка Nike — 5 400 ₸</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-md-3">
+                                    <label for="qty-2" class="form-label small fw-bold">Количество</label>
+                                    <input type="number" id="qty-2" name="qty2" class="form-control" min="1" max="10" value="1">
+                                </div>
+                            </div>
+                            <div class="row g-2 mb-3" id="item-3" data-row="3">
+                                <div class="col-12 col-md-9">
+                                    <label for="product-3" class="form-label small fw-bold">Товар 3 и размер</label>
+                                    <select id="product-3" name="item3" class="form-select">
+                                        <option value="" selected>— не выбран —</option>
+                                        <optgroup label="Футболка AMIRI Dove Black — 12 500 ₸">
+                                            <option value="amiri-dove|S">Футболка AMIRI Dove Black — размер S</option>
+                                            <option value="amiri-dove|M">Футболка AMIRI Dove Black — размер M</option>
+                                            <option value="amiri-dove|L">Футболка AMIRI Dove Black — размер L</option>
+                                            <option value="amiri-dove|XL">Футболка AMIRI Dove Black — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Футболка NPC Pixel Black — 10 000 ₸">
+                                            <option value="npc-pixel|S">Футболка NPC Pixel Black — размер S</option>
+                                            <option value="npc-pixel|M">Футболка NPC Pixel Black — размер M</option>
+                                            <option value="npc-pixel|L">Футболка NPC Pixel Black — размер L</option>
+                                            <option value="npc-pixel|XL">Футболка NPC Pixel Black — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Футболка Chief Keef 2012 White — 10 000 ₸">
+                                            <option value="keef-2012|S">Футболка Chief Keef 2012 White — размер S</option>
+                                            <option value="keef-2012|M">Футболка Chief Keef 2012 White — размер M</option>
+                                            <option value="keef-2012|L">Футболка Chief Keef 2012 White — размер L</option>
+                                            <option value="keef-2012|XL">Футболка Chief Keef 2012 White — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Худи оверсайз с балаклавой — 22 000 ₸">
+                                            <option value="hoodie-balaclava|S">Худи оверсайз с балаклавой — размер S</option>
+                                            <option value="hoodie-balaclava|M">Худи оверсайз с балаклавой — размер M</option>
+                                            <option value="hoodie-balaclava|L">Худи оверсайз с балаклавой — размер L</option>
+                                            <option value="hoodie-balaclava|XL">Худи оверсайз с балаклавой — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Винтажный свитшот Grunge — 18 500 ₸">
+                                            <option value="sweat-grunge|S">Винтажный свитшот Grunge — размер S</option>
+                                            <option value="sweat-grunge|M">Винтажный свитшот Grunge — размер M</option>
+                                            <option value="sweat-grunge|L">Винтажный свитшот Grunge — размер L</option>
+                                            <option value="sweat-grunge|XL">Винтажный свитшот Grunge — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Широкие джинсы Baggy Dark — 20 000 ₸">
+                                            <option value="jeans-baggy|28">Широкие джинсы Baggy Dark — размер 28</option>
+                                            <option value="jeans-baggy|30">Широкие джинсы Baggy Dark — размер 30</option>
+                                            <option value="jeans-baggy|32">Широкие джинсы Baggy Dark — размер 32</option>
+                                            <option value="jeans-baggy|34">Широкие джинсы Baggy Dark — размер 34</option>
+                                        </optgroup>
+                                        <optgroup label="Брюки-карго Utility Black — 19 000 ₸">
+                                            <option value="cargo-utility|S">Брюки-карго Utility Black — размер S</option>
+                                            <option value="cargo-utility|M">Брюки-карго Utility Black — размер M</option>
+                                            <option value="cargo-utility|L">Брюки-карго Utility Black — размер L</option>
+                                            <option value="cargo-utility|XL">Брюки-карго Utility Black — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Кроссовки Nike AF1 x Nocta — 19 900 ₸">
+                                            <option value="nike-af1-nocta|37">Кроссовки Nike AF1 x Nocta — размер 37</option>
+                                            <option value="nike-af1-nocta|38">Кроссовки Nike AF1 x Nocta — размер 38</option>
+                                            <option value="nike-af1-nocta|39">Кроссовки Nike AF1 x Nocta — размер 39</option>
+                                            <option value="nike-af1-nocta|40">Кроссовки Nike AF1 x Nocta — размер 40</option>
+                                            <option value="nike-af1-nocta|41">Кроссовки Nike AF1 x Nocta — размер 41</option>
+                                        </optgroup>
+                                        <optgroup label="Кроссовки MMY — 21 490 ₸">
+                                            <option value="mmy-sneaker|36">Кроссовки MMY — размер 36</option>
+                                            <option value="mmy-sneaker|37">Кроссовки MMY — размер 37</option>
+                                            <option value="mmy-sneaker|38">Кроссовки MMY — размер 38</option>
+                                            <option value="mmy-sneaker|39">Кроссовки MMY — размер 39</option>
+                                            <option value="mmy-sneaker|40">Кроссовки MMY — размер 40</option>
+                                            <option value="mmy-sneaker|41">Кроссовки MMY — размер 41</option>
+                                            <option value="mmy-sneaker|42">Кроссовки MMY — размер 42</option>
+                                            <option value="mmy-sneaker|43">Кроссовки MMY — размер 43</option>
+                                            <option value="mmy-sneaker|44">Кроссовки MMY — размер 44</option>
+                                            <option value="mmy-sneaker|45">Кроссовки MMY — размер 45</option>
+                                        </optgroup>
+                                        <optgroup label="Куртка Burberry — 12 495 ₸">
+                                            <option value="sale-burberry|S">Куртка Burberry — размер S</option>
+                                            <option value="sale-burberry|M">Куртка Burberry — размер M</option>
+                                            <option value="sale-burberry|L">Куртка Burberry — размер L</option>
+                                            <option value="sale-burberry|XL">Куртка Burberry — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Свитшот Ami — 6 995 ₸">
+                                            <option value="sale-ami|S">Свитшот Ami — размер S</option>
+                                            <option value="sale-ami|M">Свитшот Ami — размер M</option>
+                                            <option value="sale-ami|L">Свитшот Ami — размер L</option>
+                                            <option value="sale-ami|XL">Свитшот Ami — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Свитер Polo Ralph Lauren — 11 900 ₸">
+                                            <option value="sale-polo|S">Свитер Polo Ralph Lauren — размер S</option>
+                                            <option value="sale-polo|M">Свитер Polo Ralph Lauren — размер M</option>
+                                            <option value="sale-polo|L">Свитер Polo Ralph Lauren — размер L</option>
+                                            <option value="sale-polo|XL">Свитер Polo Ralph Lauren — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Зип-худи Corteiz — 16 000 ₸">
+                                            <option value="sale-corteiz-zip|S">Зип-худи Corteiz — размер S</option>
+                                            <option value="sale-corteiz-zip|M">Зип-худи Corteiz — размер M</option>
+                                            <option value="sale-corteiz-zip|L">Зип-худи Corteiz — размер L</option>
+                                            <option value="sale-corteiz-zip|XL">Зип-худи Corteiz — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Футболка Corteiz — 6 375 ₸">
+                                            <option value="sale-corteiz-tee|S">Футболка Corteiz — размер S</option>
+                                            <option value="sale-corteiz-tee|M">Футболка Corteiz — размер M</option>
+                                            <option value="sale-corteiz-tee|L">Футболка Corteiz — размер L</option>
+                                            <option value="sale-corteiz-tee|XL">Футболка Corteiz — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Футболка BOSS — 5 990 ₸">
+                                            <option value="sale-boss-tee|S">Футболка BOSS — размер S</option>
+                                            <option value="sale-boss-tee|M">Футболка BOSS — размер M</option>
+                                            <option value="sale-boss-tee|L">Футболка BOSS — размер L</option>
+                                            <option value="sale-boss-tee|XL">Футболка BOSS — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Джинсы Dime — 10 400 ₸">
+                                            <option value="sale-dime-jeans|S">Джинсы Dime — размер S</option>
+                                            <option value="sale-dime-jeans|M">Джинсы Dime — размер M</option>
+                                            <option value="sale-dime-jeans|L">Джинсы Dime — размер L</option>
+                                            <option value="sale-dime-jeans|XL">Джинсы Dime — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Шорты Corteiz — 7 910 ₸">
+                                            <option value="sale-corteiz-shorts|S">Шорты Corteiz — размер S</option>
+                                            <option value="sale-corteiz-shorts|M">Шорты Corteiz — размер M</option>
+                                            <option value="sale-corteiz-shorts|L">Шорты Corteiz — размер L</option>
+                                            <option value="sale-corteiz-shorts|XL">Шорты Corteiz — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Брюки Basic Pants — 10 790 ₸">
+                                            <option value="sale-basic-pants|S">Брюки Basic Pants — размер S</option>
+                                            <option value="sale-basic-pants|M">Брюки Basic Pants — размер M</option>
+                                            <option value="sale-basic-pants|L">Брюки Basic Pants — размер L</option>
+                                            <option value="sale-basic-pants|XL">Брюки Basic Pants — размер XL</option>
+                                        </optgroup>
+                                        <optgroup label="Аксессуары (без размера)">
+                                            <option value="cap-corteiz|one">Кепка Corteiz — 2 990 ₸</option>
+                                            <option value="cap-compton|one">Кепка Compton — 3 490 ₸</option>
+                                            <option value="cap-la|one">Кепка LA — 5 790 ₸</option>
+                                            <option value="bag-trapstar|one">Сумка Trapstar — 5 790 ₸</option>
+                                            <option value="bag-nike|one">Сумка Nike — 4 490 ₸</option>
+                                            <option value="pandora-spiderman|one">Браслет Pandora x Spider-Man — 7 990 ₸</option>
+                                            <option value="charm-1|one">Шарм для браслета Pandora №1 — 1 990 ₸</option>
+                                            <option value="charm-2|one">Шарм для браслета Pandora №2 — 1 990 ₸</option>
+                                            <option value="charm-3|one">Шарм для браслета Pandora №3 — 1 990 ₸</option>
+                                            <option value="charm-4|one">Шарм для браслета Pandora №4 — 1 990 ₸</option>
+                                            <option value="sale-tommy-backpack|one">Рюкзак Tommy Hilfiger — 12 440 ₸</option>
+                                            <option value="sale-nike-bag|one">Сумка Nike — 5 400 ₸</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-md-3">
+                                    <label for="qty-3" class="form-label small fw-bold">Количество</label>
+                                    <input type="number" id="qty-3" name="qty3" class="form-control" min="1" max="10" value="1">
+                                </div>
+                            </div>
+                            </details>
+                        </fieldset>
+
+                        <fieldset id="step-contacts" class="bg-white p-4 rounded-3 shadow-sm mb-4">
+                            <legend class="h4 text-purple fw-bold mb-3">2. Данные получателя</legend>
+                            <p class="small text-muted mb-3">Браузер запомнит имя, телефон, email и адрес после первого заказа и в следующий раз предложит заполнить их одним нажатием.</p>
+                            <div class="row g-3">
+                                <div class="col-12 col-md-6">
+                                    <label for="fullName" class="form-label small fw-bold">Имя и фамилия *</label>
+                                    <input type="text" id="fullName" name="fullName" class="form-control" autocomplete="name" minlength="2" required>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="phone" class="form-label small fw-bold">Телефон (на него придёт счёт) *</label>
+                                    <input type="tel" id="phone" name="phone" class="form-control" placeholder="+7 700 000 00 00" autocomplete="tel" pattern="[+]?[0-9 ()-]{10,18}" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="email" class="form-label small fw-bold">Email (необязательно)</label>
+                                    <input type="email" id="email" name="email" class="form-control" placeholder="example@mail.kz" autocomplete="email">
+                                </div>
+                            </div>
+
+                            <h3 class="h5 text-purple fw-bold mt-4 mb-3">Получение</h3>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="radio" name="delivery" id="delivery-courier" value="courier" checked>
+                                <label class="form-check-label" for="delivery-courier">Курьер по Астане — 1 500 ₸, бесплатно от 30 000 ₸</label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="radio" name="delivery" id="delivery-pickup" value="pickup">
+                                <label class="form-check-label" for="delivery-pickup">Самовывоз: ТД «Гулжан», бутик 246 — бесплатно</label>
+                            </div>
+                            <label for="address" class="form-label small fw-bold">Адрес доставки (для курьера)</label>
+                            <input type="text" id="address" name="address" class="form-control" placeholder="Астана, ул. Достык 10, кв. 5" autocomplete="street-address">
+                        </fieldset>
+
+                        <fieldset id="step-payment" class="bg-white p-4 rounded-3 shadow-sm mb-4">
+                            <legend class="h4 text-purple fw-bold mb-3">3. Способ оплаты *</legend>
+                            <div class="d-grid gap-2 mb-4">
+                                <label class="pay-option d-flex align-items-center gap-3 p-3 border rounded-3 bg-white" for="pay-kaspi">
+                                    <input class="form-check-input mt-0" type="radio" name="payment" id="pay-kaspi" value="kaspi" required>
+                                    <!-- Логотип: imagess/kaspi.jpg. Если файла нет, показывается буква (fallback внутри object) -->
+                                    <object data="imagess/kaspi.jpg" type="image/jpeg" class="pay-logo flex-shrink-0 rounded-3" aria-hidden="true">
+                                        <span class="pay-logo d-inline-flex align-items-center justify-content-center rounded-3 text-white fw-bold" style="background:#F14635">K</span>
+                                    </object>
+                                    <span class="d-flex flex-column"><strong>Kaspi.kz</strong><small class="text-muted">Счёт придёт в приложение Kaspi.kz, доступна рассрочка 0-0-12</small></span>
+                                </label>
+                                <label class="pay-option d-flex align-items-center gap-3 p-3 border rounded-3 bg-white" for="pay-halyk">
+                                    <input class="form-check-input mt-0" type="radio" name="payment" id="pay-halyk" value="halyk">
+                                    <!-- Логотип: imagess/halyk.jpg. Если файла нет, показывается буква (fallback внутри object) -->
+                                    <object data="imagess/halyk.jpg" type="image/jpeg" class="pay-logo flex-shrink-0 rounded-3" aria-hidden="true">
+                                        <span class="pay-logo d-inline-flex align-items-center justify-content-center rounded-3 text-white fw-bold" style="background:#00805F">H</span>
+                                    </object>
+                                    <span class="d-flex flex-column"><strong>Halyk Bank</strong><small class="text-muted">Счёт придёт в приложение Homebank</small></span>
+                                </label>
+                                <label class="pay-option d-flex align-items-center gap-3 p-3 border rounded-3 bg-white" for="pay-freedom">
+                                    <input class="form-check-input mt-0" type="radio" name="payment" id="pay-freedom" value="freedom">
+                                    <!-- Логотип: imagess/freedom.jpg. Если файла нет, показывается буква (fallback внутри object) -->
+                                    <object data="imagess/freedom.jpg" type="image/jpeg" class="pay-logo flex-shrink-0 rounded-3" aria-hidden="true">
+                                        <span class="pay-logo d-inline-flex align-items-center justify-content-center rounded-3 text-white fw-bold" style="background:#6CB33F">F</span>
+                                    </object>
+                                    <span class="d-flex flex-column"><strong>Freedom Bank</strong><small class="text-muted">Счёт придёт в приложение Freedom</small></span>
+                                </label>
+                                <label class="pay-option d-flex align-items-center gap-3 p-3 border rounded-3 bg-white" for="pay-applepay">
+                                    <input class="form-check-input mt-0" type="radio" name="payment" id="pay-applepay" value="applepay">
+                                    <!-- Логотип: imagess/pay.jpg. Если файла нет, показывается буква (fallback внутри object) -->
+                                    <object data="imagess/pay.jpg" type="image/jpeg" class="pay-logo flex-shrink-0 rounded-3" aria-hidden="true">
+                                        <span class="pay-logo d-inline-flex align-items-center justify-content-center rounded-3 text-white fw-bold" style="background:#000000">A</span>
+                                    </object>
+                                    <span class="d-flex flex-column"><strong>Apple Pay</strong><small class="text-muted">Ссылка на оплату придёт в SMS, оплата Face ID / Touch ID</small></span>
+                                </label>
+                                <label class="pay-option d-flex align-items-center gap-3 p-3 border rounded-3 bg-white" for="pay-card">
+                                    <input class="form-check-input mt-0" type="radio" name="payment" id="pay-card" value="card">
+                                    <!-- Логотип: imagess/inion.jpg. Если файла нет, показывается буква (fallback внутри object) -->
+                                    <object data="imagess/inion.jpg" type="image/jpeg" class="pay-logo flex-shrink-0 rounded-3" aria-hidden="true">
+                                        <span class="pay-logo d-inline-flex align-items-center justify-content-center rounded-3 text-white fw-bold" style="background:#1A1F71">V</span>
+                                    </object>
+                                    <span class="d-flex flex-column"><strong>Банковская карта</strong><small class="text-muted">Visa / Mastercard — ссылка на защищённую страницу банка в SMS</small></span>
+                                </label>
+                                <label class="pay-option d-flex align-items-center gap-3 p-3 border rounded-3 bg-white" for="pay-cash">
+                                    <input class="form-check-input mt-0" type="radio" name="payment" id="pay-cash" value="cash">
+                                    <!-- Логотип: imagess/cash.jpg. Если файла нет, показывается буква (fallback внутри object) -->
+                                    <object data="imagess/cash.jpg" type="image/jpeg" class="pay-logo flex-shrink-0 rounded-3" aria-hidden="true">
+                                        <span class="pay-logo d-inline-flex align-items-center justify-content-center rounded-3 text-white fw-bold" style="background:#6c757d">₸</span>
+                                    </object>
+                                    <span class="d-flex flex-column"><strong>Наличными при получении</strong><small class="text-muted">Курьеру или в бутике при самовывозе</small></span>
+                                </label>
+                            </div>
+
+                            <label for="comment" class="form-label small fw-bold">Комментарий (необязательно)</label>
+                            <textarea id="comment" name="comment" class="form-control mb-3" rows="2" maxlength="300" placeholder="Например: позвоните за час"></textarea>
+
+                            <div class="form-check mb-4">
+                                <input class="form-check-input" type="checkbox" id="agree" name="agree" value="yes" required>
+                                <label class="form-check-label small" for="agree">Согласен(на) на обработку данных для оформления заказа *</label>
+                            </div>
+                            <button type="submit" id="order-submit" class="btn btn-purple btn-lg w-100 fw-bold">Оформить заказ и получить счёт</button>
+                        </fieldset>
+                    </form>
+                </div>
+
+                <!-- Правая колонка: условия и цены -->
+                <div class="col-12 col-lg-4">
+                    <aside id="order-summary" class="order-summary bg-white p-4 rounded-3 shadow-sm">
+                        <h2 class="h5 text-purple fw-bold mb-3">Условия заказа</h2>
+                        <ul class="small ps-3 mb-3">
+                            <li>Доставка курьером — 1 500 ₸, от 30 000 ₸ — бесплатно.</li>
+                            <li>Самовывоз из бутика — бесплатно.</li>
+                            <li>Оплата онлайн: счёт приходит в приложение банка.</li>
+                            <li>До 10 шт. одного товара в заказе.</li>
+                        </ul>
+                        <!-- Заготовки для JS: итог заказа будет считаться скриптом -->
+                        <div class="d-flex justify-content-between border-top pt-3">
+                            <span class="fw-bold">Итого:</span>
+                            <strong id="order-total" class="text-purple" data-value="0">в счёте банка</strong>
+                        </div>
+                        <details class="mt-3">
+                            <summary class="small fw-bold text-purple">Цены всех товаров</summary>
+                            <table class="table table-sm small mt-2 mb-0">
+                                <tbody>
+                            <tr><td>Футболка AMIRI Dove Black</td><td class="text-end text-nowrap">12 500 ₸</td></tr>
+                            <tr><td>Футболка NPC Pixel Black</td><td class="text-end text-nowrap">10 000 ₸</td></tr>
+                            <tr><td>Футболка Chief Keef 2012 White</td><td class="text-end text-nowrap">10 000 ₸</td></tr>
+                            <tr><td>Худи оверсайз с балаклавой</td><td class="text-end text-nowrap">22 000 ₸</td></tr>
+                            <tr><td>Винтажный свитшот Grunge</td><td class="text-end text-nowrap">18 500 ₸</td></tr>
+                            <tr><td>Широкие джинсы Baggy Dark</td><td class="text-end text-nowrap">20 000 ₸</td></tr>
+                            <tr><td>Брюки-карго Utility Black</td><td class="text-end text-nowrap">19 000 ₸</td></tr>
+                            <tr><td>Кроссовки Nike AF1 x Nocta</td><td class="text-end text-nowrap">19 900 ₸</td></tr>
+                            <tr><td>Кроссовки MMY</td><td class="text-end text-nowrap">21 490 ₸</td></tr>
+                            <tr><td>Кепка Corteiz</td><td class="text-end text-nowrap">2 990 ₸</td></tr>
+                            <tr><td>Кепка Compton</td><td class="text-end text-nowrap">3 490 ₸</td></tr>
+                            <tr><td>Кепка LA</td><td class="text-end text-nowrap">5 790 ₸</td></tr>
+                            <tr><td>Сумка Trapstar</td><td class="text-end text-nowrap">5 790 ₸</td></tr>
+                            <tr><td>Сумка Nike</td><td class="text-end text-nowrap">4 490 ₸</td></tr>
+                            <tr><td>Браслет Pandora x Spider-Man</td><td class="text-end text-nowrap">7 990 ₸</td></tr>
+                            <tr><td>Шарм для браслета Pandora №1</td><td class="text-end text-nowrap">1 990 ₸</td></tr>
+                            <tr><td>Шарм для браслета Pandora №2</td><td class="text-end text-nowrap">1 990 ₸</td></tr>
+                            <tr><td>Шарм для браслета Pandora №3</td><td class="text-end text-nowrap">1 990 ₸</td></tr>
+                            <tr><td>Шарм для браслета Pandora №4</td><td class="text-end text-nowrap">1 990 ₸</td></tr>
+                            <tr><td>Куртка Burberry</td><td class="text-end text-nowrap">12 495 ₸</td></tr>
+                            <tr><td>Свитшот Ami</td><td class="text-end text-nowrap">6 995 ₸</td></tr>
+                            <tr><td>Свитер Polo Ralph Lauren</td><td class="text-end text-nowrap">11 900 ₸</td></tr>
+                            <tr><td>Зип-худи Corteiz</td><td class="text-end text-nowrap">16 000 ₸</td></tr>
+                            <tr><td>Футболка Corteiz</td><td class="text-end text-nowrap">6 375 ₸</td></tr>
+                            <tr><td>Футболка BOSS</td><td class="text-end text-nowrap">5 990 ₸</td></tr>
+                            <tr><td>Джинсы Dime</td><td class="text-end text-nowrap">10 400 ₸</td></tr>
+                            <tr><td>Шорты Corteiz</td><td class="text-end text-nowrap">7 910 ₸</td></tr>
+                            <tr><td>Брюки Basic Pants</td><td class="text-end text-nowrap">10 790 ₸</td></tr>
+                            <tr><td>Рюкзак Tommy Hilfiger</td><td class="text-end text-nowrap">12 440 ₸</td></tr>
+                            <tr><td>Сумка Nike</td><td class="text-end text-nowrap">5 400 ₸</td></tr>
+                                </tbody>
+                            </table>
+                        </details>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Подвал (одинаковый на всех страницах) -->
+    <footer class="bg-white border-top mt-5">
+        <div class="container py-4">
+            <div class="row g-4">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h2 class="h5 text-purple fw-bold">ASLSTORE.KZ</h2>
+                    <p class="text-muted small">Магазин унисекс одежды, обуви и аксессуаров в Астане.</p>
+                    <p class="text-muted small mb-0">&copy; 2026 ASLSTORE.KZ</p>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h2 class="h5 text-purple fw-bold">КАТАЛОГ</h2>
+                    <ul class="list-unstyled small">
+                        <li><a href="clothing.html#tops" class="link-secondary text-decoration-none">Футболки</a></li>
+                        <li><a href="clothing.html#hoodies" class="link-secondary text-decoration-none">Худи и свитшоты</a></li>
+                        <li><a href="clothing.html#bottoms" class="link-secondary text-decoration-none">Джинсы и брюки</a></li>
+                        <li><a href="shoesandacc.html#sneakers" class="link-secondary text-decoration-none">Кроссовки</a></li>
+                        <li><a href="shoesandacc.html#accessories" class="link-secondary text-decoration-none">Кепки, сумки, украшения</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h2 class="h5 text-purple fw-bold">ПОКУПАТЕЛЯМ</h2>
+                    <ul class="list-unstyled small">
+                        <li><a href="order.html" class="link-secondary text-decoration-none">Оформить заказ</a></li>
+                        <li><a href="colophon.html#delivery" class="link-secondary text-decoration-none">Доставка и оплата</a></li>
+                        <li><a href="colophon.html#feedback" class="link-secondary text-decoration-none">Задать вопрос</a></li>
+                        <li><a href="sale.html" class="link-secondary text-decoration-none">Скидки</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h2 class="h5 text-purple fw-bold">КОНТАКТЫ</h2>
+                    <address class="text-muted small mb-0">
+                        <p class="mb-1">Астана, ТД «Гулжан», 2 этаж, бутик 246</p>
+                        <p class="mb-1">Ежедневно 10:00–20:00</p>
+                        <p class="mb-1"><a href="tel:+77006455057" class="link-secondary text-decoration-none">+7 (700) 645 50 57</a></p>
+                        <p class="mb-0"><a href="mailto:support@aslstore.kz" class="link-secondary text-decoration-none">support@aslstore.kz</a></p>
+                    </address>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Чистый JavaScript (без jQuery) -->
+    <script src="js/data.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/order.js" defer></script>
+</body>
+</html>

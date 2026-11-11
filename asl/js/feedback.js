@@ -1,7 +1,10 @@
 'use strict';
 
 /* ==========================================================================
-   feedback.js — форма «Задать вопрос» (colophon.html), Assignment 6: jQuery
+   feedback.js · jQuery — форма «Задать вопрос» (colophon.html)
+   jQuery-часть сайта: здесь нет document.getElementById / addEventListener,
+   только jQuery. Из data.js берутся только чистые функции без DOM
+   (isValidName, isValidPhone, generateDemoNumber).
    - валидация: имя (.trim()), телефон, тема (выбор), длина вопроса;
    - составное правило: для темы «Другое» вопрос подробнее (≥ 20 символов);
    - живой счётчик символов;
@@ -9,6 +12,7 @@
    Данные не отправляются на сервер — это демонстрация.
    ========================================================================== */
 
+// Темы вопросов — данные на вершине файла
 const FEEDBACK_TOPICS = {
     stock: 'Наличие товара',
     size: 'Подбор размера',
@@ -37,7 +41,65 @@ function buildQuestionCard(question) {
         );
 }
 
-/* Документ готов (jQuery 3.7.1, см. комментарий в main.js) */
+/* ---------- Общие jQuery-функции этой части ---------- */
+
+// Плавно показать блок. Если на блоке висит класс hidden (display: none !important),
+// сначала прячем его через .hide() и снимаем класс — иначе эффект не будет виден.
+function revealBlock($block, duration, effect) {
+    if ($block.hasClass('hidden')) {
+        $block.hide().removeClass('hidden');
+    }
+    $block.stop(true, true);
+    return effect === 'slide' ? $block.slideDown(duration) : $block.fadeIn(duration);
+}
+
+// Плавно скрыть блок. В callback (выполняется ПОСЛЕ анимации) возвращаем класс hidden
+// и убираем временный инлайн-стиль, который оставил эффект.
+function concealBlock($block, duration, effect, onDone) {
+    if ($block.hasClass('hidden')) {
+        if (onDone) {
+            onDone();
+        }
+        return $block;
+    }
+    const afterHide = function () {
+        $(this).addClass('hidden').removeAttr('style');
+        if (onDone) {
+            onDone();
+        }
+    };
+    $block.stop(true, true);
+    return effect === 'slide' ? $block.slideUp(duration, afterHide) : $block.fadeOut(duration, afterHide);
+}
+
+/* Рефакторинг №1: setFieldError() → showFieldError() (старая версия в old-js-version.js).
+   getElementById / createElement / after / classList.toggle / setAttribute заменены на
+   $('#id'), $('<div>').insertAfter(), .toggleClass() и .attr({...}); код стал примерно на треть короче,
+   а цепочка читается как одно действие. Честно: плавное появление (slideDown) добавило пару строк. */
+function showFieldError($field, $anchor, message, markValid) {
+    const errorId = `${$field.attr('name') || $field.attr('id')}-error`;
+    let $box = $(`#${errorId}`);
+    if ($box.length === 0) {
+        $box = $('<div>').attr('id', errorId).addClass('invalid-feedback hidden').insertAfter($anchor);
+    }
+    const hasError = message !== '';
+
+    $field
+        .toggleClass('is-invalid', hasError)
+        .toggleClass('is-valid', !hasError && markValid === true)
+        .attr({ 'aria-invalid': String(hasError), 'aria-describedby': errorId });
+
+    if (hasError) {
+        // .text(), а не .html(): текст ошибки вставляется как обычный текст, теги не выполняются
+        $box.text(message);
+        revealBlock($box, 150, 'slide');
+    } else {
+        concealBlock($box, 150, 'slide');
+    }
+    return hasError;
+}
+
+/* Документ готов (jQuery 3.7.1 с CDN). $(function () { … }) = $(document).ready: код запустится, когда HTML загружен */
 $(function () {
     const $form = $('#feedback-form');
     if ($form.length === 0) {
